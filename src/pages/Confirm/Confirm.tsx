@@ -134,6 +134,5 @@ const Confrim: React.FC = React.memo(() => {
     </Layout>
   )
 })
- 
 
 export default Confrim

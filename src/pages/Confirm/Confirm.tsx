@@ -113,7 +113,7 @@ const Confrim: React.FC = React.memo(() => {
                 }}
                 disabled={isSubmitting}
                 className="otp"/>
-              )}
+              )} 
             />
           </div>
           <div className="error">{error}</div>

@@ -131,7 +131,7 @@ const Confrim: React.FC = React.memo(() => {
           </div>
         </div>
       </div>
-    </Layout>
+    </Layout> 
   )
 })
 

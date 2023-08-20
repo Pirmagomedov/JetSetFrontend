@@ -1,0 +1,106 @@
+@import 'src/scss/variables.scss';
+
+.facilities__filters {
+    position: sticky;
+    top: 0px;
+    padding-top: $v2gap;
+    padding-bottom: $v2gap;
+    background-color: white;
+    grid-gap: $v2halfGap;
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+
+    @media only screen and (min-width: $largeTablet) {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
+
+.facilities__filters .facilities__label {
+    font-weight: bold;
+}
+
+.facilities table {
+    padding: 0;
+}
+
+.facilities table tr:hover td {
+    background: #eee;
+}
+
+.facilities table td {
+    cursor: pointer;
+    border-bottom: 1px dotted #ccc;
+}
+
+.facilities table td:first-child {
+    padding-left: 0;
+}
+
+th {
+    text-align: left;
+
+    @media only screen and (min-width: $smallTablet) {
+        text-align: center;
+    }
+}
+
+.ficilities__filter button {
+    margin-top: $v2lineHeight;
+}
+
+
+.facilities table .mro-row.selected td {
+    background: #ccc !important;
+    font-weight: bold;
+}
+
+@media only screen and (max-width: $largeTablet) {
+
+
+    .facilities table {
+        table-layout: auto;
+        border: 0;
+    }
+
+    .facilities table caption {
+        font-size: 1.3em;
+    }
+
+    .facilities table thead {
+        border: none;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+    }
+
+
+    .facilities table tr {
+        border-bottom: 3px solid #ddd;
+        display: block;
+        margin-bottom: 0.625em;
+    }
+
+
+    .facilities table td {
+        border-bottom: 1px solid #ddd;
+        display: grid;
+        grid-template-columns: 5rem auto;
+        column-gap: $v2gap;
+        text-align: left;
+    }
+
+    .facilities td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        text-transform: uppercase;
+        // width: 7rem;
+    }
+
+    .facilities table td:last-child {
+        border-bottom: 0;
+    }
+}

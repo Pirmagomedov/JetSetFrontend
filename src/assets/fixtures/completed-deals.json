@@ -1,0 +1,38 @@
+[
+  {
+    "id": "0",
+    "image": "assets/images/deal-card-product.jpg",
+    "title": "Cessna Turbo R182RG Skylane",
+    "type": "Piston Single Aircraft",
+    "year": "1979",
+    "price": "10000000",
+    "status": "Completed"
+  },
+  {
+    "id": "1",
+    "image": "assets/images/deal-card-product.jpg",
+    "title": "Cessna Turbo R182RG Skylane",
+    "type": "Piston Single Aircraft",
+    "year": "1979",
+    "price": "10000000",
+    "status": "Completed"
+  },
+  {
+    "id": "2",
+    "image": "assets/images/deal-card-product.jpg",
+    "title": "Cessna Turbo R182RG Skylane",
+    "type": "Piston Single Aircraft",
+    "year": "1979",
+    "price": "10000000",
+    "status": "Completed"
+  },
+  {
+    "id": "3",
+    "image": "assets/images/deal-card-product.jpg",
+    "title": "Cessna Turbo R182RG Skylane",
+    "type": "Piston Single Aircraft",
+    "year": "1979",
+    "price": "10000000",
+    "status": "Completed"
+  }
+]

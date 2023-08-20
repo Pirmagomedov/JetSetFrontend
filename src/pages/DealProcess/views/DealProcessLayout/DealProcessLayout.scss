@@ -1,0 +1,331 @@
+@import '/src/scss/variables.scss';
+
+.deal {
+  // margin-bottom: 1.5em;
+
+  &__title {
+    font-size: 1.25em;
+    /*@media only screen and (min-width: 992px) {
+      padding-top: 2em;
+      
+    }*/
+  }
+
+  &__sub {
+    margin: $v2halfLineHeight 0;
+    font-size: $v2fontSmall;
+  }
+
+  &__header {
+    padding-top: $v2halfGap;
+    display: flex;
+    flex-direction: column;
+
+    @media only screen and (min-width: $smallTablet) {
+      justify-content: space-between;
+      flex-direction: row;
+    }
+  }
+
+  &__links a {
+    text-decoration: underline;
+    cursor: pointer;
+
+    @media only screen and (min-width: $smallTablet) {
+      margin-left: 3em;
+    }
+  }
+
+  &__footer {
+    margin-bottom: .75rem;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    row-gap: $v2halfGap;
+
+    @media only screen and (min-width: $smallTablet) {
+      row-gap: $v2gap;
+      flex-direction: row;
+    }
+  }
+
+  &__content {
+
+    &__repairOption {
+      display: grid;
+      margin: $v2halfGap 0;
+      grid-template-columns: 1fr auto;
+      justify-content: space-between;
+      flex-direction: row;
+      border: 1px solid #313E83;
+      border-radius: $v2borderRadius;
+      padding: $v2halfGap;
+    }
+
+    &__repairBlock {
+      width: 100% !important;
+    }
+
+    &__repairEmptyOption {
+      margin: $v2halfGap;
+      justify-content: flex-start;
+      border: 1px solid #313E83;
+      border-radius: $v2borderRadius;
+      padding: $v2halfGap;
+
+    }
+
+    &__addButton {
+      // padding: $v2halfGap;
+      margin: $v2halfGap;
+      padding-top: 0;
+
+
+    }
+
+
+
+    &__repairInput {
+      background-color: none;
+      border: none;
+      width: 100%;
+
+    }
+
+    &__repairDeleteButton {
+      border: 0;
+      background-color: transparent;
+      cursor: pointer;
+
+      svg {
+        fill: $v2red;
+
+      }
+    }
+
+
+
+    &__with-sidebar {
+      display: grid;
+      grid-template-columns: 1fr 1.618fr;
+      grid-gap: $v2gap;
+    }
+
+    &__with-sidebar.sidebar-right {
+      display: grid;
+      grid-template-columns: 1fr 1.618fr;
+      grid-gap: $v2gap;
+
+      @media only screen and (max-width: 991px) {
+        display: flex;
+        flex-direction: column-reverse;
+      }
+    }
+
+    &__with-sidebar.sidebar-left {
+      // padding-top: 1em;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      grid-gap: $v2gap;
+      height: auto;
+
+      @media only screen and (max-width: 991px) {
+        display: flex;
+        flex-direction: column;
+
+      }
+    }
+
+    &__sidebar {
+      background: $v2sidebar;
+      padding: $v2gap;
+      border-radius: $v2borderRadius;
+      color: #fff;
+      height: min-content;
+      display: grid;
+      row-gap: .75rem;
+    }
+
+    &__main {
+      label.field {
+        height: auto;
+
+        .field__input {
+          height: 100%;
+        }
+      }
+    }
+  }
+
+  .deal__actions-right,
+  .deal__actions-left {
+    display: grid;
+    grid-gap: $v2halfGap;
+    grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+
+    &:first-child {
+      // display: none;
+    }
+
+    @media only screen and (min-width: $smallTablet) {
+      display: flex;
+
+      &:first-child {
+        display: flex;
+      }
+
+      // justify-content: space-between;
+    }
+  }
+
+
+  &-centered {
+    text-align: center;
+
+    .deal__content {
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .deal__header {
+      justify-content: center;
+    }
+  }
+}
+
+.sidebar {
+  &__title {
+    margin-bottom: $v2gap;
+    font-weight: bold;
+  }
+
+  &__subTitle {
+    margin-bottom: $v2halfGap;
+  }
+}
+
+
+.deal__content-comment {
+  margin-top: $v2lineHeight;
+  padding-top: 1em;
+
+  &__title {
+    font-weight: bold;
+    font-size: $v2fontBig;
+  }
+
+  &__comment {
+    border: 1px solid $v2ctlBorder !important;
+    padding: $v2gap 3em 3em $v2gap !important;
+    border-radius: $v2borderRadius;
+    word-break: break-word;
+    white-space: break-spaces;
+  }
+}
+
+
+
+
+
+.path-deal-process,
+.path-vault,
+.path-publicoffer,
+.path-prepayment {
+  .main {
+    display: grid;
+    width: 100%;
+    flex-direction: column;
+    position: relative;
+    height: 100%;
+    min-height: calc(100dvh - 5em);
+
+    .deal-process__inner {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .deal-process__body {
+      height: 100%;
+    }
+
+    .deal {
+      height: 100%;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+    }
+
+    .deal__content {
+      display: grid;
+
+      .signNowIframe {}
+    }
+  }
+}
+
+.path-deal-process {
+  .main {
+    display: grid;
+    width: 100%;
+    flex-direction: column;
+    position: relative;
+
+    @media only screen and (max-width: 991px) {
+      display: flex;
+    }
+
+    .container {
+      height: 100%;
+    }
+
+    .deal-process__inner {
+      display: grid;
+      min-height: calc(100dvh - 4.5em);
+      grid-template-rows: auto auto 1fr;
+      row-gap: $v2halfGap;
+
+      @media only screen and (min-width: $largeTablet) {
+        grid-template-rows: auto 1fr;
+      }
+    }
+
+    .deal-process__body {
+      height: 100%;
+    }
+
+    .deal {
+      display: grid;
+      row-gap: $v2halfGap;
+      grid-template-rows: auto 1fr auto;
+      height: 100%;
+    }
+
+    .deal__content {
+      // flex-grow: 2;
+      // display: grid;
+      // row-gap: $v2gap;
+      // height: 72vh;
+
+      .signNowIframe {
+        height: 100%;
+      }
+    }
+  }
+}
+
+.deal__no-access {
+  text-align: center;
+  border-top: 3px solid $v2red;
+  margin-bottom: $v2gap;
+
+  &--text {
+    background: #fff;
+    display: inline-block;
+    border: 3px solid $v2red;
+    border-top: none;
+    color: $v2red;
+    font-weight: 600;
+    padding: 0.25rem 1.5rem;
+    border-radius: 0 0 0.75rem 0.75rem;
+  }
+}

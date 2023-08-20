@@ -1,0 +1,25 @@
+mutation getProfileContext($workspaceId: UUID!) {
+  switchWorkspace(workspaceId: $workspaceId) {
+    runtimeError {
+      exception
+      message
+    }
+    success
+    user {
+      ...profileContext
+    }
+  }
+}
+
+
+mutation getAdContext($adId: UUID) {
+  getAd(adId: $adId) {
+    runtimeError {
+      exception
+      message
+    }
+    ad {
+      ...adContext
+    }
+  }
+}

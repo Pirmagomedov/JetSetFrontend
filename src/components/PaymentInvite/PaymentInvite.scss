@@ -1,0 +1,140 @@
+@import 'src/scss/variables.scss';
+
+.payment {
+    @media only screen and (max-width: 991px) {
+        text-align: center;
+        padding: 1em;
+    }
+
+    // padding-top: $v2halfLineHeight;
+    // padding-bottom: $v2halfLineHeight;
+    max-width: 35em;
+
+    &__text {
+        margin-bottom: $v2lineHeight;
+
+        span {
+            font-weight: bold;
+        }
+    }
+
+    &__items {
+        border: 1px solid $v2mobileBorder;
+        border-radius: $v2borderRadius;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        column-gap: $v2gap;
+        margin: $v2gap 0;
+    }
+
+    &__item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: $v2halfGap;
+        border-radius: $v2borderRadius;
+        background-color: $v2area;
+    }
+
+    &__action {
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        padding: $v2halfGap;
+        flex-direction: column;
+        row-gap: $v2halfGap;
+        margin-top: $v2halfGap;
+
+        @media only screen and (min-width: $smallTablet) {
+            row-gap: 0;
+            flex-direction: row;
+            margin-top: $v2gap;
+        }
+        
+        .btn {
+            margin: 0 $v2halfGap;
+        }
+    }
+
+    &__message {
+        margin-top: $v2gap;
+
+        &-title {
+            color: $v2red;
+            font-weight: bold;
+        }
+    }
+
+    &__label {
+        font-size: $v2fontBig;
+    }
+
+    &__loader {
+        margin-top: $v2gap;
+    }
+}
+
+.payment__block {
+    background: $bluish;
+    padding: $v2gap;
+    border-radius: $v2borderRadius;
+
+
+
+    .payment__calculation-title {
+        padding-right: $v2gap;
+    }
+
+    .payment__calculation-table {
+        display: table;
+        width: 100%;
+        margin-top: $v2halfGap;
+    }
+
+    .payment__calculation-total,
+    .payment__calculation {
+        display: grid;
+        grid-template-columns: 1fr 1fr auto;
+
+        >div {
+            display: table-cell;
+        }
+    }
+
+    .payment__calculation-total {
+        >div {
+            display: table-cell;
+            font-weight: bold;
+            border-top: 2px solid $primary;
+        }
+
+        .payment__calculation-title {
+            border: none;
+        }
+    }
+
+    .payment__calculation-title {
+        text-align: left;
+    }
+
+    .payment__calculation-value {
+        padding-left: $v2gap;
+        text-align: right;
+    }
+
+    .payment__calculation-currency {
+        padding-left: $v2halfGap;
+        text-align: left;
+    }
+}
+
+.payment__calculation {
+    &:first-child {
+        border-bottom: 1px solid $grey;
+    }
+
+    &:nth-child(2) {
+        border-bottom: 1px solid $grey;
+
+    }
+}

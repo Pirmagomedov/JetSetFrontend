@@ -1,0 +1,25 @@
+@import 'src/scss/variables.scss';
+
+.last-added {
+  margin-bottom: 98px;
+
+  @media only screen and (max-width: 1500px) {
+    margin-bottom: 75px;
+  }
+
+  @media only screen and (max-width: 767px) {
+    margin-bottom: 28px;
+  }
+
+  &__title {
+    margin-bottom: 30px;
+
+    @media only screen and (max-width: 1500px) {
+      margin-bottom: 27px;
+    }
+    @media only screen and (max-width: 767px) {
+      margin-bottom: 25px;
+    }
+  }
+
+}

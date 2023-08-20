@@ -1,0 +1,117 @@
+.modal-help {
+  position: relative;
+  max-width: 936px;
+  margin: 0 auto;
+  padding: 50px;
+  padding-left: 58px;
+  border-radius: 10px;
+  background-color: #fff;
+
+  @media only screen and (max-width: 1300px) {
+    max-width: 700px;
+    padding-right: 32px;
+  }
+  @media only screen and (max-width: 767px) {
+    margin: -15px;
+    padding: 20px;
+    border-radius: 0;
+  }
+
+  &__close {
+    position: absolute;
+    top: 54px;
+    right: 50px;
+    cursor: pointer;
+
+    @media only screen and (max-width: 1300px) {
+      top: 52px;
+      right: 36px;
+    }
+    @media only screen and (max-width: 767px) {
+      top: 24px;
+      right: 20px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 20px;
+    padding-right: 40px;
+    font-size: 36px;
+    line-height: 1.2;
+
+    @media only screen and (max-width: 1300px) {
+      margin-bottom: 18px;
+    }
+    @media only screen and (max-width: 767px) {
+      margin-bottom: 29px;
+      padding-right: 50px;
+      font-size: 24px;
+      line-height: 1.25;
+    }
+  }
+
+  &__subtitle {
+    margin-bottom: 48px;
+    font-weight: 700;
+    font-size: 18px;
+
+    @media only screen and (max-width: 1300px) {
+      margin-bottom: 28px;
+    }
+    @media only screen and (max-width: 767px) {
+      font-size: 14px;
+    }
+  }
+
+  &__text {
+    margin-bottom: 17px;
+    font-size: 14px;
+    line-height: 1.25;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__item {
+    margin-bottom: 64px;
+
+    @media only screen and (max-width: 1300px) {
+      margin-bottom: 36px;
+    }
+    @media only screen and (max-width: 767px) {
+      margin-bottom: 60px;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__content {
+    overflow-y: auto;
+    height: 826px;
+    padding-top: 43px;
+    padding-right: 50px;
+
+    @media only screen and (max-width: 767px) {
+      overflow-y: initial;
+      height: auto;
+      padding: 0;
+    }
+
+    &::-webkit-scrollbar {
+      width: 9px;
+    }
+
+    &::-webkit-scrollbar-track {
+      border-radius: 30px;
+      background-color: #e2e6fc;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: 30px;
+      background-color: #3355ff;
+    }
+  }
+}

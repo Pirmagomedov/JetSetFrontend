@@ -1,0 +1,84 @@
+@import 'src/scss/variables.scss';
+
+.ppi-form {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 1.5em;
+  width: 100%;
+
+
+
+  >.ppi-aside {
+    width: 100%;
+
+    &.seller-first {
+      display: flex;
+      flex-direction: column;
+
+      .block:first-child {
+        order: 2;
+      }
+    }
+  }
+
+  @media only screen and (min-width: $desktop) {
+    grid-template-columns: 1fr 0.6fr;
+    // margin-top: 1.5em;
+  }
+}
+
+.ppi-main__text {
+  display: flex;
+  width: 100%;
+
+  @media only screen and (max-width: 991px) {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .ppi-main__button {
+    min-width: 12em;
+    margin-left: $v2gap;
+
+    @media only screen and (max-width: 991px) {
+      margin-left: 0em;
+    }
+  }
+}
+
+.ppi-main__table {
+  display: table;
+  width: 100%;
+  padding-top: 1em;
+
+  &-row {
+    display: table-row;
+
+    >div {
+      display: table-cell;
+      vertical-align: top;
+      padding-bottom: $v2halfGap;
+      min-width: 10em;
+
+      @media only screen and (max-width: 991px) {
+        padding-bottom: 0.25em;
+      }
+    }
+
+    @media only screen and (max-width: 991px) {
+      display: flex;
+      flex-direction: column;
+      padding-bottom: 0.25em;
+
+      &__title {
+        font-weight: bold;
+      }
+    }
+  }
+
+}
+
+.deal-state-PDWS .ppi-main__table-row__value {
+  padding-left: $v2gap;
+  word-break: break-word;
+}

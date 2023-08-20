@@ -1,0 +1,88 @@
+@import 'src/scss/variables.scss';
+
+.dealOptions {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    &__list {
+        @media only screen and (max-width: 767px) {
+        }
+    }
+
+    &__icon {
+        display: flex;
+        justify-content: center;
+
+        @media only screen and (max-width: 767px) {
+            margin: 1em;
+        }
+    }
+
+    &--open {
+        .dealOptions__icon {
+        }
+        .dealOptions__dropdown {
+            display: block;
+        }
+    }
+
+    .icon-i-menu {
+        margin-left: 2.5em;
+        width: 1.44em;
+        height: 1.44em;
+    }
+
+    &__icon {
+        display: flex;
+        font-weight: bold;
+        align-items: center;
+        cursor: pointer;
+        transition-property: border-color, background-color;
+        transition-duration: 300ms;
+    }
+
+    &__dropdown {
+        position: absolute;
+        z-index: 99;
+        top: 100%;
+        right: 0;
+        display: none;
+        width: 10em;
+        margin-top: 0.75em;
+        padding: 1em 1em 0.75em;
+        border-radius: $v2borderRadius;
+        background-color: #fff;
+        border: 1px solid $notSowhite;
+        box-shadow: 0.1em 0.1em 1em rgba(0, 0, 0, 0.05);
+    }
+
+    &__item {
+        &--logout {
+            .dealOptions__link {
+                color: $red;
+                fill: $red;
+                &:hover {
+                    color: $red;
+                }
+            }
+        }
+    }
+
+    &__link {
+        fill: $primary;
+        display: flex;
+        align-items: center;
+        line-height: 2.25em;
+        color: $primary;
+
+        .dealOptions__icon path {
+            fill: $primary;
+        }
+
+        &:hover {
+            font-weight: bold;
+            color: $primary;
+        }
+    }
+}

@@ -1,0 +1,20 @@
+@import 'src/scss/variables.scss';
+
+.content__item {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    padding: calc($v2halfGap / 2) 0;
+    border-bottom: 1px solid $v2hline;
+    font-size: $v2fontSmall;
+
+    &:last-child {
+        // border-bottom: none;
+    }
+
+    &__title {}
+
+    &__value {
+        font-weight: bold;
+        text-align: right;
+    }
+}

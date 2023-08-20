@@ -1,0 +1,36 @@
+@import 'src/scss/variables.scss';
+
+.private-link {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: calc($v2halfGap / 2);
+  font-size: $v2fontSmall;
+
+  div {
+    display: inline;
+    margin-right: 0.35em;
+    width: 1.1em
+  }
+
+  .document-link__icon {
+    background: #eee;
+    border-radius: 1em;
+    width: 1.1em;
+    height: 1.1em;
+    display: inline-block;
+    text-align: center;
+    vertical-align: -0.1em;
+    margin-right: 0.12em;
+  }
+
+  svg {
+    width: 0.9em;
+    height: 0.9em;
+  }
+
+  &__content {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+}

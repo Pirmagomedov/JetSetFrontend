@@ -1,0 +1,36 @@
+#import {dealRejectionDispute} from 'src/graphql/fragments.graphql'
+
+
+mutation blockchainStatusRoute($dealId: UUID!) {
+  blockchainStatusRoute(dealId: $dealId) {
+    runtimeError {
+      exception
+      message
+    }
+    fieldErrors {
+      field
+      message
+    }
+    success
+  }
+}
+
+mutation rejectionDispute($dealId: UUID!, $action: PrePurchaseAction, $comment: String, $scope: [String]) {
+  rejectionDispute(dealId: $dealId, action: $action, comment: $comment, scope: $scope) {
+    runtimeError {
+      exception
+      message
+    }
+    fieldErrors {
+      field
+      message
+    }
+    success
+    deal {
+      id
+      rejectionDispute {
+        ...dealRejectionDispute
+      }
+    }
+  } 
+}

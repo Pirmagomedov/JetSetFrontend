@@ -1,0 +1,24 @@
+mutation termsAndConditions($dealId: UUID!, $termsAndConditions: TermsAndConditionsInput, $action: TermsAndConditionsAction!) {
+  termsAndConditions (dealId: $dealId, termsAndConditions: $termsAndConditions, action: $action) {
+    runtimeError {
+      exception
+      message
+    }
+    fieldErrors {
+      field
+      message
+    }
+    success
+  }
+}
+
+
+query getTermsAndConditionsFields ($dealId: UUID!)  {
+  getTermsAndConditionsFields (dealId: $dealId) {
+      runtimeError {
+        exception
+        message
+      }
+      fields
+    }
+  }

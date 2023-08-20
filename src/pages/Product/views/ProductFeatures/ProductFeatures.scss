@@ -1,0 +1,32 @@
+@import 'src/scss/variables.scss';
+
+.product-features {
+  margin-bottom: 4.5rem;
+
+  &__subtitle {
+    margin-bottom: 30px;
+    font-size: 24px;
+  }
+
+  &__items {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: -22px -31px 0;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    margin: 22px 31px 0;
+    font-size: 14px;
+  }
+
+  &__icon {
+    flex-shrink: 0;
+    width: 1.25em;
+    height: 1.25em;
+    margin-right: 1em;
+    fill: $primary;
+  }
+}

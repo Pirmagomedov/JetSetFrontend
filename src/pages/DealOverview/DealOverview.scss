@@ -1,0 +1,171 @@
+@import '/src/scss/variables.scss';
+
+.dealOverview {
+    min-height: calc(100dvh - 4.5em);
+
+    &__inner {
+        display: grid;
+        grid-template-columns: 1fr;
+        row-gap: $v2gap;
+    }
+
+    &__heading {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__info {
+        display: grid;
+        align-items: center;
+        font-size: $v2fontSmall;
+        column-gap: $v2gap;
+        grid-template-columns: auto 1fr;
+
+        &--img {
+            width: 150px;
+            height: 97px;
+        }
+
+        .product__info {
+            &-item {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+        }
+    }
+
+    &__content {
+        display: grid;
+        grid-template-columns: 1fr;
+
+        @media only screen and (min-width: $desktop) {
+            grid-template-columns: 2fr 1fr;
+            column-gap: $v2gap;
+        }
+
+        &__main {
+            display: grid;
+        }
+
+        &__sidebar {
+            display: grid;
+            height: min-content;
+
+            &__log {
+                
+                &--title {
+                    font-size: $v2fontSmall;
+                    span {
+                        font-weight: bold;
+                    }
+                    padding-bottom: $v2gap;
+                }
+                
+                &--item {
+                    display: grid;
+                    grid-template-columns: auto 1fr auto;
+                    column-gap: $v2halfGap;
+                    border-bottom: 1px solid $v2hline;
+                    padding: $v2halfGap 0;
+                    font-size: $v2fontSmall;
+
+                    &:first-child {
+                        padding-top: 0;
+                    }
+
+                    &:last-child {
+                        padding-bottom: 0;
+                        border-bottom: 0;
+                    }
+                }
+            }
+        }
+
+        &__header {
+            width: 100%;
+            background: $v2area;
+            padding: $v2halfGap;
+            cursor: pointer;
+            transition: 300ms;
+
+            &:hover {
+                background-color: $v2area;
+            }
+        }
+
+        &__h1 {
+            font-size: 1rem;
+        }
+
+        &__content,
+        &__documents,
+        &__parties {
+            display: grid;
+            grid-template-columns: 1fr;
+            column-gap: calc($v2gap * 2);
+
+            @media only screen and (min-width: $largeTablet) {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            &-left {
+                .content__item {
+                    &:first-child {
+                        padding-top: 0;
+                    }
+                }
+
+                @media only screen and (min-width: $largeTablet) {
+                    .content__item {
+                        &:first-child {
+                            padding-top: 0;
+                        }
+
+                        &:last-child {
+                            padding-bottom: 0;
+                            border-bottom: 0;
+                        }
+                    }
+                }
+            }
+
+            &-right {
+                .content__item {
+
+                    &:last-child {
+                        padding-bottom: 0;
+                        border-bottom: 0;
+                    }
+                }
+
+                @media only screen and (min-width: $largeTablet) {
+                    .content__item {
+                        &:first-child {
+                            padding-top: 0;
+                        }
+                    }
+                }
+            }
+
+            &__documents {
+                @media only screen and (min-width: $smallTablet) {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+            }
+
+        }
+
+        &__parties {
+            grid-template-columns: 1fr 1fr;
+
+            @media only screen and (min-width: $smallTablet) {
+                column-gap: 0;
+            }
+        }
+
+        &__documents {
+            row-gap: $v2gap;
+        }
+    }
+}

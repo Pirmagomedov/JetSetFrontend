@@ -1,0 +1,63 @@
+@import 'src/scss/variables.scss';
+
+.deals {
+  //padding: $v2gap 0;
+
+  &__inner {
+    display: grid;
+    row-gap: $v2gap;
+  }
+
+  &__title {
+    display: flex;
+    align-items: center;
+
+    svg {
+      transition: all 300ms;
+      cursor: pointer;
+      margin-left: 0.5rem;
+    }
+
+    &.expand svg {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__section {
+    display: grid;
+    row-gap: $v2halfGap;
+    
+
+    @media only screen and (min-wdith: $desktop) {
+      row-gap: $v2gap;
+    }
+  }
+
+  &__heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__cards {
+    display: grid;
+    row-gap: $v2gap;
+    
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: center;
+    margin-top: $v2gap;
+  }
+
+  &__btn {
+    cursor: pointer;
+
+    svg {
+      width: 1.5em;
+      height: 1.5em;
+      display: block;
+    }
+  }
+}

@@ -1,0 +1,9 @@
+@import 'src/scss/variables.scss';
+
+.calendar-container {
+
+    @media only screen and (max-width: 991px) {
+        font: 400 12px 'JSF', sans-serif;
+    }
+
+}

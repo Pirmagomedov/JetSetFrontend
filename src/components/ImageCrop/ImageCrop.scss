@@ -1,0 +1,146 @@
+@import 'src/scss/variables.scss';
+
+
+.image-crap {
+
+	&__area {
+		position: relative;
+
+		img {
+			max-height: inherit;
+		}
+
+		.image-crap__gallery--input {
+			text-align: center;
+			padding: 1.5rem;
+			background: #eee;
+			cursor: pointer;
+			left: 50%;
+			top: 50%;
+			position: absolute;
+			transform: translate(-50%, -50%);
+		}
+
+		&--cropped {
+			position: relative;
+
+			img {
+				display: block;
+			}
+
+			svg {
+				position: absolute;
+			}
+		}
+	}
+
+	&__preview {
+		overflow: hidden;
+		width: 10rem;
+		position: relative;
+		cursor: pointer;
+
+		img {
+			//max-height: 100%;
+			//max-width: 100%;
+			//position: absolute;
+			//width: 100%;
+			//height: 100%;
+			object-fit: cover;
+		}
+	}
+
+	&__add {
+		height: 100%;
+		width: 3rem;
+		background: $blue-dark;
+		fill: #f0f;
+		display: block;
+		border-radius: $v2borderRadius;
+		position: absolute;
+		right: -4.5rem;
+		top: 0;
+		cursor: pointer;
+		min-height: 6rem;
+
+		svg {
+			fill: #fff;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			width: 1.5rem;
+			height: 1.5rem;
+			transform: translate(-50%, -50%);
+		}
+	}
+
+	&__gallery {
+		position: relative;
+		min-height: 6rem;
+		margin-top: 0.75rem;
+		margin-right: 4.5rem;
+
+		&--slider {
+			position: relative;
+
+			.slick-slider {
+				position: absolute;
+				width: 100%;
+			}
+		}
+	}
+
+	&.empty {
+		.image-crap__gallery {
+			background: #eee;
+		}
+
+		.image-crap__area {
+			background: #eee;
+		}
+	}
+
+	&__controls--buttons {
+		display: flex;
+		justify-content: space-between;
+		margin: $v2gap 0;
+
+		flex-direction: column;
+		row-gap: $v2gap;
+
+		@media only screen and (min-width: $smallTablet) {
+			margin: 0.75rem 0;
+			flex-direction: initial;
+			row-gap: initial;
+		}
+
+	}
+
+	&__slider {
+		height: 1.5rem;
+		margin: 0.75rem;
+		position: relative;
+
+		&--track {
+			height: 4px;
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			background: #ddd;
+		}
+
+		&--thumb {
+			width: 1.5rem;
+			height: 1.5rem;
+			border-radius: 10rem;
+			background: #313e8b;
+			cursor: pointer;
+			overflow: hidden;
+			text-indent: -100px;
+		}
+	}
+
+	.swiper-slide {
+		max-width: 10rem;
+	}
+}

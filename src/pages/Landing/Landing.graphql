@@ -1,0 +1,12 @@
+mutation landingForm($landingRequestInput: LandingRequestInput!) {
+  landingRequest(landingRequestInput: $landingRequestInput) {
+    runtimeError {
+      exception
+      message
+    }
+    fieldErrors {
+      field
+      message
+    }
+  }
+}

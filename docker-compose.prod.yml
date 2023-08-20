@@ -1,0 +1,11 @@
+version: '3.7'
+
+services:
+  jetset-fe:
+    image: ${CI_REGISTRY_IMAGE}${tag}
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - /var/www/jetset/letsencrypt:/etc/letsencrypt
+    restart: always

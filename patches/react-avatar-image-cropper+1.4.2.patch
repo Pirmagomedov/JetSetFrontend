@@ -1,0 +1,12 @@
+diff --git a/node_modules/react-avatar-image-cropper/src/index.js b/node_modules/react-avatar-image-cropper/src/index.js
+index a3e93ec..3f97e1a 100644
+--- a/node_modules/react-avatar-image-cropper/src/index.js
++++ b/node_modules/react-avatar-image-cropper/src/index.js
+@@ -728,6 +728,7 @@ class AvatarImageCropper extends React.Component {
+             </div>
+           )}
+           <input
++            title=""
+             style={{ ...this.inputStyle }}
+             type='file'
+             accept='image/*'

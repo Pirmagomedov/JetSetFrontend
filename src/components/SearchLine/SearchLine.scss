@@ -1,0 +1,132 @@
+@import 'src/scss/variables.scss';
+
+.search-line {
+    margin-bottom: $v2gap;
+
+    &__inner {
+
+        display: grid;
+        align-items: center;
+        grid-template-areas:
+            "query submit";
+        column-gap: $v2halfGap;
+        grid-template-columns: auto max-content;
+
+        @media only screen and (min-width: $smallTablet) {
+            grid-template-columns: repeat(5, 1fr);
+            grid-template-areas:
+                "fields fields fields fields fields"
+                "query query query submit reset";
+            grid-gap: $v2halfGap;
+        }
+
+        @media only screen and (min-width: $desktop) {
+            grid-template-columns: .8fr 1.5fr auto;
+            grid-template-areas: 'query fields reset submit';
+        }
+
+        &__close-icon {
+            cursor: pointer;
+            grid-area: reset;
+            align-items: center;
+            display: none;
+
+            @media only screen and (min-width: $smallTablet) {
+                display: grid;
+            }
+        }
+    }
+
+    &__query {
+        // flex-grow: 10;
+        grid-area: query;
+    }
+
+
+    &__submit {
+        grid-area: submit;
+        // display: none;
+
+        // @media only screen and (min-width: $smallTablet) {
+        //     display: block;
+        // }
+    }
+
+    &__filter-toggle {
+        // width: 2em;
+        flex-shrink: 0;
+        margin-left: $v2gap;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+
+        svg {
+            width: 1.44em;
+            height: 1.44em;
+        }
+
+        @media only screen and (min-width: $smallTablet) {
+            display: none;
+        }
+    }
+}
+
+.search-filters {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: #fff;
+    z-index: 9999;
+    padding: $v2gap;
+    overflow: auto;
+
+    &__header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: $v2gap;
+    }
+
+    &__close {
+        flex-shrink: 0;
+        margin-left: 0.4em;
+        display: flex;
+        align-items: flex-start;
+        cursor: pointer;
+
+        svg {
+            width: 1.2rem;
+            height: 1.2rem;
+        }
+    }
+
+    &__fields {
+        display: none;
+
+        @media only screen and (min-width: $smallTablet) {
+            display: grid;
+            grid-area: fields;
+            gap: $v2halfGap;
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .select {
+            margin-bottom: $v2gap;
+
+            @media screen and (min-width: $smallTablet) {
+                margin-bottom: 0;
+            }
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    &__apply {
+        width: 8em;
+        margin: 0 auto;
+    }
+}

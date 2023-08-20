@@ -1,0 +1,9 @@
+@import '/src/scss/variables.scss';
+
+.document-link__button-alike {
+    padding: $v2halfGap 0;
+    margin: $v2halfGap 0;
+    border-bottom: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+    font-size: $v2fontSmall;
+}

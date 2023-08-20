@@ -1,0 +1,144 @@
+@import 'src/scss/variables.scss';
+
+.loader-line {
+    width: 50px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: $red;
+    animation: load 1.8s ease-in-out infinite;
+
+    &:before,
+    &:after {
+        content: '';
+        position: absolute;
+        display: block;
+        height: 10px;
+        border-radius: 5px;
+        animation: load 1.8s ease-in-out infinite;
+    }
+
+    &:before {
+        top: -20px;
+        left: 10px;
+        width: 40px;
+        background-color: $blue;
+    }
+
+    &:after {
+        bottom: -20px;
+        width: 35px;
+        background-color: $blue;
+    }
+
+    &--small {
+        width: 25px;
+        height: 4px;
+
+        &:before {
+            top: -6px;
+            width: 20px;
+            height: 4px;
+            animation: load-small 1.8s ease-in-out infinite;
+        }
+        &:after {
+            bottom: -6px;
+            width: 15px;
+            height: 4px;
+            animation: load-small 1.8s ease-in-out infinite;
+        }
+    }
+}
+
+@keyframes load {
+    0% {
+        transform: translateX(40px);
+    }
+
+    50% {
+        transform: translateX(-30px);
+    }
+    100% {
+        transform: translateX(40px);
+    }
+}
+
+@keyframes load-small {
+    0% {
+        transform: translateX(15px);
+    }
+
+    50% {
+        transform: translateX(-5px);
+    }
+    100% {
+        transform: translateX(15px);
+    }
+}
+
+.loader-ring {
+    display: block;
+}
+
+.loader-ring svg {
+    animation: loader-ring 1s ease-in-out infinite;
+}
+
+@keyframes loader-ring {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.loader-ring-big svg {
+    width: 3rem;
+    height: 3rem;
+    animation: loader-ring 1s ease-in-out infinite;
+}
+
+@keyframes loader-ring {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.svg-calLoader {
+    width: 230px;
+    height: 230px;
+    transform-origin: 115px 115px;
+    -webkit-animation: 1.9s linear infinite loader-spin;
+    animation: 1.9s linear infinite loader-spin;
+}
+
+.cal-loader__plane {
+    fill: $primary;
+}
+
+.cal-loader__path {
+    stroke: $primary;
+    -webkit-animation: 1.4s ease-in-out infinite loader-path;
+    animation: 1.4s ease-in-out infinite loader-path;
+}
+
+@keyframes loader-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes loader-path {
+    0% {
+        stroke-dasharray: 0, 580, 0, 0, 0, 0, 0, 0, 0;
+    }
+    50% {
+        stroke-dasharray: 0, 450, 10, 30, 10, 30, 10, 30, 10;
+    }
+    100% {
+        stroke-dasharray: 0, 580, 0, 0, 0, 0, 0, 0, 0;
+    }
+}

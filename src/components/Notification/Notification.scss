@@ -1,0 +1,45 @@
+@import 'src/scss/variables.scss';
+
+.notification {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 32em;
+    width: 100%;
+    padding: $v2modalGap;
+    border-radius: $v2borderRadius;
+    background-color: #ffffff;
+    text-align: center;
+
+    &__img {
+        margin-bottom: $v2gap;
+
+        svg {
+            width: 3.5em;
+            height: 3.5em;
+            margin: 0;
+            display: block;
+        }
+    }
+
+    &__title {
+        margin-bottom: 30px;
+        font-weight: 700;
+        font-size: 24px;
+    }
+
+    &__description {
+        margin-bottom: 50px;
+    }
+
+    &__btns {
+        display: flex;
+        align-items: center;
+    }
+
+    &__btn {
+        & + & {
+            margin-left: 24px;
+        }
+    }
+}

@@ -1,0 +1,80 @@
+mutation getUserKyc {
+  myProfile {
+    runtimeError {
+      exception
+      message
+    }
+    profile {
+      ...profileKyc
+    }
+  }
+}
+
+mutation getAd($adId: UUID) {
+  getAd(adId: $adId) {
+    runtimeError {
+      exception
+      message
+    }
+    ad {
+      ...ad
+      deals {
+        id
+        status
+      } 
+    }
+  }
+}
+
+mutation getAdPermission($adId: UUID) {
+  getAd(adId: $adId) {
+    runtimeError {
+      exception
+      message
+    }
+    ad {
+      ...adPermission
+    }
+  }
+}
+
+mutation getAdFull($adId: UUID) {
+  getAd(adId: $adId) {
+    runtimeError {
+      exception
+      message
+    }
+    ad {
+      ...adFull
+    }
+  }
+}
+
+mutation editAd($status: String!, $adId: UUID!) {
+  editAd (adData: {status: $status, isDeleted: false}, adId: $adId ){
+    runtimeError {
+      exception
+      message
+    }
+    fieldErrors {
+      field
+      message
+    }
+  }
+}
+
+mutation deleteAd($adId: UUID) {
+  deleteAd(adId: $adId) {
+    runtimeError {
+      exception
+      message
+    }
+    fieldErrors {
+      field
+      message
+    }
+    profile {
+      id
+    }
+  }
+}

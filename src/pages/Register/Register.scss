@@ -1,0 +1,155 @@
+@import 'src/scss/variables.scss';
+
+.auth {
+  max-width: 694px;
+  margin: 28px auto 50px;
+
+  @media only screen and (max-width: 767px) {
+    margin-top: 0;
+  }
+
+  &__nav {
+    display: flex;
+    margin-bottom: 46px;
+
+    @media only screen and (max-width: 767px) {
+      margin-bottom: 40px;
+    }
+
+    a {
+      width: 50%;
+      padding-bottom: 18px;
+      font-size: 18px;
+      cursor: pointer;
+      color: $grey;
+      text-align: center;
+      border-bottom: 4px solid #e2e6fc;
+      position: relative;
+
+      @media only screen and (max-width: 767px) {
+        padding-bottom: 15px;
+        font-size: 18px;
+      }
+
+      &:hover {
+        color: $primary;
+      }
+
+      &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        right: 0;
+        left: 0;
+        bottom: -6px;
+        height: 8px;
+        background: $primary;
+        border-radius: $v2borderRadius;
+        transition: 300ms;
+        opacity: 0;
+        visibility: hidden;
+      }
+
+      &.active {
+        color: $primary;
+
+        &:before {
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+    }
+  }
+
+  &__social {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 46px;
+
+    @media only screen and (max-width: 767px) {
+      justify-content: center;
+      width: 100%;
+    }
+
+    &-label {
+      @media only screen and (max-width: 767px) {
+        display: none;
+      }
+    }
+
+    &-links {
+      display: flex;
+
+      @media only screen and (max-width: 767px) {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 20px;
+        max-width: 375px;
+        width: 100%;
+      }
+    }
+
+    &-link {
+      display: flex;
+      align-items: center;
+      height: $v2ctlHeight;
+      margin-right: 18px;
+      padding: 0 40px 0 20px;
+      border: 1px solid $v2btn;
+      border-radius: $v2borderRadius;
+      background-color: transparent;
+      cursor: pointer;
+      transition: background-color 300ms;
+
+      @media only screen and (max-width: 767px) {
+        width: 100%;
+        margin-right: 0;
+        padding-right: 0;
+      }
+
+      &:hover {
+        background-color: $v2btn;
+        color: #fff;
+      }
+
+      > div {
+        flex-shrink: 0;
+        display: flex;
+        align-items: flex-start;
+        margin-right: 12px;
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  .field {
+    margin-bottom: 25px;
+  }
+
+  &__confirm {
+    // width: 230px;
+    margin: 30px auto 0;
+  }
+
+  &__buttons {
+    display: flex;
+    margin-top: 64px;
+    justify-content: center;
+
+    @media only screen and (max-width: 767px) {
+      margin-top: 54px;
+    }
+
+    .btn {
+      width: 230px;
+    }
+  }
+
+  &__recover {
+    margin-right: 14px;
+  }
+}

@@ -1,0 +1,20 @@
+[
+  {
+    "country": "0",
+    "region": "0",
+    "phone": "(000) 000-00-00",
+    "documentType": "0",
+    "countryOfDocument": "0",
+    "serialNumber": "11",
+    "hasTerm": false,
+    "validUntil": "11.08.2021",
+    "photo": { "file": "", "filename": "" },
+    "selfie": { "file": "", "filename": "" },
+    "nationality": "0",
+    "name": "Ivan",
+    "surname": "Ivanov",
+    "middleName": "Ivanovich",
+    "gender": "0",
+    "dateOfBirth": "28.07.2021"
+  }
+]

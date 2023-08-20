@@ -1,0 +1,146 @@
+@import 'src/scss/variables.scss';
+
+.product-gallery {
+  // margin-bottom: $v2gap;
+  user-select: none;
+  overflow: hidden;
+  
+  &__wrapper {
+    position: relative;
+    padding-bottom: 3rem;
+
+    .slick-slider {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      left: 0;
+    }
+  }
+
+  &__prev,
+  &__next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 2em;
+    height: 2em;
+    fill: $primary;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 300ms;
+    z-index: 100;
+  }
+
+  &__prev {
+    left: $v2gap;
+  }
+
+  &__next {
+    right: $v2gap;
+  }
+
+  &__ghost {
+    position: absolute;
+    width: 110%;
+    height: 110%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    filter: blur(1rem);
+    opacity: 0.5;
+  }
+
+  &__main {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $silver;
+    overflow: hidden;
+
+    &:hover {
+
+      .product-gallery__prev,
+      .product-gallery__next {
+        opacity: 1;
+      }
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: contain;
+      // position: absolute;
+      aspect-ratio: 16/9;
+      top: 0;
+      left: 0;
+      z-index: 100;
+
+      @media only screen and (max-width: $desktop) {
+        position: relative;
+        max-height: 50vh;
+      }
+    }
+  }
+
+  &__thumbs {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    // grid-template-rows: 118px;
+    column-gap: 12px;
+    // margin-top: 28px;
+    margin-top: $v2halfGap;
+
+    @media only screen and (max-width: 1500px) {
+      // grid-template-rows: 93px;
+      // margin-top: 22px;
+    }
+
+    @media only screen and (max-width: $desktop) {
+      // margin-top: 29px;
+    }
+  }
+
+  &__thumb {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    &--hide {
+      display: none;
+    }
+  }
+
+  &__more {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    border-radius: $v2borderRadius;
+    color: #fff;
+    font-weight: 700;
+    font-size: 24px;
+
+    &::after {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: inherit;
+      background-color: rgba($blue-dark, 0.5);
+    }
+  }
+}

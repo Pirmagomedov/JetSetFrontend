@@ -1,0 +1,56 @@
+mutation ads($first: Int, $offset: Int, $mainInformation_Name_Icontains: String, $mainInformation_Category_Value: Int, $mainInformation_Manufacturer_Value: Int, $mainInformation_Model_Value: Int, $termsOfPayment_AircraftPrice_Lte: Decimal, $termsOfPayment_AircraftPrice_Gte: Decimal, $mainInformation_Year_Lte: Int, $mainInformation_Year_Gte: Int, $aircraftLocation_Country_Value: Int, $aircraftSummary_TotalTime_Lte: Int, $aircraftSummary_TotalTime_Gte: Int, $exteriorCabin_InteriorYear_Label_Lte: String, $exteriorCabin_InteriorYear_Label_Gte: String, $exteriorCabin_ExteriorYear_Label_Lte: String, $exteriorCabin_ExteriorYear_Label_Gte: String, $aircraftSummary_TotalSeats_Lte: Int, $aircraftSummary_TotalSeats_Gte: Int, $mainInformation_Condition_Label: String) {
+  ads {
+    runtimeError {
+      exception
+      message
+    }
+    fieldErrors {
+      field
+      message
+    }
+    ads(
+      first: $first
+      offset: $offset
+      mainInformation_Name_Icontains: $mainInformation_Name_Icontains
+      mainInformation_Category_Value: $mainInformation_Category_Value
+      mainInformation_Manufacturer_Value: $mainInformation_Manufacturer_Value
+      mainInformation_Model_Value: $mainInformation_Model_Value
+      termsOfPayment_AircraftPrice_Lte: $termsOfPayment_AircraftPrice_Lte
+      termsOfPayment_AircraftPrice_Gte: $termsOfPayment_AircraftPrice_Gte
+      mainInformation_Year_Lte: $mainInformation_Year_Lte
+      mainInformation_Year_Gte: $mainInformation_Year_Gte
+      aircraftLocation_Country_Value: $aircraftLocation_Country_Value
+      aircraftSummary_TotalTime_Lte: $aircraftSummary_TotalTime_Lte
+      aircraftSummary_TotalTime_Gte: $aircraftSummary_TotalTime_Gte
+      exteriorCabin_InteriorYear_Label_Lte: $exteriorCabin_InteriorYear_Label_Lte
+      exteriorCabin_InteriorYear_Label_Gte: $exteriorCabin_InteriorYear_Label_Gte
+      exteriorCabin_ExteriorYear_Label_Lte: $exteriorCabin_ExteriorYear_Label_Lte
+      exteriorCabin_ExteriorYear_Label_Gte: $exteriorCabin_ExteriorYear_Label_Gte
+      aircraftSummary_TotalSeats_Lte: $aircraftSummary_TotalSeats_Lte
+      aircraftSummary_TotalSeats_Gte: $aircraftSummary_TotalSeats_Gte
+      mainInformation_Condition_Label: $mainInformation_Condition_Label
+    ) {
+      pageInfo {
+        ...pageInfoType
+      }
+      edges {
+        node {
+          ...adCard
+        }
+        cursor
+      }
+    }
+    minPrice
+    maxPrice
+    minYearManufacturer
+    maxYearManufacturer
+    maxTotalTime
+    minTotalTime
+    minYearExterior
+    maxYearExterior
+    minYearInterior
+    maxYearInterior
+    minNumberOfSeats
+    maxNumberOfSeats
+  }
+}

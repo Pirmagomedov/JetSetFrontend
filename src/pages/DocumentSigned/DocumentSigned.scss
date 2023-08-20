@@ -1,0 +1,27 @@
+
+
+.document-signed {
+	max-width: 18rem;
+	margin: 4.5rem auto;
+	text-align: center;
+	min-height: 100vh;
+	background: #fff;
+
+	svg {
+		width: 4.5rem;
+		height: 4.5rem;
+		margin: 1.5rem;
+	}
+
+	&__message {
+		text-align: center;
+		opacity: 0;
+		transition: opacity 1s ease-in-out 0s;	
+	}
+
+	&.take-action {
+		.document-signed__message {
+			opacity: 1;
+		}
+	}
+}

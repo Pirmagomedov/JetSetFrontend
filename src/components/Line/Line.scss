@@ -1,0 +1,36 @@
+@import '/src/scss/variables.scss';
+
+.line {
+    position: absolute;
+    bottom: -3px;
+    background-color: $primary;
+    transition: 700ms;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transform: rotateX(180deg);
+    height: 3px;
+
+    &__default {
+        width: 100px;
+        left: 46.5%;
+        margin: 0 auto;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        background: rgba(0, 18, 83, 0.8);
+
+        @media only screen and (max-width: 992px) {
+            left: 42.5%;
+        }
+
+        @media only screen and (max-width: 767px) {
+            left: 37%;
+        }
+    }
+
+    &__flatten {
+        width: 100%;
+        left: 0;
+        background-color: rgba(0, 18, 83, 1);
+    }
+}

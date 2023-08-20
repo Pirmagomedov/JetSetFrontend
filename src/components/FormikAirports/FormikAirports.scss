@@ -1,0 +1,141 @@
+@import 'src/scss/variables.scss';
+
+.airports-select {
+    display: block;
+    width: 100%;
+    position: relative;
+    min-width: 16em;
+    background: #fff;
+
+    &.error input {
+        border-color: #f00;
+    }
+
+    &.open {
+        input {
+            border-bottom: none;
+            border-radius: $v2borderRadius $v2borderRadius 0 0;
+        }
+    }
+
+    &__label {
+        display: block;
+        margin-bottom: 6px;
+        font-size: $v2fontSmall;
+        line-height: 1.2;
+
+        &-wrapper {
+            display: grid;
+            grid-template-columns: 1fr auto;
+
+            .icon {
+                height: auto;
+            }
+        }
+    }
+
+    &.required .airports-select__label:after {
+        content: '*';
+        color: $red-dark;
+        margin-left: 0.25em;
+    }
+
+    &__options {
+        width: 100%;
+        max-width: 100%;
+        overflow-y: auto;
+        overflow-x: hidden;
+        max-height: 15em;
+        border: 1px solid $v2ctlBorder;
+        border-radius: 0 0 $v2borderRadius $v2borderRadius;
+        border-top: none;
+        position: absolute;
+        box-shadow: 0.25em 0.25em 0.5em rgba(0, 0, 0, 0.1);
+        z-index: 100;
+        top: 100%;
+        left: 0;
+        background: #fff;
+    }
+
+    &__selected {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: $v2ctlHeight;
+        border: 1px solid $v2ctlBorder;
+        border-radius: $v2borderRadius;
+        padding: 0 $v2InputPadding 0 $v2InputPadding;
+
+        @media only screen and (max-width: 991px) {
+            height: auto;
+        }
+
+        &-label {
+            overflow-x: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            flex-shrink: 1;
+
+            @media only screen and (max-width: 991px) {
+                white-space: pre-wrap;
+            }
+        }
+
+        &-remove {
+            width: 1.25em;
+            height: $v2ctlHeight;
+            flex-shrink: 0;
+        }
+    }
+
+    svg {
+        margin-left: 0.25em;
+        width: 1em;
+        height: $v2ctlHeight;
+        cursor: pointer;
+    }
+
+    &__option {
+        // font-size: $v2fontSmall;
+        line-height: 1;
+        padding: 0.5em 1em;
+        cursor: pointer;
+    }
+
+    input {
+        width: 100%;
+        padding: 0 $v2InputPadding 0 $v2InputPadding;
+        height: $v2ctlHeight;
+        border: 1px solid $v2ctlBorder;
+        border-radius: $v2borderRadius;
+        transition: 300ms;
+
+        &::-webkit-input-placeholder {
+            color: $v2placeholder;
+            font-weight: normal;
+            // font-size: $v2fontSmall;
+        }
+
+        &:-moz-placeholder {
+            color: $v2placeholder;
+            font-weight: normal;
+            // font-size: $v2fontSmall;
+        }
+
+        &::-moz-placeholder {
+            color: $v2placeholder;
+            font-weight: normal;
+            // font-size: $v2fontSmall;
+        }
+
+        &:-ms-input-placeholder {
+            color: $v2placeholder;
+            font-weight: normal;
+            // font-size: $v2fontSmall;
+        }
+
+        &:focus {
+            border-color: $primary;
+        }
+    }
+}

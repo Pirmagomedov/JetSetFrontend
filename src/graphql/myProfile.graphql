@@ -1,0 +1,102 @@
+mutation myProfile {
+  myProfile {
+    runtimeError {
+      exception
+      message
+    }
+    profile {
+      ...profileMain
+    }
+  }
+}
+
+
+
+mutation myProfileFull {
+  myProfile {
+    runtimeError {
+      exception
+      message
+    }
+    profile {
+      ...profileFull
+    }
+  }
+}
+
+mutation myProfileDetailed {
+  myProfile {
+    runtimeError {
+      exception
+      message
+    }
+    profile {
+      ...profileDetail
+    }
+  }
+}
+
+
+
+
+mutation updateProfile ($userInfo: ChangeUserInformationInput) {
+  changeUserInformation(input: $userInfo) {
+    runtimeError {
+      exception
+      message
+    }
+    profile {
+      ...profileMain
+    }
+  }
+}
+
+
+mutation switchWorkspace($workspaceId: UUID!) {
+  switchWorkspace(workspaceId: $workspaceId) {
+    runtimeError {
+      exception
+      message
+    }
+    success
+    user {
+      ...profileFull
+    }
+  }
+}
+
+
+mutation editWorkspace($workspaceId: UUID, $position: String, $proofOfAuthority: UUID) {
+  editWorkspace(workspaceId: $workspaceId, position: $position, proofOfAuthority: $proofOfAuthority) {
+    runtimeError {
+      exception
+      message
+    }
+    fieldErrors {
+      field
+      message
+    }
+    success
+    workspace {
+      ...workspaceMain
+    }
+  }
+}
+
+
+
+
+mutation getKycKyb {
+  myProfile {
+    runtimeError {
+      exception
+      message
+    }
+    profile {
+      ...profileKyc
+      currentWorkspace {
+        ...workspaceKyc
+      }
+    }
+  }
+}

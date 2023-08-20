@@ -1,0 +1,228 @@
+mutation createWorkspace($workspaceType: WorkspaceEnum!) {
+	createWorkspace(workspaceType: $workspaceType) {
+		runtimeError {
+          exception
+          message
+      }
+      fieldErrors {
+          field
+          message
+      }
+      success
+      user {
+         ...profileDetail
+     }
+     workspace {
+         id
+     }
+ }
+}
+
+
+
+mutation removeAllWorkspaces {
+	removeAllWorkspaces {
+		runtimeError {
+          exception
+          message
+      }
+      fieldErrors {
+          field
+          message
+      }
+      success
+  }
+}
+
+
+query getWorkspace($workspaceId: UUID!) {
+  getWorkspace(workspaceId: $workspaceId) {
+      runtimeError {
+        exception
+        message
+    }
+    workspace {
+        ...workspacePage
+    }
+  }
+}
+
+
+query getWorkspacePublic($workspaceId: UUID!) {
+  getWorkspace(workspaceId: $workspaceId) {
+      runtimeError {
+        exception
+        message
+    }
+    workspace {
+        ...workspacePartner
+    }
+  }
+}
+
+query getWorkspaceProfile($workspaceId: UUID!) {
+  getWorkspace(workspaceId: $workspaceId) {
+    runtimeError {
+      exception
+      message
+  }
+  workspace {
+      ...workspaceProfile
+  }
+}
+}
+
+
+query loadWorkspaceAds($workspaceId: UUID!) {
+  getWorkspace(workspaceId: $workspaceId) {
+    runtimeError {
+      exception
+      message
+  }
+  workspace {
+      id
+      ads {
+        ...adWorkspace
+    }
+}
+}
+}
+
+
+mutation companyDetails($companyId: UUID!, $label: String, $logoId: UUID) {
+  companyDetails(companyId: $companyId,label: $label, logoId: $logoId) {
+    runtimeError {
+      exception
+      message
+  }
+  fieldErrors {
+      field
+      message
+  }
+  company {
+      ...companyMain
+  }
+}
+}
+
+
+mutation inviteUser($email: String!) {
+  inboundInviteWorkspace(email: $email) {
+    runtimeError {
+      exception
+      message
+  }
+  fieldErrors {
+      field
+      message
+  }
+  success
+}
+}
+
+
+
+mutation myInvites {
+  myProfile {
+    runtimeError {
+      exception
+      message
+  }
+  profile {
+      ...profileInvites
+  }
+}
+}
+
+
+
+
+mutation replyInvite($inviteId: UUID!, $isAccepted: Boolean!) {
+  responseInviteWorkspace(inviteId: $inviteId, isAccepted: $isAccepted) {
+    runtimeError {
+      exception
+      message
+  }
+  fieldErrors {
+      field
+      message
+  }
+  success
+}
+}
+
+
+
+mutation setRepresentativePermissions($permissions: [PermissionsInputType]!, $workspaceId: UUID!) {
+  setRepresentativePermissions(permissions: $permissions, workspaceId: $workspaceId) {
+    runtimeError {
+      exception
+      message
+  }
+  fieldErrors {
+      field
+      message
+  }
+  success
+  workspace {
+      permissions {
+        ...permission
+    }
+}
+}
+}
+
+
+
+mutation setRepresentativeFlags($flags: [WorkspaceFlagsInputType]!, $workspaceId: UUID!) {
+  setRepresentativeFlags(flags: $flags, workspaceId: $workspaceId) {
+    runtimeError {
+      exception
+      message
+  }
+  fieldErrors {
+      field
+      message
+  }
+  success
+  workspace {
+      ...myWorkspace
+  }
+}
+}
+
+
+mutation leaveWorkspace($companyId: UUID, $individualId: UUID) {
+    leaveWorkspace(companyId: $companyId, individualId: $individualId) {
+        runtimeError {
+            exception
+            message
+        }
+        fieldErrors {
+            field
+            message
+        }
+        user {
+            id
+        }
+        success
+    }
+}
+
+
+mutation removeRepresentative($companyId: UUID, $individualId: UUID, $representativeId: UUID!) {
+    removeRepresentative(companyId: $companyId, individualId: $individualId, representativeId: $representativeId) {
+        runtimeError {
+            exception
+            message
+      }
+      fieldErrors {
+            field
+            message
+      }
+      success
+      user {
+          id
+      }
+  }
+}

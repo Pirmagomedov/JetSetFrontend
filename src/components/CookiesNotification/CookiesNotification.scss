@@ -1,0 +1,60 @@
+@import 'src/scss/variables.scss';
+
+.cookies__wrapper {
+    position: fixed;
+    bottom: 9vh;
+    right: 9vh;
+    z-index: 99999;
+
+    width: 400px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    // text-align: center;
+
+    @media only screen and (max-width: 1100px) {
+        width: 100vw;
+        bottom: 5vh;
+        right: 0;
+    }
+
+    @media only screen and (max-width: 767px) {
+        bottom: 0;
+    }
+}
+
+.cookies__container {
+    display: flex;
+    justify-content: center;
+    // align-items: center;
+    flex-direction: column;
+    color: white;
+    border-radius: $v2borderRadius;
+    background-color: $primary;
+    padding: $v2gap;
+    grid-gap: $v2gap;
+
+    @media only screen and (max-width: 1100px) {
+        width: 50vw;
+        margin: 0 auto;
+    }
+    @media only screen and (max-width: 767px) {
+        width: 100vw;
+        margin: initial;
+    }
+}
+
+.show__cookies {
+    display: block;
+}
+
+.hide__cookies {
+    display: none;
+}
+
+.button__container {
+    display: flex;
+    justify-content: center;
+}

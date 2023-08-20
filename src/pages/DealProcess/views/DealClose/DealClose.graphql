@@ -1,0 +1,13 @@
+mutation closing($dealId: UUID!) {
+  closing(dealId: $dealId) {
+    runtimeError {
+      exception
+      message
+    }
+    fieldErrors {
+      field
+      message
+    }
+    success
+  }
+}

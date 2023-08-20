@@ -1,0 +1,117 @@
+#import {dealFile} from "src/graphql/fragments.graphql"
+
+mutation signNowCheckSignature ($documentId: String!)
+  {
+  signNowCheckSignature (documentId: $documentId) {
+    runtimeError {
+      exception
+      message
+    }
+    fieldErrors {
+      field
+      message
+    }
+    success
+  }
+}
+
+mutation createSignature($signature: String!, $dealId: UUID!) {
+  createSignature(signature: $signature, dealId: $dealId) {
+    runtimeError {
+      exception
+      message
+    }
+    fieldErrors {
+      field
+      message
+    }
+    success
+  }
+}
+
+mutation createNft($adId: UUID!) {
+  createNft(adId: $adId) {
+    runtimeError {
+      exception
+      message
+    }
+    fieldErrors {
+      field
+      message
+    }
+    success
+  }
+}
+
+mutation signNowSignature ($adId: UUID, $dealId: UUID, $docType: String!, $text: String!) {
+  signNowSignature (dealId: $dealId, adId: $adId, docType: $docType, text: $text) {
+    runtimeError {
+      exception
+      message
+    }
+    fieldErrors {
+      field
+      message
+    }
+    link
+    documentId
+  }
+}
+
+mutation signNowSecondSignature ($dealId: UUID!, $docType: String!) {
+  signNowSecondSignature (dealId: $dealId, docType: $docType) {
+    runtimeError {
+      exception
+      message
+    }
+    fieldErrors {
+      field
+      message
+    }
+    link
+    documentId
+  }
+}
+
+mutation technicalAcceptance ($dealId: UUID!) {
+  technicalAcceptance (dealId: $dealId) {
+    runtimeError {
+      exception
+      message
+    }
+    fieldErrors {
+      field
+      message
+    }
+    success
+  }
+}
+
+
+
+query getClosingDocument ($dealId: UUID) {
+  getClosingDocument (dealId: $dealId) {
+      runtimeError {
+          exception
+          message
+      }
+      text
+  }
+}
+
+
+mutation getDealDocuments($dealId: UUID!) {
+  getDeal(dealId: $dealId) {
+    runtimeError {
+      exception
+      message
+    }
+    fieldErrors {
+      field
+      message
+    }
+    deal {
+      ...dealDocuments 
+    }
+  }
+}

@@ -1,0 +1,164 @@
+@import 'src/scss/variables.scss';
+
+.first-section-background {
+  background-image: url('../../assets/images/svg/landing-background.svg'), url('../../assets/images/svg/landing-first-section-lines.svg');
+  background-repeat: no-repeat, no-repeat;
+  // background-position: 0px 0px, right 8vh;
+}
+
+
+.section {
+
+  display: flex;
+  flex-direction: column;
+  gap: $v2gap;
+
+  a {
+    display: flex;
+    gap: $v2gap;
+  }
+
+  &:first-of-type {
+    min-height: calc(100vh - 80px);
+  }
+
+  &:nth-of-type(3) {
+    background-image: url('../../assets/images/svg/landing-streamlined-lines.svg');
+    background-repeat: no-repeat;
+    background-position: right 5%;
+  }
+
+  &:nth-of-type(4) {
+    background-image: url('../../assets/images/svg/landing-legal-compliance-lines.svg');
+    background-repeat: no-repeat;
+    background-position: left 5%;
+  }
+
+  &:nth-of-type(5) {
+    background-image: url('../../assets/images/svg/landing-security-lines.svg');
+    background-repeat: no-repeat;
+    background-position: right top;
+  }
+
+  &:nth-of-type(6) {
+    background-image: url('../../assets/images/svg/landing-technologies-lines.svg');
+    background-repeat: no-repeat;
+    background-position: right top;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+
+    gap: $v2halfGap;
+
+    .landing__list {
+      padding-left: 1em;
+      list-style: disc;
+      list-style-type: disc;
+
+      .landing__item {
+
+        &::marker {
+          color: $v2links;
+        }
+      }
+    }
+  }
+
+  &:first-of-type {
+    gap: 0;
+
+    .section__content {
+      height: calc(100vh - 80px - 2.5em - 2em);
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
+
+    .section__header {
+      padding-top: 1em;
+      color: $primary;
+    }
+  }
+
+  &__header {
+    padding-top: 6em;
+    font-size: 1.25em;
+
+
+  }
+
+  &__footer {
+    height: 2.5em;
+    display: flex;
+    justify-content: center;
+    gap: $v2gap;
+  }
+
+}
+
+.collapsible {
+  display: flex;
+  flex-direction: column;
+
+  &:last-child {
+
+    .collapsible__title {
+
+      border: none;
+
+    }
+  }
+}
+
+.collapsible__title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  font-size: 1.5em;
+  transition: .5s;
+  border-bottom: 1px solid $grey;
+  color: $v2black;
+  cursor: pointer;
+  padding-bottom: 0.5em;
+
+  img {
+    display: block;
+    padding: 0.25em;
+    border-radius: $v2borderRound;
+    border: 1px solid $grey;
+    transition: .5s;
+  }
+
+  .plus-is {
+
+    &__rotated {
+      transform: rotate(45deg);
+    }
+
+    &__non-rotated {
+      transform: rotate(0deg);
+    }
+  }
+}
+
+.collapsible__content {
+  padding: 1em 0;
+  transition: .5s;
+
+  p {
+    padding-left: 1em;
+  }
+
+  &__open {
+    opacity: 1;
+  }
+
+  &__closed {
+    opacity: 0;
+    padding-bottom: 0em;
+    overflow: hidden;
+    height: 0;
+  }
+}

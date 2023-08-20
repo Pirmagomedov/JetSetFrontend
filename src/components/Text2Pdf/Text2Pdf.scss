@@ -1,0 +1,18 @@
+@import '/src/scss/variables.scss';
+
+.test2pdf-link {
+	display: flex;
+	justify-content: center;
+	column-gap: $v2halfGap;
+
+	svg {
+		width: 1.5rem;
+	}
+
+
+	div {
+		display: inline;
+		margin-right: 0.35em;
+		width: 1.1em
+	}
+}

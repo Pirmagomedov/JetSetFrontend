@@ -1,0 +1,44 @@
+.ro__shift {
+  padding-left: 0.5rem;
+  margin-bottom: 0.5rem;
+  border-left: 2px solid #aaa;
+}
+
+.ro__kv {
+  display: flex;
+}
+
+.ro__key {
+  margin-right: 0.5rem;
+  font-weight: bold;
+  color: #666;
+}
+
+.ro__value {
+  .string {
+    color: #009;
+
+    &::before {
+      content: "\""
+    }
+
+    &::after {
+      content: "\""
+    }
+  }
+
+  .boolean {
+    color: #d00;
+  }
+
+  .number {
+    color: #000;
+    font-weight: bold;
+  }
+
+  .isNull {
+    color: #aaa;
+  }
+}
+
+

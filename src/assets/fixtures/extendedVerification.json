@@ -1,0 +1,38 @@
+[
+  {
+    "taxResidency": "0",
+    "identification": "11",
+    "employmentStatus": "0", // Unemployed | Self-employed person | Employed
+    "kindOfActivity": "0",
+    "industry": "0",
+    "workExperience": "0",
+    "position": "0",
+
+    "monthlyIncome": "0",
+    "incomeSource": "0",
+    "financialDocument": { "file": "", "filename": "" },
+
+    "isInvest": false,
+    "anotherExchange": false,
+    "salary": false,
+    "mining": false,
+    "present": false,
+    "airdrop": false,
+
+    "isExportCrypto": false,
+    "payForGoods": false,
+    "exchangesTrading": false,
+    "investments": false,
+    "ownWallet": false,
+
+    "bankAccount": "0",
+    "purposeRecord": "0",
+    "monthlyTurnover": "0",
+    "politicallyPerson": "yes",
+    "familyPolitically": "no",
+    "allyPolitically": "no",
+    "citizenUSA": "no",
+    "taxpayerUSA": "no",
+    "foreignerLivingUSA": "no"
+  }
+]

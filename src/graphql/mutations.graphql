@@ -1,0 +1,586 @@
+#import {tnc} from './fragments.graphql'
+
+mutation uploadFiles($files: [FileInputType]) {
+  uploadFiles(files: $files) {
+    runtimeError {
+      exception
+      message
+    }
+    fieldErrors {
+      field
+      message
+    }
+    files {
+      ...fileType
+    }
+  }
+}
+
+
+mutation verifyToken($token: String) {
+  verifyToken(token: $token) {
+    runtimeError {
+      exception
+      message
+    }
+    fieldErrors {
+      field
+      message
+    }
+    success
+  }
+}
+
+
+mutation fireblocksRefreshBalance {
+  fireblocksRefreshBalance {
+    runtimeError {
+      exception message
+      __typename
+    }
+    success
+  }
+}
+
+
+mutation profileAssetsBalance { 
+  myProfile {
+    runtimeError {
+      exception
+      message
+    }
+    profile {
+      currentWorkspace {
+        fireblocksAccount {
+          ...fireblocksProfile
+        }      
+      }
+    }
+  }
+}
+
+
+mutation getDealTC($dealId: UUID!) {
+  getDeal(dealId: $dealId) {
+    runtimeError {
+      exception
+      message
+    }
+    fieldErrors {
+      field
+      message
+    }
+    deal {
+      id
+      status
+      termsAndCond {
+        ...tnc
+      }
+      buyer {
+        ...workspaceMain
+      }
+      seller {
+        ...workspaceMain
+      }
+    }
+  }
+}
+
+
+mutation getUserKyc {
+  myProfile {
+    runtimeError {
+      exception
+      message
+    }
+    profile {
+      ...profileKyc
+    }
+  }
+}
+
+
+mutation getChoices {
+  getChoices {
+    runtimeError {
+      exception
+      message
+    }
+    choices {
+      airports {
+        label
+        value
+        name
+        region
+        country
+      }
+      planeCategories {
+        label
+        value
+      }
+      planeConditions {
+        label
+        value
+      }
+      landingGears {
+        label
+        value
+      }
+      flightDecks {
+        label
+        value
+      }
+      flightRules {
+        label
+        value
+      }
+      aircraftConfigurations {
+        label
+        value
+      }
+      countries {
+        label
+        value
+        code
+      }
+      governingLaws {
+        label
+        value
+      }
+      jurisdictions {
+        label
+        value
+      }
+      inspectionProgramLevels {
+        label
+        value
+      }
+      commissionRules {
+        label
+        value
+      }
+      currencies {
+        ...currency
+      }
+      priceDescriptions {
+        label
+        value
+      }
+      addressDocuments {
+        label
+        value
+      }
+      engineMake {
+        label
+        value
+      }
+      apuMake {
+        label
+        value
+      }
+      propMake {
+        label
+        value
+      }
+      propType {
+        label
+        value
+      }
+      prop1OhYr {
+        label
+        value
+      }
+      prop1OhDue {
+        label
+        value
+      }
+      prop2OhYr {
+        label
+        value
+      }
+      prop2OhDue {
+        label
+        value
+      }
+      fms {
+        label
+        value
+      }
+      fmsN {
+        label
+        value
+      }
+      engMonitor {
+        label
+        value
+      }
+      gpsN {
+        label
+        value
+      }
+      gpsModel1 {
+        label
+        value
+      }
+      gpsModel2 {
+        label
+        value
+      }
+      autopilot {
+        label
+        value
+      }
+      autopilotN {
+        label
+        value
+      }
+      wxRadar {
+        label
+        value
+      }
+      transponderN {
+        label
+        value
+      }
+      transponder1 {
+        label
+        value
+      }
+      transponder2 {
+        label
+        value
+      }
+      vhfComN {
+        label
+        value
+      }
+      vhfComModel1 {
+        label
+        value
+      }
+      vhfComModel2 {
+        label
+        value
+      }
+      vhfNavN {
+        label
+        value
+      }
+      vhfNavModel1 {
+        label
+        value
+      }
+      vhfNavModel2 {
+        label
+        value
+      }
+      mtxTracking {
+        label
+        value
+      }
+      airframeProgram {
+        label
+        value
+      }
+      engineProgram {
+        label
+        value
+      }
+      apuProgram {
+        label
+        value
+      }
+      avionicsProgram {
+        label
+        value
+      }
+      mtxCondition {
+        label
+        value
+      }
+      annualDue {
+        label
+        value
+      }
+      cCheckDue {
+        label
+        value
+      }
+      lGearOhDue {
+        label
+        value
+      }
+      inspectionStatus {
+        label
+        value
+      }
+      warrantyAfYr {
+        label
+        value
+      }
+      warrantyEngYr {
+        label
+        value
+      }
+      warrantyAviYrType {
+        label
+        value
+      }
+      warrantyApuYr {
+        label
+        value
+      }
+      warrantyPropYr {
+        label
+        value
+      }
+      exteriorColor {
+        label
+        value
+      }
+      exteriorDetail {
+        label
+        value
+      }
+      exteriorYear {
+        label
+        value
+      }
+      interiorColor {
+        label
+        value
+      }
+      interiorFinish {
+        label
+        value
+      }
+      interiorYear {
+        label
+        value
+      }
+      galleyLocation {
+        label
+        value
+      }
+      lavLocation {
+        label
+        value
+      }
+      lavDescription {
+        label
+        value
+      }
+      wifiConnectivity {
+        label
+        value
+      }
+      floatModel {
+        label
+        value
+      }
+      propTboYrs {
+        label
+        value
+      }
+      aircraftFacility {
+        manufacturer
+        region
+        planeMro
+        website
+        city
+        state
+        country
+        contacts
+        address
+      } 
+    }
+  }
+}
+
+
+
+mutation getDeal($dealId: UUID!) {
+  getDeal(dealId: $dealId) {
+    runtimeError {
+      exception
+      message
+    }
+    fieldErrors {
+      field
+      message
+    }
+    deal {
+      ...deal
+    }
+  }
+}
+
+mutation getDealOverview($dealId: UUID!) {
+  getDeal(dealId: $dealId) {
+    runtimeError {
+      exception
+      message
+    }
+    fieldErrors {
+      field
+      message
+    }
+    deal {
+      ...dealOverviewData
+    }
+  }
+}
+
+
+
+
+mutation storeKyc($documents: [FileInputType], $kycInfoInput: KycInfoInput!, $kycInput: KycAndKybInput!, $userId: UUID! ) {
+  kyc(documents: $documents, kycInfoInput: $kycInfoInput, kycInput: $kycInput, userId: $userId) {
+    runtimeError {
+      exception
+      message
+    }
+    fieldErrors {
+      field
+      message
+    }
+    kyc {
+      type
+      moderationComment
+      clientComment
+      reviewAnswer
+      rejectLabels
+      reviewRejectType
+      reviewStatus
+      dateCreated
+    }
+  }
+}
+
+
+mutation updateFlags($flags: JSONString ) {
+  updateFlags(flags: $flags) {
+    runtimeError {
+      exception
+      message
+    }
+    fieldErrors {
+      field
+      message
+    }
+    profile {
+      ...profileFlags
+    }
+  }
+}
+
+
+mutation workspaceKycKyb {
+  myProfile {
+    runtimeError {
+      exception
+      message
+    }
+    profile {
+      id
+      currentWorkspace {
+        ...workspaceKyc
+      }
+    }
+  }
+}
+
+
+mutation setBankDetails($bankDetails: BankDetailsInput!) {
+  bankDetails(bankDetailsInput: $bankDetails) {
+    runtimeError {
+      exception
+      message
+    }
+    fieldErrors {
+      field
+      message
+    }
+    workspace {
+      ...workspaceBank
+    }
+    bankDetails {
+      ...bankDetails
+    }
+  }
+}
+
+
+mutation globalPrefs {
+  preferences {
+    systemPayment
+    platformDealFee
+  }
+}
+
+
+
+mutation rejectDeal($dealId: UUID!) {
+  rejectDealWithDeposit(dealId: $dealId) {
+    runtimeError {
+      exception
+      message
+    }
+    fieldErrors {
+      field
+      message
+    }
+    success
+    deal {
+      ...dealMain
+    }
+  }
+}
+
+
+mutation mailPaymentInstructions($currency: Int!) {
+  sendCurrencyRequisites(currency: $currency) {
+    runtimeError {
+      exception
+      message
+    }
+    fieldErrors {
+      field
+      message
+    }
+    success
+  }
+}
+
+
+mutation feeByAmount($amount: Decimal, $promocode: String) {
+  getFeeByAmount(amount: $amount, promocode: $promocode) {
+    runtimeError {
+      exception
+      message
+    }
+    fieldErrors {
+      field
+      message
+    }
+    feeAmount
+    promocodeSuccess
+    feePercent
+    isMin
+  }
+}
+
+
+mutation text2Pdf($text: String!) {
+  convertTextToPdf(text: $text) {
+    runtimeError {
+      exception
+      message
+    }
+    fieldErrors {
+      field
+      message
+    }
+    fileBase64
+  }
+}

@@ -1,0 +1,26 @@
+@import 'src/scss/variables.scss';
+
+.viewHide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+
+    &__img {
+        padding-top: 15vh;
+    }
+
+    &__title {
+        padding-top: 5vh;
+    }
+
+    &__link {
+        padding-top: 5vh;
+        
+    }
+
+    &__button {
+        padding-top: 10vh;
+    }
+}

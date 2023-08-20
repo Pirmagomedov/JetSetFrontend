@@ -1,0 +1,50 @@
+name: Deploy_to_Prod
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v3
+        with:
+          node-version: 14.x
+
+      - name: Build Project
+        run: |
+          printf "BACKEND_URL=${{ secrets.PROD_ENV_BACKEND_URL }}\n" >> .env
+          echo '{"stamp":"'$(date)'"}' > stamp.json
+          npm install
+          npm run generate
+          printf "\n<!""-- BUILD DATE: ""$(date)"" -->" >> ./src/index.html
+          npm run build
+        shell: bash
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ secrets.PROD_AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.PROD_AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.PROD_AWS_REGION }}
+
+      - name: Upload artifact to S3
+        run: aws s3 cp ./dist ${{ secrets.PROD_AWS_S3_LOCATION }} --recursive
+
+      - name: Invalidate CloudFront
+        uses: chetan/invalidate-cloudfront-action@v2
+        env:
+          DISTRIBUTION: ${{ secrets.PROD_CLOUDFRONT_DISTRIBUTION_ID }}
+          PATHS: "/* /**"
+          AWS_REGION: ${{ secrets.PROD_AWS_REGION }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.PROD_AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.PROD_AWS_SECRET_ACCESS_KEY }}

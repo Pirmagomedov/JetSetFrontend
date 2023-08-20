@@ -1,0 +1,63 @@
+mutation createDraft($mainInformation: MainInformationInputType!) {
+  createDraft(mainInformation: $mainInformation) {
+    runtimeError {
+      exception
+      message
+    }
+    fieldErrors {
+      field
+      message
+    }
+    draft {
+      id
+    }
+  }
+}
+
+
+mutation editDraft($aircraftApu: AircraftApuInput, $aircraftAvionics: AircraftAvionicsFormInput, $aircraftDocuments: AircraftDocumentsInputType, $aircraftEngine: AircraftEngineFormInput, $aircraftExterior: AircraftExteriorCabinFormInput, $aircraftLocation: AircraftLocationInputType, $aircraftMaintenance: AircraftMaintenanceFormInput, $aircraftPropeller: AircraftPropellerFormInput, $aircraftSummary: AircraftSummaryInputType, $aircraftWeights: AircraftWeightsOtherFormInput, $currentStep: Int!, $deliveryConditions: DeliveryConditionsInputType, $draftId: UUID!, $inspectionConditions: InspectionConditionsInputType, $mainInformation: MainInformationInputType, $termsOfPayment: TermsOfPaymentInputType, $timeConditions: TimeConditionsInputType) {
+  editDraft(
+    aircraftApu: $aircraftApu
+    aircraftAvionics: $aircraftAvionics
+    aircraftDocuments: $aircraftDocuments
+    aircraftEngine: $aircraftEngine
+    aircraftExterior: $aircraftExterior
+    aircraftLocation: $aircraftLocation
+    aircraftMaintenance: $aircraftMaintenance
+    aircraftPropeller: $aircraftPropeller
+    aircraftSummary: $aircraftSummary
+    aircraftWeights: $aircraftWeights
+    currentStep: $currentStep
+    deliveryConditions: $deliveryConditions
+    draftId: $draftId
+    inspectionConditions: $inspectionConditions
+    mainInformation: $mainInformation
+    termsOfPayment: $termsOfPayment
+    timeConditions: $timeConditions
+  ) {
+    runtimeError {
+      exception
+      message
+    }
+    fieldErrors {
+      field
+      message
+    }
+    draft {
+      id
+    }
+  }
+}
+
+
+mutation saveAd($draftId: UUID) {
+  saveAd(draftId: $draftId) {
+    runtimeError {
+      exception
+      message
+    }
+    ad {
+      ...ad
+    }
+  }
+}

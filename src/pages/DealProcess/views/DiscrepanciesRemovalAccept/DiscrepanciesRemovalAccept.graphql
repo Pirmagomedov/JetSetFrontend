@@ -1,0 +1,13 @@
+mutation discrepanciesRemoval($dealId: UUID!, $discrepanciesRemovalIds: [UUID], $discrepanciesComments: String) {
+      discrepanciesRemoval(dealId: $dealId, discrepanciesRemovalIds: $discrepanciesRemovalIds, discrepanciesComments: $discrepanciesComments) {
+    runtimeError {
+      exception
+      message
+    }
+    fieldErrors {
+      field
+      message
+    }
+    success
+  }
+}

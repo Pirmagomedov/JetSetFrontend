@@ -1,0 +1,30 @@
+mutation getDealStatus($dealId: UUID!) {
+  getDeal(dealId: $dealId) {
+    runtimeError {
+      exception
+      message
+    }
+    fieldErrors {
+      field
+      message
+    }
+    deal {
+      ...dealStatus
+    }
+  }
+}
+
+
+mutation cancelNegotiation($dealId: UUID!) {
+  cancelNegotiation(dealId: $dealId) {
+    runtimeError {
+      exception
+      message
+    }
+    fieldErrors {
+      field
+      message
+    }
+    success
+  }
+}

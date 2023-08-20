@@ -1,0 +1,109 @@
+@import 'src/scss/variables.scss';
+
+
+.terms {
+  &__table {
+    width: 100%;
+
+    .sticky {
+      z-index: 200;
+    }
+
+    .conditions-card {
+      &__item {
+        vertical-align: middle;
+        padding: 0.5em 0.5em;
+
+        &:last-child {
+          text-align: center;
+          width: 10em;
+        }
+
+        &:nth-child(2) {
+          white-space: nowrap;
+        }
+      }
+    }
+  }
+
+  &__thead {
+    background-color: $bluish;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: $v2gap;
+    width: 100%;
+  }
+
+  &__tbody {
+    display: grid;
+    row-gap: $v2gap;
+  }
+
+  &__th {
+    vertical-align: middle;
+    text-align: center;
+    padding: $v2halfLineHeight $v2halfGap;
+    font-weight: bold;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    row-gap: $v2halfGap;
+    width: 100%;
+
+    padding: $v2gap;
+    margin-top: $v2gap;
+
+    border: 1px solid $v2ctlBorder;
+    border-radius: $v2borderRadius;
+
+    @media only screen and (min-width: $desktop) {
+      width: 52%;
+      padding: $v2gap;
+    }
+
+    &-footer {
+      display: grid;
+      align-items: center;
+      grid-gap: $v2halfGap;
+
+
+      @media only screen and (min-width: $smallTablet) {
+        grid-template-columns: repeat(2, auto);
+        grid-gap: $v2gap;
+      }
+    }
+
+    &__table {
+      display: grid;
+      row-gap: $v2halfGap;
+
+      &-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        padding: 0 $v2gap;
+
+        @media only screen and (min-width: $desktop) {
+          grid-template-columns: 2fr 3fr;
+        }
+
+        >div {}
+      }
+    }
+  }
+
+
+}
+
+
+
+
+
+
+.sticky .terms__thead {
+  transform: translateY(4em);
+  position: relative;
+  z-index: 600;
+  box-shadow: 0 0 1em rgba(0, 0, 0, 0.2);
+}

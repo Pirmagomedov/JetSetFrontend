@@ -1,0 +1,113 @@
+query getUserNfts {
+  getNfts {
+    runtimeError {
+      exception
+      message
+    }
+    myNfts{
+      ...nftFull
+    }
+    reservedNfts{
+      ...nftFull
+    }
+  }
+}
+
+query userAssets {
+  getWorkspaceAssets {
+    runtimeError {
+      exception message
+    }
+    systemAssets {
+      ...fiatAsset
+    }
+    fireblocksAssets {
+      ...fireblocksAssetAccount
+    }
+  }
+}
+
+
+fragment dealAssetsSet on DealType {
+  id
+  status
+  seller {
+    id
+  }
+  fireblocksAccount {
+    ...fireblocksProfile
+  }
+  fiatAccount {
+    id 
+    fiatAssets {
+      ...fiatAssetMain
+    }
+  }
+}
+
+mutation dealAssets($offset: Int, $before: String, $after: String, $first: Int, $last: Int, $status: AppDealStatusChoices, $newFirst: Boolean, $isActive: Boolean) {
+  myDeals {
+    runtimeError {
+      exception
+      message
+    }
+    fieldErrors {
+      field
+      message
+    }
+    deals(
+      offset: $offset
+      before: $before
+      after: $after
+      first: $first
+      last: $last
+      status: $status
+      newFirst: $newFirst
+      isActive: $isActive
+    ) {
+      edges {
+        node {
+          ...dealAssetsSet
+        }
+        cursor
+      }
+    }
+  }
+}
+
+
+
+mutation addFiats($amount: Decimal!, $currency: Int!) {
+  depositFiatAsset(amount: $amount, currency: $currency) {
+    runtimeError {
+      exception
+      message
+    }
+    fieldErrors {
+      field
+      message
+    }
+    success
+    workspace {
+      ...workspaceVault
+    }
+  }
+}
+
+
+mutation removeFiats($amount: Decimal!, $currency: Int!) {
+  withdrawFiatAsset(amount: $amount, currency: $currency) {
+    runtimeError {
+      exception
+      message
+    }
+    fieldErrors {
+      field
+      message
+    }
+    success
+    workspace {
+      ...workspaceVault
+    }
+  }
+}

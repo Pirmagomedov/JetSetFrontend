@@ -1,0 +1,138 @@
+@import 'src/scss/variables.scss';
+
+.filters {
+    background: #f3f7ff;
+    border-radius: $v2borderRadius;
+    padding: 0 22px 30px;
+
+    &__items {
+        margin-bottom: 36px;
+    }
+
+    &__select {
+        margin-bottom: 19px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &__buttons {
+        display: flex;
+        justify-content: center;
+
+        @media only screen and (max-width: 1300px) {
+            justify-content: flex-start;
+        }
+
+        .btn {
+            width: 128px;
+            margin-right: 20px;
+
+            @media only screen and (max-width: 1300px) {
+                width: 104px;
+                margin-right: 14px;
+            }
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+}
+
+/* Range slider */
+
+.range-slider {
+    &__slider {
+        height: 10px;
+        border-radius: 90px;
+        background-color: #e2e6fc;
+    }
+
+    &__track {
+        height: 100%;
+        border-radius: inherit;
+        background-color: #7ca1ff;
+
+        &-1 {
+            background-color: transparent;
+        }
+    }
+
+    &__thumb {
+        top: 50%;
+        transform: translateY(-50%);
+        width: 30px;
+        height: 30px;
+        border-radius: $v2borderRound;
+        background-color: #adb9f9;
+        transition: background-color 400ms;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            border-radius: $v2borderRound;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            bottom: 5px;
+            left: 5px;
+            width: 19px;
+            height: 19px;
+            border-radius: inherit;
+            background-color: $blue;
+        }
+
+        &:active {
+            background-color: #fff;
+
+            &:before {
+                animation: pulse 0.3s linear;
+            }
+        }
+    }
+
+    &__fields {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 55px;
+        margin-top: 40px;
+        padding-right: 26px;
+        padding-left: 29px;
+        border: 1px solid #adb9f9;
+        border-radius: 60px;
+        background-color: #ffffff;
+    }
+
+    &__divider {
+        flex-shrink: 0;
+        width: 40px;
+        text-align: center;
+    }
+
+    &__input {
+        input {
+            border: 0;
+        }
+    }
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0px 0px 0px 0px rgba(#f8364e, 0.1);
+    }
+    100% {
+        box-shadow: 0px 0px 3px 15px rgba(#f8364e, 0.1);
+    }
+}

@@ -1,0 +1,497 @@
+@import '/src/scss/variables.scss';
+
+.deal-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: $v2borderRadius;
+  background-color: $v2area;
+  padding: 0.75rem 0.75rem 1.5rem 0.75rem;
+  row-gap: $v2halfGap;
+  border: 1px solid $v2hline;
+
+  @media only screen and (min-width: $smallTablet) {
+    padding: 0.75rem;
+    row-gap: 0;
+  }
+
+  &__docs {
+    display: flex;
+    flex-direction: column;
+    row-gap: $v2halfGap;
+
+    &-wrapper {
+      display: grid;
+      grid-area: docs;
+      grid-template-columns: 1fr;
+      row-gap: $v2gap;
+
+      @media only screen and (min-width: $smallTablet) {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    column-gap: $v2halfGap;
+    cursor: pointer;
+    justify-content: center;
+
+    @media only screen and (min-width: $smallTablet) {
+      justify-content: initial;
+    }
+  }
+
+  &__icon {
+
+    @keyframes rotateIconOpen {
+      0% {
+        transform: rotate(180deg);
+      }
+
+      100% {
+        transform: rotate(0deg);
+      }
+    }
+
+    &-open {
+      transition: .5s;
+      animation: rotateIconOpen .5s forwards;
+    }
+
+    @keyframes rotateIconClose {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(180deg);
+      }
+    }
+
+    &-closed {
+      transition: .5s;
+      animation: rotateIconClose .5s forwards;
+    }
+  }
+
+  &__actions {
+    grid-area: actions;
+    display: flex;
+    grid-gap: 0.75rem;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+
+    @media only screen and (min-width: $largeTablet) {
+      flex-direction: row;
+    }
+
+    @media only screen and (min-width: $largeTablet) {
+      justify-content: flex-end;
+    }
+
+    & > * {
+      display: grid;
+      grid-gap: $v2halfGap;
+      
+      @media only screen and (min-width: $largeTablet) {
+        display: flex;
+      }
+    }
+
+
+    &--dropdown {
+      display: grid;
+      & > * {
+        width: 100%;
+      }
+    }
+  }
+
+  &__message {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    column-gap: $v2halfGap;
+    font-size: $v2fontSmall;
+    line-height: 22px;
+
+    svg {
+      vertical-align: middle;
+      margin-right: $v2halfGap;
+    }
+
+    &--text {
+      padding-top: $v2halfGap;
+    }
+  }
+
+  &__userSide {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+  }
+
+  &__mobileHeader {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+  }
+
+  &__docsHeader {
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 1em;
+    gap: 1em;
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__docsHeaderTitle {
+    font-size: 1.125rem;
+    font-weight: bold;
+  }
+
+  &__docsSelected {
+    transform: rotate(180deg);
+  }
+
+  &__deposit {
+    font-size: $v2fontSmall;
+    margin-top: $v2halfGap;
+
+    span {
+      font-size: 0.75em;
+      font-weight: bold;
+    }
+
+    &-amount {
+      font-size: $v2fontSmall !important;
+      font-weight: bold;
+    }
+  }
+
+  &__image {
+    position: relative;
+    flex-shrink: 0;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: $v2borderRadius $v2borderRadius 0 0;
+
+    @media only screen and (min-width: $largeTablet) {
+      border-radius: $v2borderRadius 0 $v2borderRadius 0;
+      width: 16rem;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  &__avatar {
+    position: absolute;
+    z-index: 99;
+    bottom: $v2halfGap;
+    left: $v2halfGap;
+    display: flex;
+    align-items: center;
+    min-width: 12em;
+    max-width: 91%;
+    border-radius: $v2borderRadius;
+    background-color: #f3f7ff;
+    padding: 0.5em;
+    font-weight: bold;
+    font-size: $v2fontSmall;
+
+    .avatar {
+      &__photo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        width: 2em;
+        height: 2em;
+        margin-right: 0.75em;
+        border-radius: 0.25em;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+          border-radius: inherit;
+        }
+      }
+    }
+  }
+
+  &__wrapper {
+    display: grid;
+    position: relative;
+    grid-template-columns: 1fr;
+    row-gap: $v2halfGap;
+
+    @media only screen and (min-width: $largeTablet) {
+      grid-template-columns: auto 1fr;
+      column-gap: $v2gap;
+    }
+  }
+
+
+  &__body {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 0.75rem;
+
+    @media only screen and (min-width: $smallTablet) {
+      grid-template-columns: 1fr 12rem;
+    }
+  }
+
+  &__closed {
+    grid-template-columns: auto;
+  }
+
+  &__content {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    row-gap: $v2gap;
+
+    @media only screen and (min-width: $smallTablet) {
+      row-gap: 0;
+    }
+  }
+
+  &__title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &__main {
+      display: grid;
+      align-items: center;
+      grid-template-columns: auto 1fr;
+      column-gap: $v2halfGap;
+    }
+
+    &__state {
+      font-weight: bold;
+      font-size: $v2fontBig;
+      display: flex;
+      align-items: center;
+      grid-gap: .5rem;
+    }
+  }
+
+  &__ad-title {
+    gap: $v2halfGap;
+    font-weight: lighter;
+
+    @media only screen and (min-width: $smallTablet) {
+      font-size: $v2fontBig;
+      font-weight: bold;
+    }
+  }
+
+  &__label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 5.5em;
+    text-align: center;
+    line-height: 2em;
+    border-radius: $v2borderRadius;
+    text-transform: uppercase;
+    color: $primary;
+    border: 1px solid $primary;
+
+    &--sell {
+      color: $red-dark;
+      border: 1px solid $red-dark;
+    }
+  }
+
+  &__type {
+    margin-bottom: 6px;
+    font-size: 14px;
+    line-height: 1.2;
+  }
+
+  &__year {
+    margin-bottom: 14px;
+    font-size: 14px;
+    line-height: 1.2;
+  }
+
+  &__price {
+    color: $v2price;
+    font-weight: bold;
+    font-size: $v2priceSize;
+    line-height: 1.2;
+  }
+
+  &__info {
+    row-gap: $v2halfGap;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__status {
+    display: flex;
+    align-items: center;
+    margin-bottom: 42px;
+
+    &-label {
+      margin-right: 7px;
+      font-size: 14px;
+      line-height: 1.2;
+    }
+
+    &-text {
+      color: $grey;
+      font-weight: 700;
+
+      &--rejected {
+        color: $red-dark;
+      }
+    }
+  }
+
+  &__btn {
+    width: 100%;
+
+    @media only screen and (min-width: $smallTablet) {
+      width: 12rem;
+      height: 2.5rem;
+    }
+  }
+
+  &__time {
+    text-align: center;
+    font-size: .85rem;
+    order: 1;
+
+    @media only screen and (min-width: $smallTablet) {
+      text-align: right;
+    }
+
+    &--overdue {
+      color: $red-dark;
+    }
+  }
+
+  &__progress {
+    position: relative;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 34px 0 17px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      top: 50%;
+      right: 0;
+      left: 0;
+      transform: translateY(-50%);
+      height: 4px;
+      background-color: $blue-dark;
+    }
+  }
+
+  &__step {
+    width: 15px;
+    height: 15px;
+    margin-right: 37px;
+    border: 4px solid #002ccb;
+    border-radius: $v2borderRound;
+    background-color: #fff;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &--completed {
+      background-color: $blue-dark;
+    }
+  }
+
+  &__link {
+    font-weight: bold;
+    font-size: $v2fontSmall;
+    line-height: 1.2;
+  }
+
+  &__details {
+    display: flex;
+    grid-gap: $v2gap;
+    position: relative;
+
+    @media only screen and (min-width: $smallTablet) {
+      border-top: 1px solid #e1e0e0;
+      padding-top: $v2halfGap;
+      margin-top: $v2halfGap;
+      justify-content: center;
+    }
+
+    @media only screen and (min-width: $largeTablet) {
+      justify-content: flex-end;
+    }
+  }
+
+  &__dealBtn {
+    order: 2;
+    display: flex;
+
+    @media only screen and (min-width: $smallTablet) {
+      justify-content: flex-end;
+    }
+  }
+
+  &__docs-wrapper {
+
+    &-open {
+      justify-content: center;
+      display: grid;
+      row-gap: $v2gap;
+
+      @media only screen and (min-width: $smallTablet) {
+        display: block;
+        justify-content: initial;
+      }
+    }
+
+    &-closed {
+      max-height: 0px;
+      overflow: hidden;
+    }
+  }
+}
+
+.deal-card__actions--dropped {
+  display: grid;
+
+  .btn {
+    border-radius: 0;
+    background: transparent;
+    border-top: none;
+    
+    &:last-child {
+      border-radius: 0 0 $v2borderRadius $v2borderRadius;
+    }
+
+    //   &:hover {
+    // background: #ddd;
+    //   }
+  }
+}
+
+.btn.deal-card__btn--open {
+  border-radius: $v2borderRadius $v2borderRadius 0 0;
+}

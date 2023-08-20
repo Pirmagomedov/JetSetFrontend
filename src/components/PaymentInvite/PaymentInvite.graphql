@@ -1,0 +1,16 @@
+mutation createDeal($adId: UUID!) {
+  createDeal(adId: $adId) {
+    runtimeError {
+      exception
+      message
+    }
+    fieldErrors {
+      field
+      message
+    }
+    deal {
+      id
+      dateCreated
+    }
+  }
+}

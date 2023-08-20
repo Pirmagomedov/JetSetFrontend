@@ -1,0 +1,111 @@
+
+mutation myAds($offset: Int, $before: String, $after: String, $first: Int, $last: Int, $status: Int, $newFirst: Boolean) {
+  myAds {
+    runtimeError {
+      exception
+      message
+    }
+    ads(
+      offset: $offset
+      before: $before
+      after: $after
+      first: $first
+      last: $last
+      status: $status
+      newFirst: $newFirst
+    ) {
+      pageInfo {
+        ...pageInfoType
+      }
+      edges {
+        node {
+          ...adCard
+        }
+        cursor
+      }
+    }
+  }
+}
+
+
+mutation myFavorites($offset: Int, $before: String, $after: String, $first: Int, $last: Int, $status: Int, $newFirst: Boolean) {
+  myFavorites {
+    runtimeError {
+      exception
+      message
+    }
+    fieldErrors {
+      field
+      message
+    }
+    favorites(
+      offset: $offset
+      before: $before
+      after: $after
+      first: $first
+      last: $last
+      status: $status
+      newFirst: $newFirst
+    ) {
+      pageInfo {
+        ...pageInfoType
+      }
+      edges {
+        node {
+          ...adCard
+        }
+        cursor
+      }
+    }
+  }
+}
+
+mutation deleteAd($adId: UUID) {
+  deleteAd(adId: $adId) {
+    runtimeError {
+      exception
+      message
+    }
+    fieldErrors {
+      field
+      message
+    }
+    profile {
+      id
+    }
+  }
+}
+
+
+mutation myDeals($offset: Int, $before: String, $after: String, $first: Int, $last: Int, $status: AppDealStatusChoices, $newFirst: Boolean, $isActive: Boolean) {
+    myDeals {
+      runtimeError {
+        exception
+        message
+      }
+      fieldErrors {
+        field
+        message
+      }
+      deals(
+        offset: $offset
+        before: $before
+        after: $after
+        first: $first
+        last: $last
+        status: $status
+        newFirst: $newFirst
+        isActive: $isActive
+      ) {
+        pageInfo {
+          ...pageInfoType
+        }
+        edges {
+          node {
+            ...deal
+          }
+          cursor
+        }
+      }
+    }
+  }

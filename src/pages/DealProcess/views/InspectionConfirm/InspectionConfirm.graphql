@@ -1,0 +1,13 @@
+mutation prePurchase($aircraftDelivered: Boolean, $dealId: UUID, $inspectionCompleted: Boolean, $prePurchaseDetails: PrePurchaseDetailsInput) {
+  prePurchase(aircraftDelivered: $aircraftDelivered, dealId: $dealId, inspectionCompleted: $inspectionCompleted, prePurchaseDetails: $prePurchaseDetails) {
+    runtimeError {
+      exception
+      message
+    }
+    fieldErrors {
+      field
+      message
+    }
+    success
+  }
+}

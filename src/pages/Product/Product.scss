@@ -1,0 +1,576 @@
+@import 'src/scss/variables.scss';
+
+.product {
+    padding-bottom: 0;
+
+    @media only screen and (min-width: $smallTablet) {
+        padding-bottom: 4.5em;
+    }
+
+    .price-tag {
+        grid-area: price;
+        font-size: 1.5em;
+
+        &__vat {
+            font-size: 1rem;
+        }
+    }
+
+    &__reservation {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        align-items: center;
+    }
+
+    &__publicView {
+        display: grid;
+        grid-template-columns: auto auto;
+        justify-content: space-between;
+        margin-bottom: $v2halfGap;
+    }
+
+    &__button {
+        @media only screen and (min-width: $largeTablet) {
+            // height: 1.8em;
+            min-width: auto;
+        }
+
+        &__chat {
+            @media only screen and (min-width: $largeTablet) {
+                display: none;
+            }
+        }
+    }
+
+    &__inner {
+        display: flex;
+        flex-direction: column;
+
+
+
+        &>div {
+            padding: $v2halfGap 0;
+            border-bottom: 1px solid $v2hline;
+
+            &:first-child {
+                padding: 0;
+                border: none;
+            }
+
+            &:nth-child(2) {
+                border: none;
+                padding-bottom: 0;
+            }
+
+            &:last-child {
+                padding-bottom: 0;
+                border: none;
+            }
+        }
+
+        @media only screen and (min-width: $desktop) {
+            display: grid;
+            grid-template-columns: calc(67.5% - $v2gap) 32.5%;
+            column-gap: 1.5rem;
+        }
+
+        &__left-container {
+            display: flex;
+            flex-direction: column;
+            grid-gap: $v2halfGap;
+        }
+
+        &__right-container {
+            display: flex;
+            flex-direction: column;
+
+            &>div {
+                padding: $v2halfGap 0;
+                border-bottom: 1px solid $v2hline;
+
+                &:first-child {
+                    padding: 0;
+                    border: none;
+                }
+
+                &:last-child {
+                    border: none;
+                }
+            }
+        }
+    }
+
+    &-gallery {
+        //display: grid;
+        grid-area: gallery;
+        // grid-template-rows: 5fr 1fr;
+    }
+
+    &-owner {
+        padding: $v2halfGap 0;
+    }
+
+    &__headline {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        align-items: center;
+        justify-content: space-between;
+        grid-gap: $v2gap $v2gap;
+        margin-bottom: $v2gap;
+    }
+
+    &__block {
+        display: grid;
+        grid-template-columns: 2.7fr 4.1fr 288px;
+        align-items: center;
+        column-gap: $v2gap;
+        margin-bottom: $v2gap;
+        padding: $v2halfGap 0 $v2halfGap;
+        border-top: 1px solid $v2hline;
+        border-bottom: 1px solid $v2hline;
+    }
+
+    &__blurry-text {
+        color: transparent;
+        user-select: none;
+        text-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    }
+
+    &__headdoc {
+        display: flex;
+        flex-direction: row;
+        gap: $v2gap;
+        margin-bottom: $v2gap;
+    }
+
+    &__name {
+        grid-area: name;
+        font-size: 1.5em;
+        font-weight: bold;
+        color: $v2header;
+        line-height: 1;
+        // margin-bottom: 0.5em;
+
+        @media only screen and (min-width: $desktop) {
+            margin-bottom: 0;
+            // font-size: 30px;
+        }
+
+        // @media only screen and (max-width: 1500px) {
+
+        // }
+
+        // @media only screen and (max-width: 1300px) {
+        //     font-size: 30px;
+        // }
+    }
+
+    &__type {
+        grid-area: type;
+    }
+
+    &__info {
+        grid-area: info;
+
+        &-items {
+            display: grid;
+            grid-template-columns: repeat(3, auto);
+            row-gap: $v2halfGap;
+
+            @media only screen and (min-width: $smallTablet) {
+                column-gap: $v2gap;
+            }
+
+            @media only screen and (min-width: $desktop) {
+                grid-gap: $v2halfGap;
+            }
+        }
+
+        &-item {
+            display: grid;
+            // grid-template-columns: 1fr 1fr;
+            grid-template-columns: auto 1fr;
+            column-gap: $v2gap;
+
+            @media only screen and (min-width: $smallTablet) {}
+        }
+
+        &-label {
+            margin-bottom: 0;
+            font-size: $v2fontSmall;
+        }
+
+        &-value {
+            font-size: $v2fontSmall;
+        }
+
+        &-footer {
+            grid-area: footer;
+        }
+    }
+
+    &__docs {
+        display: grid;
+        row-gap: $v2halfGap;
+    }
+
+    &__sm-link {
+        font-size: $v2fontSmall;
+        text-decoration: underline;
+        cursor: pointer;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+
+    &__price {
+        font-weight: bold;
+        text-transform: uppercase;
+        font-size: 24px;
+        padding-bottom: 0.5em;
+        border-bottom: 1px solid $v2hline;
+        margin-bottom: $v2gap;
+
+        &-usd {
+            font-size: 0.75em;
+        }
+
+        @media only screen and (min-width: $desktop) {
+            font-size: 32px;
+        }
+
+        @media only screen and (min-width: $largeTablet) {
+            font-size: 36px;
+        }
+
+
+    }
+
+    &__nft-info {
+        grid-area: nft;
+        display: grid;
+        row-gap: $v2halfGap;
+    }
+
+    &__sm-title {
+        font-size: $v2fontSmall;
+        color: $v2header;
+    }
+
+    &__nft {
+        margin: 0.75em 0 $v2halfGap 0;
+        font-size: $v2fontSmall;
+
+        @media only screen and (min-width: $desktop) {
+            margin: 0;
+        }
+    }
+
+    &__nft-deposit {
+        font-size: 1.5em;
+        margin: 0.25em 0;
+        font-weight: bold;
+        color: $v2price;
+    }
+
+    &__options {
+        display: flex;
+        align-items: center;
+        margin-top: $v2gap;
+        margin-bottom: $v2gap;
+        box-sizing: border-box;
+
+        @media only screen and (max-width: 1500px) {
+            margin-top: 17px;
+        }
+
+        @media only screen and (max-width: 1300px) {
+            margin-top: 0;
+            padding-right: 0;
+        }
+
+        @media only screen and (max-width: 991px) {
+            position: absolute;
+            padding: 0.25em;
+            width: 100%;
+        }
+    }
+
+    &__option {
+        display: flex;
+        align-items: center;
+        flex-grow: 2;
+        border: 0;
+        background-color: transparent;
+        font-size: $v2fontSmall;
+        cursor: pointer;
+        transition: color 300ms;
+
+        @media only screen and (max-width: 1500px) {
+            font-size: 12px;
+        }
+
+        @media only screen and (max-width: 1300px) {
+            font-size: 14px;
+        }
+
+        @media only screen and (max-width: 991px) {
+            font-size: 12px;
+            flex-grow: 20;
+        }
+
+        &:hover {
+            color: $red;
+
+            svg {
+                fill: $red;
+            }
+        }
+
+        &--active,
+        &:active {
+            color: $blue;
+
+            svg {
+                fill: $blue;
+            }
+        }
+
+        &:last-child {
+            flex-grow: 1;
+        }
+
+        &-icon {
+            flex-shrink: 0;
+            width: $v2lineHeight;
+            height: $v2lineHeight;
+            margin-right: 0.5em;
+            fill: $v2actionIcon;
+            transition: fill 300ms;
+
+            @media only screen and (max-width: 1500px) {
+                width: 20px;
+                height: 20px;
+                margin-right: 10px;
+            }
+
+            @media only screen and (max-width: 1300px) {
+                width: 30px;
+                height: 30px;
+                margin-right: 14px;
+            }
+
+            @media only screen and (max-width: 991px) {
+                width: 18px;
+                height: 18px;
+                margin-right: 10px;
+                fill: none;
+                stroke: $v2actionIcon;
+                stroke-width: 1px;
+                stroke-linejoin: round;
+            }
+        }
+
+        &-text {
+            @media only screen and (max-width: 991px) {
+                display: none;
+            }
+        }
+    }
+
+    &__buttons {
+        grid-area: buttons;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: $v2halfGap;
+        row-gap: $v2halfGap;
+    }
+
+    &__items {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: $v2halfGap;
+
+
+        @media only screen and (min-width: $smallTablet) {
+            grid-template-columns: repeat((3, 1fr));
+            grid-gap: $v2gap;
+        }
+    }
+
+    &__item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-radius: $v2ctlBorder;
+        line-height: 1.1;
+        font-size: $v2fontSmall;
+        padding: calc($v2halfGap / 2);
+
+        @media only screen and (min-width: $desktop) {
+            padding: $v2halfGap;
+            border-bottom: 1px solid $v2hline;
+        }
+
+        &-label {
+            color: $v2black;
+            margin-right: $v2halfGap;
+        }
+
+        &-value {
+            text-align: right;
+        }
+    }
+
+    &__tabs {
+        grid-area: tabs;
+
+        .react-tabs {
+            &__tab-list {
+                position: relative;
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: $v2gap;
+                border-bottom: 3px solid $v2inactive;
+                color: $grey;
+
+                @media only screen and (max-width: 767px) {
+                    justify-content: flex-start;
+                    // width: calc(100vw - 40px);
+                    overflow-x: auto;
+                    border-bottom: 0;
+                }
+
+                &::-webkit-scrollbar {
+                    display: none;
+                    width: 0;
+                    height: 0;
+                }
+
+                &::-webkit-scrollbar-track {
+                    display: none;
+                }
+            }
+
+            &__tab {
+                flex-grow: 1;
+                position: relative;
+                padding: 0 $v2halfGap $v2halfGap;
+                cursor: pointer;
+                transition: color 300ms;
+                text-align: center;
+
+                @media only screen and (max-width: 1500px) {
+                    font-size: 16px;
+                }
+
+                @media only screen and (max-width: 991px) {
+                    display: flex;
+                    flex-shrink: 0;
+                }
+
+                @media only screen and (max-width: 767px) {
+                    justify-content: center;
+                    flex-shrink: 1;
+                    width: 100%;
+                    border-bottom: 4px solid #e2e6fc;
+                    white-space: nowrap;
+                    text-align: center;
+                }
+
+                &:hover {
+                    color: $primary;
+                }
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    right: 0;
+                    bottom: -4px;
+                    left: 0;
+                    height: 5px;
+                    border-radius: 1em;
+                    background-color: $primary;
+                    opacity: 0;
+                    transition: opacity 300ms;
+
+                    @media only screen and (max-width: 767px) {
+                        bottom: -4px;
+                    }
+                }
+
+                &.react-tabs__tab--selected {
+                    color: $primary;
+
+                    &::after {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+
+    &__description {
+        text-align: justify;
+        grid-area: description;
+    }
+}
+
+/* Product Add */
+
+.product-add {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 20em;
+    border-radius: $v2borderRadius;
+    background-color: $v2area;
+    cursor: pointer;
+    min-height: 249px;
+    order: 1;
+
+    @media only screen and (min-width: $smallTablet) {
+        order: initial;
+        min-height: 300px;
+    }
+
+    @media only screen and (min-width: $desktop) {
+        min-height: 340px;
+    }
+
+    &:hover svg {
+        fill: $v2inactiveHover;
+    }
+
+    &__icon {
+        width: 63px;
+        height: 63px;
+        fill: $v2inactive;
+        transition: fill 300ms;
+
+        @media only screen and (min-width: $smallTablet) {
+            width: 89px;
+            height: 89px;
+        }
+
+        @media only screen and (max-width: $desktop) {
+            width: 4.5em;
+            height: 4.5em;
+        }
+    }
+}
+
+.letter__text {
+    margin-bottom: $v2lineHeight;
+}
+
+
+.deal-card__docs-wrapper-open {
+    display: grid;
+    row-gap: $v2halfGap;
+
+    @media only screen and (min-width: $desktop) {
+        row-gap: 0;
+    }
+}

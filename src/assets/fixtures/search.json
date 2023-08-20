@@ -1,0 +1,57 @@
+[
+  {
+    "id": "0",
+    "image": "assets/images/product.png",
+    "title": "Cessna Turbo R182RG Skylane",
+    "type": "Piston Single Aircraft",
+    "year": "1979",
+    "price": "10000000",
+    "options": ["ADS-B Compliant", "HUD", "Fwd Lavatory", "Convection Oven", "Fwd Galley"]
+  },
+  {
+    "id": "1",
+    "image": "assets/images/product.png",
+    "title": "Cessna Turbo R182RG Skylane",
+    "type": "Piston Single Aircraft",
+    "year": "1979",
+    "price": "10000000",
+    "options": ["ADS-B Compliant", "HUD", "Fwd Lavatory", "Convection Oven", "Fwd Galley"]
+    
+  },
+  {
+    "id": "2",
+    "image": "assets/images/product.png",
+    "title": "Cessna Turbo R182RG Skylane",
+    "type": "Piston Single Aircraft",
+    "year": "1979",
+    "price": "10000000",
+    "options": ["ADS-B Compliant", "HUD", "Fwd Lavatory", "Convection Oven", "Fwd Galley"]
+  },
+  {
+    "id": "3",
+    "image": "assets/images/product.png",
+    "title": "Cessna Turbo R182RG Skylane",
+    "type": "Piston Single Aircraft",
+    "year": "1979",
+    "price": "10000000",
+    "options": ["ADS-B Compliant", "HUD", "Fwd Lavatory", "Convection Oven", "Fwd Galley"]
+  },
+  {
+    "id": "4",
+    "image": "assets/images/product.png",
+    "title": "Cessna Turbo R182RG Skylane",
+    "type": "Piston Single Aircraft",
+    "year": "1979",
+    "price": "10000000",
+    "options": ["ADS-B Compliant", "HUD", "Fwd Lavatory", "Convection Oven", "Fwd Galley"]
+  },
+  {
+    "id": "5",
+    "image": "assets/images/product.png",
+    "title": "Cessna Turbo R182RG Skylane",
+    "type": "Piston Single Aircraft",
+    "year": "1979",
+    "price": "10000000",
+    "options": ["ADS-B Compliant", "HUD", "Fwd Lavatory", "Convection Oven", "Fwd Galley"]
+  }
+]

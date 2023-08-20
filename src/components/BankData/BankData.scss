@@ -1,0 +1,51 @@
+@import 'src/scss/variables.scss';
+
+.payment__bank {
+    text-align: left;
+    color: #555;
+    font-weight: 600;
+    display: table;
+    position: relative;
+    width: 100%;
+
+    &--copy {
+        position: absolute;
+        right: 0;
+        top: 0;
+        cursor: pointer;
+
+        &.copied::after {
+            display: block;
+            content: 'copied';
+            background: #fff;
+            font-weight: 400;
+            color: $silver;
+            right: 0;
+            top: 0;
+            position: absolute;
+            height: 100%;
+        }
+    }
+
+    &--row {
+        display: table-row;
+
+        >span {
+            display: table-cell;
+
+            &:first-child {
+                padding-right: 1.5rem;
+                font-weight: bold;
+                white-space: nowrap;
+            }
+
+            &:last-child {
+                padding-right: 1.5rem;
+            }
+        }
+    }
+
+    span {
+        font-weight: normal;
+    }
+}

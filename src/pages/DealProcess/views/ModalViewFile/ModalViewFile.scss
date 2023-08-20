@@ -1,0 +1,15 @@
+.modal.modal-view-file {
+  max-width: 700px;
+  background: transparent;
+  border-radius: 0;
+  padding: 0;
+
+  .modal-view-file {
+    &__close {
+      position: absolute;
+      top: 0;
+      left: 100%;
+      margin-left: 10px;
+    }
+  }
+}

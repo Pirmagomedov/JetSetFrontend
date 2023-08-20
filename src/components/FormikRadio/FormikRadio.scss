@@ -1,0 +1,47 @@
+@import 'src/scss/variables.scss';
+
+.radio {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+
+    &--error {
+        .radio__box {
+            border-color: $red;
+        }
+    }
+
+    &__input {
+        display: none;
+
+        &:checked ~ .radio__box::after {
+            opacity: 1;
+        }
+    }
+
+    &__box {
+        position: relative;
+        flex-shrink: 0;
+        width: 20px;
+        height: 20px;
+        border: 1px solid $primary;
+        border-radius: $v2borderRound;
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 4px;
+            right: 4px;
+            bottom: 4px;
+            left: 4px;
+            border-radius: inherit;
+            background-color: $primary;
+            opacity: 0;
+            transition: opacity 300ms;
+        }
+    }
+
+    &__label {
+        margin-left: 20px;
+    }
+}

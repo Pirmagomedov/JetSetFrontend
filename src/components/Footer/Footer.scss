@@ -1,0 +1,192 @@
+@use 'sass:math';
+@import 'src/scss/variables.scss';
+
+.footer {
+    margin-top: $v2gap;
+
+    @media only screen and (max-width: 768px) {
+        display: grid;
+        justify-content: center;
+        gap: $v2halfGap;
+    }
+
+    &__subscribe {
+        grid-area: b;
+        gap: $v2gap;
+
+        @media only screen and (max-width: 991px) {
+            padding-right: 1em;
+        }
+        @media only screen and (max-width: 768px) {
+            padding-right: 0;
+        }
+    }
+
+    &__inner {
+        display: flex;
+        justify-content: space-between;
+        padding: math.div($v2halfGap, 0.5) 0;
+        border-top: 1px solid $bluish;
+
+        @media only screen and (max-width: 991px) {
+            display: flex;
+            flex-direction: column;
+        }
+
+        @media only screen and (max-width: 768px) {
+            display: grid;
+            grid-template-areas:
+                'b'
+                'a';
+            gap: $v2halfGap;
+        }
+    }
+
+    &__info {
+        display: flex;
+        align-items: center;
+        grid-area: a;
+
+        @media only screen and (max-width: 768px) {
+            display: grid;
+            grid-template-areas:
+                'b'
+                'a';
+            gap: $v2halfGap;
+        }
+    }
+
+    &__copyright {
+        margin-right: 4.5rem;
+        font-size: $v2fontSmall;
+        grid-area: a;
+
+        br {
+            display: none;
+        }
+
+        @media only screen and (max-width: 991px) {
+            margin-right: 3rem;
+
+            br {
+                display: block;
+            }
+        }
+
+        @media only screen and (max-width: 768px) {
+            margin-right: 0;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+    }
+
+    &__links {
+        font-size: $v2fontSmall;
+        grid-area: b;
+
+        // @media only screen and (max-width: 768px) {
+        //   display: grid;
+        //   gap: $v2halfGap;
+        //   justify-content: center;
+        //   grid-template-columns: repeat(3, auto);
+        // }
+        @media only screen and (max-width: 991px) {
+            display: flex;
+            // flex-direction: column;
+            grid-gap: $v2halfGap;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        a {
+            margin-right: $v2gap;
+            text-decoration: underline;
+
+            @media only screen and (max-width: 991px) {
+                margin-right: 0;
+            }
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+
+    &__block {
+        display: flex;
+        align-items: center;
+        padding-right: 0.5em;
+        grid-area: b;
+
+        @media only screen and (max-width: 768px) {
+            display: grid;
+            grid-template-areas:
+                'b'
+                'a';
+            justify-content: center;
+            gap: $v2halfGap;
+        }
+    }
+
+    &__socials {
+        display: flex;
+        align-items: center;
+        margin-right: 4.5rem;
+        grid-area: a;
+
+        @media only screen and (max-width: 768px) {
+            margin-right: 0;
+        }
+    }
+
+    &__social {
+        display: flex;
+        align-items: flex-start;
+        margin-right: $v2halfGap;
+
+        svg {
+            fill: $v2btnSecondary;
+
+            :hover {
+                transition: fill 300ms;
+                fill: $v2btn;
+            }
+        }
+
+        &:last-child {
+            margin-right: 0;
+        }
+
+        &:hover {
+            svg {
+                fill: $v2btn;
+            }
+
+            svg path:not(.social-icon) {
+                fill: $v2btn;
+            }
+        }
+
+        svg {
+            width: 1.5em;
+            height: 1.5em;
+        }
+
+        > div {
+            display: flex;
+            align-items: flex-start;
+        }
+    }
+}
+
+.docker-timestamp {
+    font-size: 12px;
+    color: #ccc;
+    text-align: center;
+}

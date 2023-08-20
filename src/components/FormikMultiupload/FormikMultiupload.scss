@@ -1,0 +1,78 @@
+@import 'src/scss/variables.scss';
+
+.field.field--multiupload  {
+  overflow: visible;
+
+  &.no-doctype {
+    .upload {
+      &__item {
+        grid-template-columns: 1fr 1.5rem;
+      }
+    }
+  }
+
+  .upload {
+    &__item {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1.5rem;
+        grid-gap: $v2halfGap;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: $v2halfGap;
+        padding: $v2halfGap;
+        border-radius: $v2borderRadius;
+        background-color: $v2area;
+        color: $primary;
+        border: 1px solid $v2hline;
+
+        .upload__actions {
+          margin: 0;
+
+          .button {
+            margin: 0;
+          }
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        :first-child {
+          flex-grow: 2;
+        }
+    }
+
+    &__delete {
+        border: 0;
+        background-color: transparent;
+        cursor: pointer;
+        //margin-left: $v2halfGap;
+
+        svg {
+            // width: 1.25em;
+            // height: 1.25em;
+            display: block;
+        }
+    }
+  }
+
+  
+
+  .btn-add-documents {
+    width: 13rem;
+  }
+  .multiupload__doctype {
+    width: 15rem;
+
+    .select-white__input {
+      height: 1.5rem
+    }
+
+    .select.select-white__single-value {
+      color: #333;
+    }
+  }
+}
+
+
+

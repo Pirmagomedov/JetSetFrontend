@@ -1,0 +1,126 @@
+@import '/src/scss/variables.scss';
+
+.photo {
+    &__item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100px;
+        width: 100px;
+        margin-bottom: 17px;
+        padding-right: 28px;
+        padding-left: 32px;
+        border-radius: $v2borderRadius;
+        background-color: $v2area;
+        color: $primary;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    img {
+        border-radius: 5px;
+    }
+
+    &__actions {
+        display: flex;
+        align-items: center;
+        flex-shrink: 0;
+        margin-left: 30px;
+    }
+
+    &__reload,
+    &__delete {
+        border: 0;
+        background-color: transparent;
+        cursor: pointer;
+        svg {
+            width: 1.35em;
+            height: 1.35em;
+        }
+    }
+
+    &__reload {
+        margin-right: 16px;
+
+        input {
+            display: none;
+        }
+    }
+
+    &__link {
+        margin-left: 32px;
+    }
+
+    &__name {
+        overflow: hidden;
+        max-width: 220px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+    &__load {
+        display: inline-flex;
+        padding: 0 46px;
+
+        &.upload__load--link {
+            display: flex;
+            justify-content: flex-start;
+            width: auto;
+            height: auto;
+            margin: 17px 0 0 30px;
+            padding: 0;
+            border: 0;
+            background-color: transparent;
+            color: $blue-dark;
+            font-weight: 400;
+            text-decoration: underline;
+            cursor: pointer;
+
+            &:hover {
+                background-color: transparent;
+                color: $blue-dark;
+                text-decoration: none;
+            }
+        }
+
+        &-input {
+            display: none;
+        }
+    }
+}
+
+.upload-white {
+    .upload__item {
+        background-color: #fff;
+    }
+}
+
+.upload-auto-width {
+    width: auto;
+
+    .upload__load {
+        margin: 0;
+    }
+}
+.product-add {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 20em;
+    border-radius: $v2borderRadius;
+    background-color: $v2area;
+    cursor: pointer;
+
+    &:hover svg {
+        fill: $v2inactiveHover;
+    }
+
+    &__icon {
+        width: 4.5em;
+        height: 4.5em;
+        fill: $v2inactive;
+        transition: fill 300ms;
+    }
+}

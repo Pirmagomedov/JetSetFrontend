@@ -1,0 +1,46 @@
+mutation blockchainStatusRoute($dealId: UUID!) {
+  blockchainStatusRoute(dealId: $dealId) {
+    runtimeError {
+      exception
+      message
+    }
+    fieldErrors {
+      field
+      message
+    }
+    success
+  }
+}
+
+
+mutation rejectDealWithoutDeposit($dealId: UUID!) {
+  rejectDealWithoutDeposit(dealId: $dealId) {
+    runtimeError {
+      exception
+      message
+    }
+    fieldErrors {
+      field
+      message
+    }
+    success
+  }
+}
+
+
+mutation makeReserve($dealId: UUID!) {
+  reserve(dealId: $dealId) {
+    runtimeError {
+      exception
+      message
+    }
+    fieldErrors {
+      field
+      message
+    }
+    success
+    deal {
+      ...dealShort
+    }
+  }
+}

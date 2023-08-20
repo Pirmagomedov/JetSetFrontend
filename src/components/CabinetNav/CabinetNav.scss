@@ -1,0 +1,98 @@
+@import 'src/scss/variables.scss';
+
+.cabinet-nav {
+    padding-top: $v2gap;
+    padding-bottom: $v2gap;
+
+    &__inner {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(0px, auto));
+        width: 100%;
+
+        &::-webkit-scrollbar {
+            display: none;
+            width: 0;
+            height: 0;
+        }
+
+        &::-webkit-scrollbar-track {
+            display: none;
+        }
+    }
+
+    &__icon {}
+
+    &__item {
+        flex-grow: 1;
+        border-bottom: 2px solid $bluish;
+        padding-bottom: $v2halfLineHeight;
+        position: relative;
+        color: $v2inactive;
+        font-size: $v2fontBig;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        // width: 50%;
+
+        .icon {
+            width: 1.3em;
+            height: 1.2em;
+            margin-right: 0.5em;
+            margin-bottom: 0.1em;
+            fill: $v2inactive;
+            transition: fill 300ms ease-in-out 0s;
+        }
+
+        &:hover {
+            color: $v2inactiveHover;
+
+            .icon {
+                fill: $v2inactiveHover;
+            }
+        }
+
+        &.active {
+            color: $primary;
+            font-weight: bold;
+
+            &:before {
+                content: '';
+                display: block;
+                position: absolute;
+                bottom: -3px;
+                background: $primary;
+                height: 4px;
+                border-radius: $v2borderRadius;
+                left: 0;
+                right: 0;
+            }
+
+            .icon {
+                fill: $primary;
+            }
+        }
+
+
+    }
+
+    // @media all and (max-width: 800px) {
+    //   &__item {
+    //     display: none;
+    //     border-bottom: none;
+
+    //     &.active {
+    //       display: block;
+    //       font-size: 1.5rem;
+    //       padding: 0;
+
+    //       &:before {
+    //         display: none;
+    //       }
+
+    //       .icon {
+    //         display: none;
+    //       }
+    //     }
+    //   }
+    // }
+}

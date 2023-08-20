@@ -1,0 +1,17 @@
+version: '3.7'
+
+services:
+  jetset-fe:
+    container_name: jetset-fe
+    environment:
+      - CERTBOT_EMAIL=ereq3@icloud.com
+      - ENVSUBST_VARS=NGINX_HOST
+      - NGINX_HOST=stage-jetset.com
+    networks:
+      jetset:
+        aliases:
+          - jetset-fe
+
+networks:
+  jetset:
+    external: true

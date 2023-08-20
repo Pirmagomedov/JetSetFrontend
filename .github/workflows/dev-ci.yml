@@ -1,0 +1,73 @@
+name: Deploy_to_Dev
+
+on:
+  workflow_dispatch:
+
+env:
+  SUMSUB_BACKEND: "https://dev.wingform.com"     
+  BASE_URL: "https://dev.wingform.com"
+  DOC_CONS_DEAL: "525729f1-eda1-4067-b945-7c631183875a"
+  DOC_CONS_AD: "53c54cd9-7aba-41d7-aa92-d956ba1e330b"
+  CLOUDFLARE_PAGE_NAME: "jetsetdev"
+  AWS_S3_NAME: "front-jetset-dev"
+  AWS_REGION: "eu-central-1"
+  ENV_S3: s3://frontend-jetset-dev  
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+      
+    - name: Setup Node.js environment
+      uses: actions/setup-node@v2.5.2
+      with:
+        node-version: 14.x
+        
+    - name: Build Project
+      run: |
+        printf "SUMSUB_BACKEND=${{ secrets.DEV_ENV_SUMSUB_BACKEND }}\n" > .env
+        printf "BACKEND_URL=${{ secrets.DEV_ENV_BACKEND_URL }}\n" >> .env
+        printf "DOC_CONS_DEAL=${{ secrets.DEV_ENV_DOC_CONS_DEAL }}\n" >> .env
+        printf "DOC_CONS_AD=${{ secrets.DEV_ENV_DOC_CONS_AD }}\n" >> .env
+        echo '{"stamp":"'$(date)'"}' > stamp.json
+        printf "\n--------------\n"
+        cat .env
+        printf "\n--------------"
+        npm install
+        npm run generate
+        printf "\n<!""-- BUILD DATE: ""$(date)"" -->" >> ./src/index.html
+        npm run build
+      shell: bash
+      env:
+        ALLSECRETS: ${{ toJSON(secrets) }}
+        ALLVARS: ${{ toJSON(vars) }}
+    
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.DEV_AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.DEV_AWS_SECRET_ACCESS_KEY }}
+        aws-region: eu-central-1
+
+    - name: Upload artifact to S3
+      run: aws s3 sync ./dist ${{ env.ENV_S3 }} 
+      
+    - name: Invalidate CloudFront
+      uses: chetan/invalidate-cloudfront-action@v2
+      env:
+        DISTRIBUTION: ${{ secrets.DEV_DISTRIBUTION }}
+        PATHS: "/*"
+        AWS_REGION: "eu-central-1"
+        AWS_ACCESS_KEY_ID: ${{ secrets.DEV_AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.DEV_AWS_SECRET_ACCESS_KEY }}
+ 
+ 
+    
+    

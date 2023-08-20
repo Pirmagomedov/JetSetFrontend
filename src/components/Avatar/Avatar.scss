@@ -1,0 +1,47 @@
+@import 'src/scss/variables.scss';
+
+.avatar {
+
+    &--blurred {
+        user-select: none;
+        pointer-events: none;
+        
+        /*> .avatar__name{
+          filter: blur(0.25rem)
+        }*/
+        .avatar__photo > * {
+          filter: blur(0.25rem)
+        }
+    }
+
+    &__photo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        overflow: hidden;
+        width: 1.5rem;
+        height: 1.5rem;
+        background-color: $blue-light;
+        color: #fff;
+        border-radius: $v2borderRound;
+        margin-right: $v2gap;
+        font-size: $v2fontBig;
+        font-weight: bold;
+
+        img {
+            border-radius: $v2borderRound;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    &__name {
+        word-break: break-all;
+    }
+
+    &.clickable {
+        cursor: pointer;
+    }
+}

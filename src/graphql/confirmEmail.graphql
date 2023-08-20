@@ -1,0 +1,16 @@
+mutation confirmEmail($code: Int!, $email: String!) {
+  confirmEmail(code: $code, email: $email) {
+    fieldErrors {
+      field
+      message
+    }
+    runtimeError {
+      exception
+      message
+    }
+    user {
+      id
+      email
+    }
+  }
+}

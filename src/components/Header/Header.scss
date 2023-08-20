@@ -1,0 +1,131 @@
+@import 'src/scss/variables.scss';
+
+.header {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 300;
+    background: #fff;
+    max-width: 100vw;
+    transition: box-shadow 0.1s ease-in-out 0s;
+
+    &.scrolled {
+        box-shadow: 0 0 1rem rgba(0, 0, 0, 0.4);
+        transition: box-shadow 0.5s ease-in-out 0s;
+    }
+
+    &__inner {
+        height: 4em;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__logo {
+        flex-shrink: 0;
+
+        a {
+            display: block;
+        }
+
+        img {
+            display: block;
+            height: 1.25rem;
+        }
+    }
+
+    &__menu {
+        display: none;
+
+        @media only screen and (min-width: $largeTablet) {
+            display: flex;
+            align-items: center;
+            flex-grow: 1;
+            padding-left: 86px;
+        }
+
+        /*@media only screen and (max-width: 1500px) {
+      padding-left: 2.5em;
+    }*/
+    }
+
+    &__links {
+        display: flex;
+        align-items: center;
+        margin-top: -3px;
+        margin-right: 49px;
+
+        a {
+            position: relative;
+            display: flex;
+            align-items: center;
+            margin-right: 2.5em;
+            color: $primary;
+
+            &:hover {
+                color: $primary;
+
+                .header__arrow {
+                    border-top-color: $primary;
+                }
+            }
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+
+    &__arrow {
+        width: 0;
+        height: 0;
+        margin-top: 2px;
+        margin-left: 10px;
+        border-style: solid;
+        border-width: 9px 6px 0 6px;
+        border-color: $primary transparent transparent transparent;
+        transition: border-color 300ms;
+    }
+
+    &__buttons {
+        display: flex;
+        align-items: center;
+        margin-left: auto;
+
+        a {
+            margin-right: 1em;
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+            &.btn-blue {
+                width: 177px;
+            }
+
+            &.btn-red-outline {
+                width: 111px;
+            }
+        }
+    }
+
+    &__burger {
+        position: relative;
+        z-index: 199;
+        cursor: pointer;
+
+        @media only screen and (min-width: $largeTablet) {
+            display: none;
+        }
+
+        svg {
+            display: block;
+        }
+    }
+
+    .icon-i-menu {
+        width: 1.44em;
+        height: 1.44em;
+    }
+}

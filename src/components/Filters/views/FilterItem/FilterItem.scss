@@ -1,0 +1,72 @@
+@import 'src/scss/variables.scss';
+
+.filter-item {
+    border-bottom: 1px solid #e2e6fc;
+
+    &--open {
+        .filter-item__content {
+            overflow: visible;
+            height: auto;
+            padding-top: 7px;
+            padding-bottom: 35px;
+        }
+    }
+
+    &__header {
+        position: relative;
+        display: flex;
+        align-items: center;
+        padding: 28px 0;
+        padding-right: 25px;
+        cursor: pointer;
+
+        @media only screen and (max-width: 1500px) {
+            padding-top: 27px;
+        }
+
+        &:hover {
+            .filter-item__name {
+                color: $blue;
+            }
+        }
+    }
+
+    &__icon {
+        flex-shrink: 0;
+        width: 36px;
+    }
+
+    &__name {
+        transition: 300ms;
+    }
+
+    &__arrow {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+
+        @media only screen and (max-width: 1300px) {
+            right: 5px;
+        }
+        @media only screen and (max-width: 767px) {
+            right: 12px;
+        }
+
+        &:before {
+            content: '';
+            display: inline-block;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 11px 8.5px 0 8.5px;
+            border-color: $primary transparent transparent transparent;
+        }
+    }
+
+    &__content {
+        overflow: hidden;
+        height: 0;
+        padding: 0;
+    }
+}

@@ -1,0 +1,261 @@
+@import 'src/scss/variables.scss';
+
+.deal-steps {
+    width: 100%;
+    display: grid;
+    row-gap: $v2gap;
+
+    @media only screen and (min-width: $smallTablet) {
+        row-gap: 0;
+    }
+
+    &__steps {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(1px, auto));
+
+        @media only screen and (min-width: $largeTablet) {
+            grid-template-columns: repeat(auto-fit, minmax(90px, auto));
+        }
+    }
+
+    &__step {
+        display: grid;
+        // grid-template-rows: 1fr 1fr;
+        position: relative;
+        // height: 3em;
+
+        // display: none;
+
+        @media only screen and (min-width: $smallTablet) {
+            grid-template-rows: 45px auto;
+        }
+
+        @media only screen and (min-width: $largeTablet) {
+            grid-template-rows: 50px auto;
+        }
+
+        @media only screen and (min-width: $desktop) {
+            grid-template-rows: 55px auto;
+        }
+
+        &__title {
+            display: none;
+        }
+
+        &__mark {
+            display: block;
+            width: 0.75em;
+            height: 0.75em;
+            box-sizing: border-box;
+            border: 3px solid $grey;
+            border-radius: 1em;
+            background: #fff;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 2;
+        }
+
+        &__mark--rejected {
+            display: block;
+            width: 0.75em;
+            height: 0.75em;
+            box-sizing: border-box;
+            border: 3px solid $red-dark;
+            border-radius: 1em;
+            background: #fff;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 2;
+        }
+
+        // Not rejected
+        &.step-current .deal-steps__step__mark,
+        &.step-passed .deal-steps__step__mark {
+            background: $primary;
+            border-color: $primary;
+        }
+
+        &.step-current {
+            display: grid;
+
+            &:after {
+                background: linear-gradient(to right, #001253 0, $grey 100%);
+            }
+
+            .deal-steps__step__mark {
+                /*width: 0.9em;
+        height: 0.9em;*/
+            }
+        }
+
+        &.step-passed:after {
+            background: $primary;
+        }
+
+        // Rejected
+        &.step-current--rejected .deal-steps__step__mark--rejected,
+        &.step-passed--rejected .deal-steps__step__mark--rejected {
+            background: $red-dark;
+            border-color: $red-dark;
+        }
+
+        &.step-current--rejected {
+            &:after {
+                background: linear-gradient(to right, $red-dark 0, $grey 100%);
+            }
+        }
+
+        &.step-passed--rejected:after {
+            background: $red-dark;
+        }
+
+        &.step-excluded {
+            display: none;
+        }
+
+        &:after {
+            display: block;
+            content: '';
+            width: 100%;
+            height: 0.25em;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            background: $grey;
+            transform: translateY(-50%);
+        }
+
+    }
+
+    &-short .deal-steps__step:hover .deal-steps__step__title {
+        display: block;
+        position: absolute;
+        top: 0;
+        transform: translateY(-1.5em);
+        left: 0;
+        background: #fff;
+        font-size: $v2fontSmall;
+        white-space: nowrap;
+        padding: 0.125em $v2borderRadius;
+        border-radius: $v2borderRadius;
+        border: 1px solid #eee;
+        z-index: 100;
+        box-shadow: 0 0 $v2borderRadius rgba(0, 0, 0, 0.1);
+    }
+
+    &__status {
+        font-size: $v2fontSmall;
+    }
+}
+
+.deal-steps-short {
+    .deal-steps__steps {
+        grid-template-columns: repeat(auto-fit, minmax(1px, auto));
+    }
+
+    .deal-steps__step {
+        &:last-child {
+            min-width: 0;
+            width: 0;
+        }
+    }
+}
+
+.deal-steps-full {
+    display: none;
+
+    @media only screen and (min-width: $smallTablet) {
+        display: initial;
+    }
+
+    .deal-steps__step {
+        // height: 7em;
+        font-size: $v2fontSmall;
+        text-align: center;
+        color: #aaa;
+
+        @media only screen and (min-width: $smallTablet) {
+            font-size: .75rem;
+            // height: 8em;
+        }
+
+        @media only screen and (min-width: $largeTablet) {
+            font-size: $v2fontSmall;
+            height: 8em;
+        }
+
+        @media only screen and (min-width: $desktop) {
+            font-size: $v2fontSmall;
+            height: 5em;
+        }
+
+        &__title {
+            position: relative;
+            display: grid;
+            height: min-content;
+        }
+
+        &.step-passed,
+        &.step-current {
+            color: $primary;
+        }
+
+        .deal-steps__step__date {
+            font-size: 0.75em;
+        }
+
+        .deal-steps__step__mark {
+            left: 50%;
+            top: 2.5em;
+            transform: translate(-50%, -50%);
+            width: 1.25em;
+            height: 1.25em;
+            background: #fff;
+        }
+
+        &:after {
+            top: 2.5em;
+            width: calc(100% + 1px);
+        }
+
+        &:first-child {
+            text-align: left;
+
+            .deal-steps__step__mark {
+                left: 0;
+                transform: translate(0%, -50%);
+            }
+        }
+
+        &.step-current .deal-steps__step__mark:after {
+            background: $primary;
+            content: '';
+            display: block;
+            position: absolute;
+            width: 0.56em;
+            height: 0.56em;
+            border-radius: 1em;
+            border: 2px solid #fff;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        &:last-child {
+            text-align: right;
+            // min-width: 4em;
+
+            &::after {
+                width: calc(100% - 1px);
+            }
+
+            .deal-steps__step__mark {
+                right: 0;
+                left: auto;
+                transform: translate(0%, -50%);
+            }
+        }
+    }
+}

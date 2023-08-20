@@ -1,0 +1,135 @@
+@import 'src/scss/variables.scss';
+
+.profile-header {
+  &__inner {}
+
+  &__delete {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__avatar {
+    display: flex;
+    align-items: center;
+
+    .avatar {
+      &__photo {}
+
+      &__name {
+        font-weight: bold;
+      }
+    }
+  }
+
+  &__filter {}
+
+  &__balance {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    background-color: $v2area;
+  }
+
+  &__label {}
+
+  &__value {
+    text-transform: uppercase;
+  }
+
+  &__section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: $v2gap;
+  }
+
+  &__tabs {
+    display: flex;
+    align-items: center;
+  }
+
+  &__tab {
+    cursor: pointer;
+    transition: color 400ms;
+    margin-right: $v2gap;
+    color: $v2inactive;
+
+    &:hover {
+      color: $v2inactiveHover;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &--active {
+      color: $primary;
+      font-weight: bold;
+    }
+  }
+
+  &__sort {
+    display: flex;
+    align-items: center;
+  }
+
+  &__select-wrapper {
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &__products {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: $v2gap;
+
+    @media only screen and (min-width: $smallTablet) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media only screen and (min-width: $largeTablet) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media only screen and (min-width: $desktop) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__btn {}
+}
+
+
+.last-added__more {
+  margin: $v2gap;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+
+  svg {
+    width: 1.5em;
+    height: 1.5em;
+    fill: $v2inactive;
+  }
+
+  &:hover {
+    svg {
+      fill: $v2inactiveHover;
+    }
+  }
+}

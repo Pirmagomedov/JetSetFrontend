@@ -1,0 +1,56 @@
+@import 'src/scss/variables.scss';
+
+.confirmation-component {
+  background: $notSowhite;
+  padding: $v2gap;
+  border-radius: $v2borderRadius;
+  display: flex;
+  align-items: center;
+  margin-bottom: $v2halfGap;
+  flex-direction: column;
+  row-gap: $v2gap;
+
+  @media only screen and (min-width: $smallTablet) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .confirmation-component__header {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .confirmation-component__title {
+    flex-grow: 2;
+  }
+
+  .confirmation-component__success {
+    display: none;
+  }
+
+  .confirmation-component__button {
+    display: flex;
+    gap: $v2gap;
+  }
+
+  &.confirmed.confirmable {
+    .confirmation-component__button {
+      display: none;
+    }
+  }
+
+  &.confirmed {
+    .confirmation-component__success {
+      display: block;
+      min-width: 3em;
+
+      svg {
+        min-width: 1.5em;
+        height: auto;
+        display: block;
+      }
+    }
+  }
+}

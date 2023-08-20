@@ -1,0 +1,834 @@
+@import 'src/scss/variables.scss';
+
+.profile__header,
+.workspace__header {
+  display: flex;
+  flex-direction: row;
+  background: $v2area;
+  padding: $v2halfGap;
+  justify-content: space-between;
+  margin-bottom: $v2gap;
+
+
+
+
+  @media only screen and (max-width: 767px) {
+    // flex-direction: column;
+    // grid-gap: $v2halfGap;
+    // align-items: flex-start;
+  }
+
+  h2 {
+    span {
+      font-size: 12px;
+      color: #ccc;
+    }
+  }
+}
+
+.profile__personal__data,
+.workspace__data {
+  display: grid;
+  grid-template-areas:
+    "c1 c2"
+    "c3 c3";
+  grid-template-columns: 1fr 5fr;
+  grid-gap: $v2gap;
+
+
+  // Три селектора снизу не работают с profile__personal__data,
+  // кто писал код - совершил ошибку, исправлю позже
+  &__avatar {
+    grid-area: c1;
+  }
+
+  &__fixed {
+    grid-area: c2;
+  }
+
+  &__aircrafts {
+    grid-area: c3;
+  }
+
+  @media only screen and (max-width: 992px) {
+    grid-template-areas:
+      "c1 c1"
+      "c2 c2"
+      "c3 c3";
+  }
+
+  @media only screen and (max-width: 767px) {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+  }
+}
+
+.profile__personal__fixed {
+  @media only screen and (max-width: 992px) {
+    margin-top: $v2gap;
+  }
+}
+
+
+.workspace__data__fixed {
+  @media only screen and (max-width: 992px) {
+    margin-top: $v2gap;
+  }
+}
+
+.profile__personal__group,
+.workspace__data__group {
+  display: grid;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: $v2halfGap;
+  padding-bottom: $v2halfGap;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas: "a b c";
+  grid-gap: $v2gap;
+
+
+  .workspace__access {
+    display: flex;
+  }
+
+  @media only screen and (max-width: 992px) {
+    grid-template-columns: 33% 33% 33%;
+  }
+
+  @media only screen and (max-width: 767px) {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &.no-border {
+    margin-bottom: 0;
+    border: none;
+  }
+
+  &.full-width {
+    grid-template-columns: 1fr;
+    grid-template-areas: "a a a";
+  }
+
+  .move-right {
+    grid-template-columns: 100%;
+  }
+
+  &:empty {
+    display: none;
+  }
+
+  &.w13 {
+    grid-template-areas: "a b b";
+    grid-template-columns: 1fr 2fr;
+
+  }
+
+  &.workspace__bank {
+    border-top: 1px solid $v2ctlBorder;
+    padding-top: $v2halfGap;
+  }
+
+  &:last-child {
+    border-bottom: 0;
+  }
+}
+
+.profile-field__title {
+  font-size: $v2fontSmall;
+  color: $dark-gray;
+}
+
+
+.workspace__data__avatar--avatar,
+.profile__personal__avatar--avatar {
+  width: 12rem;
+  height: 12rem;
+  border: 1px solid #eee;
+  //margin-bottom: 4.5rem;
+
+
+  avatar-image {
+    >div {
+      background: url("data:image/svg+xml;base64,PHN2ZyBpZD0ic3ZnOCIgdmVyc2lvbj0iMS4xIiB2aWV3Qm94PSIwIDAgMzIgMzIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiA8cmVjdCBpZD0icmVjdDMyMTIiIHg9IjQiIHk9IjQiIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjYmNiY2JjIiBzdHJva2Utd2lkdGg9IjIiLz4KIDxwYXRoIGlkPSJwYXRoMzQ2NSIgZD0ibTE2IDExLjV2OSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjYmNiY2JjIiBzdHJva2Utd2lkdGg9IjIiLz4KIDxwYXRoIGlkPSJwYXRoMzU0NyIgZD0ibTIwLjUgMTZoLTkiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2JjYmNiYyIgc3Ryb2tlLXdpZHRoPSIyIi8+Cjwvc3ZnPgo=");
+      background-size: 70%;
+      background-position: 50% 50%;
+      background-repeat: no-repeat;
+    }
+
+    button {
+      width: 2.5rem;
+      height: 2.5rem;
+      border: none !important;
+      background: transparent !important;
+
+      svg {
+        fill: $v2btn;
+        transform: scale(1.25);
+      }
+    }
+
+    img {
+      display: block;
+    }
+
+    &::after {
+      content: "";
+      width: 100%;
+      height: 100%;
+      background-image: url(data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAxMDAgMTAwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogPHBhdGggaWQ9InJlY3Q4NDMiIGQ9Im0wIDB2NTBhNTAgNTAgMCAwIDEgNTAtNTB6bTUwIDBhNTAgNTAgMCAwIDEgNTAgNTB2LTUwem01MCA1MGE1MCA1MCAwIDAgMS01MCA1MGg1MHptLTUwIDUwYTUwIDUwIDAgMCAxLTUwLTUwdjUweiIgZmlsbD0iI2ZmZiIgZmlsbC1vcGFjaXR5PSIuNSIgLz4KPC9zdmc+Cg==);
+      display: block;
+      top: 0;
+      left: 0;
+      position: absolute;
+      z-index: 200;
+      pointer-events: none;
+    }
+  }
+}
+
+
+.workspace__data__proof-doc {
+  display: flex;
+  align-items: center;
+
+  img {
+    width: auto;
+    max-width: 3rem;
+    max-height: 3rem;
+    display: block;
+    margin-right: $v2halfGap;
+  }
+}
+
+.profile__kyc {
+  display: flex;
+  align-items: center;
+  grid-gap: 1.5em
+}
+
+.profile-field__value {
+  min-height: 1.5em;
+
+  .empty {
+    color: #aaa;
+  }
+}
+
+.profile-field__title button {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+
+
+.workspace {
+  margin-bottom: calc($v2gap * 2);
+
+
+  @media only screen and (max-width: 767px) {
+    grid-gap: 1rem;
+    justify-content: space-between;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: .5rem;
+  }
+
+
+  &__buttons {
+    display: flex;
+    grid-gap: $v2gap;
+    justify-content: flex-end;
+    grid-area: buttons;
+
+    @media only screen and (max-width: 992px) {
+      grid-gap: $v2halfGap;
+    }
+
+    @media only screen and (max-width: 767px) {
+      flex-direction: column;
+      // grid-gap: $v2halfGap;
+      margin: 0 auto;
+      // width: 203px;
+    }
+  }
+
+  &__header {
+    grid-area: header;
+    // border-bottom: 1px solid $primary;
+
+    &__type {
+      font-size: $v2fontSmall;
+      font-weight: normal
+    }
+  }
+
+  &__authority {
+    // margin-bottom: $v2gap;
+  }
+
+
+  &__animation {
+
+    &__open {
+      max-height: 9999px;
+      overflow: visible;
+      transition: 800ms;
+    }
+
+    &__closed {
+
+      &:first-of-type {
+        max-height: 77px;
+
+
+        // @media only screen and (max-width: 992px) {
+        //   max-height: ;
+        // }
+
+        @media only screen and (max-width: 767px) {
+          max-height: 92px;
+        }
+      }
+
+      max-height: 61px;
+      overflow: hidden;
+      transition: 800ms;
+
+      // @media only screen and (max-width: 992px) {
+      //   max-height: ;
+      // }
+
+      @media only screen and (max-width: 767px) {
+        max-height: 92px;
+      }
+    }
+
+  }
+}
+
+.workspaces__buttons {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: flex-end;
+  grid-gap: $v2gap;
+  margin-bottom: $v2gap;
+
+  @media only screen and (max-width: 767px) {
+    justify-content: center;
+    margin: 0 auto;
+  }
+
+  @media only screen and (max-width: 530px) {
+    flex-direction: column;
+    // width: 241px;
+    grid-gap: $v2halfGap;
+  }
+}
+
+
+.workspace-full {
+  &__buttons {
+    display: flex;
+    grid-gap: $v2gap;
+    margin-bottom: $v2gap;
+
+    @media only screen and (max-width: 767px) {
+      justify-content: space-between;
+    }
+  }
+}
+
+.workspaces {
+  >h2 {
+    padding-bottom: $v2halfGap;
+    /*margin-bottom: 1.5rem;*/
+    margin-top: $v2gap;
+    border-bottom: 3px solid #ddd;
+  }
+
+  &__no-ws-alert {
+    margin-top: $v2halfGap;
+  }
+
+  .workspace {
+    padding-left: 3rem;
+    border-left: 3px solid #ddd;
+    position: relative;
+    margin-bottom: 0;
+    padding-bottom: 3rem;
+
+    @media only screen and (max-width: 767px) {
+      border-left: none;
+      padding-left: 0;
+      border-left: none;
+      max-width: 100%;
+      height: auto;
+      // display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    &__kyb-message {
+      width: 100%;
+      font-size: 1.25rem;
+      font-weight: bold;
+    }
+
+    &__authority {
+      margin-bottom: 4.5rem;
+    }
+
+    &.short {
+      display: flex;
+      width: 100%;
+      align-items: center;
+      /*margin-bottom: $v2gap;*/
+      padding-bottom: $v2gap;
+      padding-top: $v2gap;
+      background: #fff;
+
+      @media only screen and (max-width: 767px) {
+        // padding-top: 0;
+        align-items: flex-start;
+        display: grid;
+        grid-template-areas:
+          "header kyc"
+          "buttons buttons";
+        grid-template-columns: repeat(2, auto);
+      }
+
+      .workspace__header {
+        margin: 0;
+        padding: 0;
+        align-items: center;
+        background: #fff;
+        flex-grow: 2;
+        margin-right: $v2halfGap;
+      }
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 2.5rem;
+      height: 3px;
+      background: #ddd;
+
+      @media only screen and (max-width: 767px) {
+        width: 0;
+        height: 0;
+      }
+    }
+
+    &:first-child {
+      margin-top: $v2gap;
+
+      @media only screen and (max-width: 767px) {
+        margin-top: 0;
+      }
+    }
+
+    &:first-child::after {
+      content: "";
+      position: absolute;
+      width: 3px;
+      height: $v2lineHeight;
+      left: -3px;
+      top: -$v2lineHeight;
+      z-index: 100;
+      background: #ddd;
+
+      @media only screen and (max-width: 767px) {
+        width: 0;
+        height: 0;
+      }
+    }
+
+    &:last-child {
+      border: none;
+
+      @media only screen and (max-width: 767px) {
+        padding-top: $v2gap;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 3px;
+        height: 50%;
+        background: #ddd;
+
+        @media only screen and (max-width: 767px) {
+          width: 0;
+          height: 0;
+        }
+      }
+    }
+
+
+    &:last-child:first-child::after {
+      content: "";
+      position: absolute;
+      width: 3px;
+      height: calc(50% + $v2lineHeight + 6px);
+      left: -3px;
+      top: calc(-3px - $v2lineHeight);
+      z-index: 100;
+      background: #ddd;
+    }
+  }
+
+  &__list .kyc-flag {
+    margin-left: 1.5rem;
+    grid-area: kyc;
+
+
+    @media only screen and (max-width: 992px) {
+      margin-left: .5rem;
+    }
+
+    @media only screen and (max-width: 767px) {
+      display: flex;
+      justify-content: center;
+      align-self: center;
+      // width: 86px;
+    }
+  }
+}
+
+
+
+.workspace__representative {
+  // margin-bottom: 1.5rem;
+  grid-template-areas:
+    "c0 c0"
+    "c1 c2"
+    "c3 c3";
+  transition: 800ms;
+
+  @media only screen and (max-width: 992px) {
+    grid-template-areas:
+      "c0 c0"
+      "c1 c1"
+      "c2 c2"
+      "c3 c3";
+  }
+
+  .workspace__header {
+    grid-area: c0;
+    margin: 0;
+
+    @media only screen and (max-width: 767px) {
+      display: grid;
+      grid-template-areas:
+        "h3 kyc"
+        "repname repname";
+    }
+
+    h3 {
+      flex-grow: 2;
+      line-height: 2;
+      grid-area: h3;
+    }
+
+    &--rep {
+      margin-right: 1.5rem;
+      // line-height: 2;
+      grid-area: repname;
+    }
+
+  }
+}
+
+.workspace__data__aircrafts > * {
+  display: grid;
+  grid-template-columns: 4.5rem 1.5fr 2fr 1fr;
+  gap: $v2halfGap;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+
+  @media only screen and (max-width: 1300px) {
+    grid-template-columns: 3rem 1.5fr 2fr 1fr;
+  }
+
+  @media only screen and (max-width: 992px) {
+    grid-template-columns: 10% 20% 30% 30%;
+  }
+
+  @media only screen and (max-width: 767px) {
+    grid-template-columns: repeat(33.33%, 3);
+  }
+
+  .ws-aircraft__details {
+    display: grid;
+    padding-right: 2rem;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: $v2gap;
+
+    @media only screen and (max-width: 992px) {
+      display: flex;
+      flex-direction: column;
+      grid-gap: $v2halfGap;
+      padding-right: 0;
+    }
+
+    span {
+      display: flex;
+      align-items: center;
+      grid-gap: $v2halfGap;
+
+      @media only screen and (max-width: 992px) {
+        // flex-direction: column;
+        // grid-gap: 0;
+        // align-items: flex-start;
+        // justify-content: center;
+      }
+    }
+  }
+
+  .ws-aircraft__title {
+    transition: 600ms;
+    padding: $v2halfGap 0;
+
+    
+
+    .select.select-white__control {
+      margin: 0;
+    }
+
+    @media only screen and (max-width: 1300px) {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      grid-gap: $v2halfGap;
+
+      .select.select-white__control {
+        margin: 0;
+      }
+    }
+  }
+
+  &:first-child {
+    border-bottom: 1px solid #ddd;
+  }
+
+  &:last-child {
+    border: none;
+  }
+
+  .workspace__aircrafts--header {
+    font-size: $v2fontBig;
+    font-weight: bold;
+  }
+
+  .ws-aircraft {
+    background: $notSowhite;
+    padding: 0.5rem;
+    margin-bottom: $v2halfGap;
+
+    border-bottom: 1px solid #ddd;
+
+    .select {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.workspace-invites {
+  margin: $v2gap;
+}
+
+// .inventory__form {
+//   display: flex;
+//   flex-direction: column;
+//   grid-gap: $v2gap;
+// }
+
+.workspace__invite-representative-form {
+  display: flex;
+  align-items: flex-end;
+  grid-gap: $v2gap;
+  background: $notSowhite;
+  padding: $v2gap;
+  margin-bottom: 1.5rem;
+
+  @media only screen and (max-width: 500px) {
+    flex-direction: column;
+  }
+}
+
+.workspace__invite-representative-form .field {
+  max-width: 20rem;
+
+  @media only screen and (max-width: 500px) {
+    max-width: 100%;
+  }
+}
+
+.mobile-switch {
+  display: none;
+
+  @media only screen and (max-width: 767px) {
+    display: block;
+  }
+}
+
+.space {
+  display: none;
+  height: 0px;
+
+  @media only screen and (max-width: 992px) {
+    display: block;
+
+    &:last-child {
+      .space {
+        display: none;
+      }
+    }
+  }
+}
+
+.col {
+  font-weight: bold;
+}
+
+.collapsible {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  grid-gap: $v2gap;
+
+  &__title {
+    cursor: pointer;
+    display: flex;
+    grid-gap: $v2halfGap;
+    align-items: center;
+  }
+
+  .collapsible__body {
+    transition: 800ms;
+  }
+}
+
+.invite-email__open {
+  // height: 7rem;
+  max-height: 1000px;
+  overflow: visible;
+  opacity: 1;
+}
+
+.invite-email__close {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+}
+
+.i-closed {
+  transition: 800ms;
+}
+
+.i-opened {
+  transition: 800ms;
+  transform: rotate(45deg);
+}
+
+.profile-invite {
+  padding-top: $v2gap;
+  border-bottom: 1px solid #ddd;
+
+  &:first-of-type {
+    padding-top: 0;
+
+  }
+
+  &:last-of-type {
+    border-bottom: none;
+  }
+
+  .profile-invite__actions {
+    display: flex;
+    grid-gap: $v2gap;
+    padding-bottom: $v2gap;
+
+    @media only screen and (max-width: 767px) {
+      justify-content: center;
+    }
+  }
+}
+
+.switch__container {
+
+  @media only screen and (max-width: 767px) {
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+  }
+}
+
+.avatar__icon {
+  max-height: 100%;
+  max-width: 30px;
+  display: flex;
+  align-items: center;
+
+  img {
+    max-height: 200%;
+  }
+}
+
+.small-header {
+  display: flex;
+  column-gap: $v2halfGap;
+  align-items: center;
+}
+
+.self-account {
+  display: flex;
+  flex-direction: column;
+  grid-gap: $v2gap;
+}
+
+.ws-aircraft {
+  padding: 0 .5rem;
+  transition: 600ms;
+
+  @media only screen and (max-width: 992px) {
+    padding: 0;
+  }
+
+  &:hover {
+    background-color: #ececec;
+  }
+}
+
+.not-short {
+  display: flex;
+  flex-direction: column;
+  grid-gap: $v2gap;
+}
+
+.bb {
+  border-bottom: 1px solid $primary;
+  cursor: pointer;
+  align-items: center;
+  position: relative;
+  transition: 800ms;
+
+
+  &:hover {
+    background-color: #ececec;
+
+    .line__default {
+      width: 50%;
+      left: 25%;
+      bottom: -5px;
+      background-color: rgba(0, 18, 83, 1);
+    }
+  }
+}

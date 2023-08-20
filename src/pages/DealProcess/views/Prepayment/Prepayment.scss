@@ -1,0 +1,72 @@
+@import 'src/scss/variables.scss';
+
+.payment {
+  padding-top: $v2lineHeight;
+  padding-bottom: $v2lineHeight;
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1160px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  &__title {
+    margin-bottom: $v2lineHeight;
+    font-weight: bold;
+    font-size: 1.5em;
+    line-height: $v2lineHeight;
+  }
+
+  &__text {
+    margin-bottom: $v2lineHeight;
+
+    span {
+      font-weight: bold;
+    }
+  }
+
+  &__items {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    column-gap: $v2gap;
+    max-width: 937px;
+    width: 30%;
+    margin: 1.5em 0 3em;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 39px 24px 30px;
+    border-radius: $v2borderRadius;
+    background-color: $v2area;
+  }
+
+  &__label {
+    font-size: 1.5em;
+  }
+
+  &__value {
+    color: $blue;
+    font-weight: bold;
+    font-size: 1.5em;
+  }
+
+  &__buttons {
+    display: flex;
+    align-items: center;
+  }
+
+  &__button {
+    width: 211px;
+    margin-right: 26px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}

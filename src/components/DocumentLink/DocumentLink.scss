@@ -1,0 +1,34 @@
+@import '/src/scss/variables.scss';
+
+.document-link {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: calc($v2halfGap / 2);
+
+    &__icon {
+        background: #eee;
+        border-radius: 1em;
+        width: 1.1em;
+        height: 1.1em;
+        display: inline-block;
+        text-align: center;
+        vertical-align: -0.1em;
+        margin-right: 0.15em;
+    }
+
+    svg {
+        width: 0.9em;
+        height: 0.9em;
+    }
+
+    &.disabled {
+        color: #aaa;
+        cursor: not-allowed;
+
+        svg {
+            fill: #aaa;
+            width: 0.9em;
+            height: 0.9em;
+        }
+    }
+}

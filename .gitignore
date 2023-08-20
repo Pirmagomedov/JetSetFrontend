@@ -1,0 +1,13 @@
+*.swp
+.env
+.idea
+*.override.yml
+letsencrypt/*
+nginx.conf
+node_modules
+src/generated/*
+.DS_Store
+
+css.txt
+css2.txt
+zametki.txt

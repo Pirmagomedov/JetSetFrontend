@@ -1,0 +1,133 @@
+@import 'src/scss/variables.scss';
+
+.calendar {
+    position: relative;
+
+    &__label {
+        display: block;
+        margin-bottom: 0.45em;
+        font-size: $v2fontSmall;
+        line-height: 1.2;
+    }
+
+    &__input {
+        position: relative;
+
+        svg {
+            position: absolute;
+            top: 50%;
+            right: 0.5em;
+            transform: translateY(-50%);
+            width: 1.5em;
+            height: 1.5em;
+            pointer-events: none;
+            fill: $v2ctlBorder;
+        }
+
+        input {
+            width: 100%;
+            height: $v2ctlHeight;
+            padding: 0 $v2halfGap;
+            border: 1px solid $v2ctlBorder;
+            border-radius: $v2borderRadius;
+            background-color: #ffffff;
+
+            &::placeholder {
+                color: $grey;
+            }
+
+            &:disabled {
+                background: $v2ctlDisabledBg;
+                border-color: $v2ctlDisabledBorder;
+                color: $v2ctlDisabledText;
+            }
+        }
+    }
+    &.required .calendar__label:after {
+        content: '*';
+        color: $red-dark;
+        margin-left: 0.25em;
+    }
+
+    .react-calendar {
+        position: absolute;
+        z-index: 99;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        margin-top: 30px;
+        padding: 0 1.25em 0 1.25em;
+        border: 0;
+        border-radius: 5px;
+        background-color: #f3f7ff;
+        font: 400 12px/1.35 'SF UI Display', sans-serif;
+
+        &__navigation {
+            height: auto;
+            margin-bottom: 16px;
+
+            button:enabled:hover,
+            button:enabled:focus {
+                background-color: transparent;
+            }
+
+            &__label {
+                color: $primary;
+                font-size: 15px;
+            }
+
+            &__prev-button,
+            &__next-button {
+                font-size: 0;
+                background-image: url('assets/images/prev-1.svg');
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+
+            &__next-button {
+                background-image: url('assets/images/next-1.svg');
+            }
+
+            &__prev2-button,
+            &__next2-button {
+                display: none;
+            }
+        }
+
+        &__month-view__weekdays {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #adb9f9;
+            color: $primary;
+            font-weight: 500;
+            font-size: 12px;
+            text-transform: capitalize;
+
+            abbr {
+                text-decoration: none;
+            }
+
+            &__weekday {
+                padding: 0;
+            }
+        }
+
+        &__tile {
+            border-radius: 4px;
+            transition: background-color 300ms, color 300ms;
+        }
+
+        &__tile:enabled:hover,
+        &__tile:enabled:focus {
+            background-color: $blue;
+            color: #fff;
+        }
+    }
+
+    &__error {
+        margin-top: 9px;
+        color: #f8364e;
+        font-size: 12px;
+        text-align: left;
+    }
+}

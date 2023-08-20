@@ -1,0 +1,38 @@
+mutation getManufacturers($category: Int!) {
+  getManufacturers(category: $category) {
+    runtimeError {
+      exception
+      message
+    }
+    fieldErrors {
+      field
+      message
+    }
+    manufacturers {
+      value
+      label
+    }
+  }
+}
+
+
+mutation getModels($manufacturer: Int!) {
+  getModels(manufacturer: $manufacturer) {
+    runtimeError {
+      exception
+      message
+    }
+    fieldErrors {
+      field
+      message
+    }
+    models {
+      value
+      label
+      planeManufacturer {
+        value
+        label
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+@import '/src/scss/variables.scss';
+
+.deal-process {
+    &__back {
+        display: flex;
+        align-items: center;
+        justify-content: left;
+
+        @media only screen and (min-width: $largeTablet) {
+            display: none;
+        }
+    }
+
+    &__backText {
+        padding-left: 0.5em;
+    }
+}

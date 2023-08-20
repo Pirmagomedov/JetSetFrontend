@@ -1,0 +1,60 @@
+@import 'src/scss/variables.scss';
+
+.switch__container {
+    display: flex;
+    align-items: center;
+    grid-gap: $v2gap;
+
+    @media only screen and (max-width: 767px) {
+        grid-gap: $v2halfGap;
+    }
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    flex-shrink: 0;
+    width: 3em;
+    height: 1.5em;
+
+    &__input {
+        display: none;
+
+        &:checked + .switch__slider {
+            background-color: $v2btn;
+
+            &::before {
+                transform: translate(1.5em, -50%);
+            }
+        }
+    }
+
+    &__slider {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 5em;
+        background-color: $grey;
+        cursor: pointer;
+        transition: background-color 400ms;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 2px;
+            transform: translateY(-50%);
+            width: calc(1.5em - 4px);
+            height: calc(1.5em - 4px);
+            border-radius: $v2borderRound;
+            background-color: #fff;
+            transition: transform 400ms;
+        }
+    }
+}
+
+.switch__label {
+    font-weight: bold;
+}

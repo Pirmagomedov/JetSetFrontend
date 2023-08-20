@@ -1,0 +1,1855 @@
+fragment adMain on AdType {
+  id
+  status
+  dateAdded
+  itemId
+  owner {
+    ...workspaceShort
+  }
+  realCreator {
+    id
+  }
+  mainInformation {
+    ...mainInformation
+  }
+  termsOfPayment {
+    ...termsOfPayment
+  }
+  ...adDocuments
+  ...adPermission
+}
+
+fragment adPermission on AdType {
+  id
+  permission {
+    ...permission
+  }
+}
+
+
+fragment adContext on AdType {
+  id
+  status
+  mainInformation {
+    images {
+      ...fileType
+    }
+    manufacturer {
+      value
+      label
+      planeCategory {
+        value
+        label
+      }
+    }
+    model {
+      value
+      label
+      planeManufacturer {
+        value
+        label
+        planeCategory {
+          value
+          label
+        }
+      }
+    }
+  }
+}
+
+
+fragment adWorkspace on AdType {
+  ...adContext
+  owner {
+    ...workspaceShort
+  }
+  realCreator {
+    id
+  }
+  permissions {
+    ...permission
+  }
+  ...adPermission
+  aircraftSummary {
+    airframeTtsn
+    registrationNumber
+  }
+  mainInformation {
+    year
+  }
+}
+
+fragment ad on AdType {
+  ...adMain
+  lists {
+    favorites
+    comparison
+    isInBuyerDeals
+  }
+  aircraftSummary {
+    ...aircraftSummary
+  }
+  aircraftLocation {
+    ...aircraftLocation
+  }
+  ...adDocuments
+  timeConditions {
+    daysForPurchaseAgreement
+    daysForClosing
+  }
+  inspectionConditions {
+    ...inspectionConditions
+  }
+  engine {
+    ...engine
+  }
+  exteriorCabin {
+    ...exteriorCabin
+  }
+  propeller {
+    ...propeller
+  }
+  avionics {
+    ...avionics
+  }
+  maintenance {
+    ...maintenance
+  }
+  weightsOther {
+    ...weightsOther
+  }
+  deliveryConditions {
+    ...deliveryConditions
+  }
+  apu {
+    ...apu
+  }
+  deals {
+    ...dealMain
+  }
+}
+
+
+fragment adDocuments on AdType {
+  documents {
+    ...dealFile
+  }
+  mainInformation {
+    documents {
+      ...fileType
+    }
+  }
+  aircraftDocuments {
+    proofsOfOwnership {
+      ...fileType
+    }
+  }
+}
+
+
+
+fragment adCard on AdType {
+  id
+  status
+  dateAdded
+  mainInformation {
+    name
+    images {
+      ...fileType
+    }
+    category {
+      value
+      label
+    }
+    year
+    manufacturer {
+      value
+      label
+      planeCategory {
+        value
+        label
+      }
+    }
+    model {
+      value
+      label
+      planeManufacturer {
+        value
+        label
+        planeCategory {
+          value
+          label
+        }
+      }
+    }
+  }
+  termsOfPayment {
+    ...termsOfPayment
+  }
+  lists {
+    favorites
+    comparison
+    isInBuyerDeals
+  }
+  
+  aircraftSummary {
+    ...aircraftSummary
+  }
+  deals {
+    id
+    status
+    seller {
+      id
+    }
+    buyer {
+      id
+    }
+  }
+}
+
+
+fragment adNft on AdType {
+  nft {
+    ...nft
+  }
+}
+
+fragment adFull on AdType {
+  ...ad
+  ...adNft
+  deals {
+    ...dealDocuments
+  }
+  ...adPermission
+}
+
+
+fragment fileType on UploadedFileType {
+  id
+  filename
+  dateCreated
+  links
+  bucket
+  key
+  order
+  docType
+}
+
+
+fragment pageInfoType on PageInfo {
+  hasNextPage
+  hasPreviousPage
+  startCursor
+  endCursor
+}
+
+
+fragment country on CountryType {
+  value
+  label
+  code
+}
+
+
+fragment address on AddressType {
+  id
+  street1
+  street2
+  postalCode
+  country {
+    ...country
+  }
+  region
+  city
+}
+
+
+fragment kyckyb on KycAndKybType {
+  id
+  applicationId
+  inspectionId
+  clientId
+  type
+  moderationComment
+  clientComment
+  reviewAnswer
+  rejectLabels
+  reviewRejectType
+  reviewStatus
+  dateCreated
+  dateUpdated
+}
+
+fragment kyckybState on KycAndKybType {
+  id
+  reviewAnswer
+  reviewStatus
+  clientComment
+  dateCreated
+  dateUpdated
+}
+
+fragment kyc on KycInfoType {
+  id
+  kyc {
+    ...kyckyb
+  }
+  firstName
+  lastName
+  address {
+    ...address
+  }
+  middleName
+  dateOfBirth
+  gender
+  phone
+  docType
+  docId
+  dateCreated
+  dateUpdated
+}
+
+
+fragment kycMain on KycInfoType {
+  id
+  firstName
+  lastName
+  middleName
+  phone
+  dateCreated
+  dateUpdated
+  kyc {
+    ...kyckybState
+  }
+}
+
+fragment jurisdiction on JurisdictionCountryType{
+  value
+  label
+  code
+}
+
+fragment individual on IndividualType {
+  id
+  user {
+    ...profileCard
+  }
+  workspace {
+    id
+  }
+}
+
+fragment individualRepresentatives on IndividualType {
+  representatives {
+    ...workspaceList
+    ...workspacePermissions
+  }
+}
+
+fragment company on CompanyType {
+  id
+  name
+  email
+  taxIdNumber
+  phone
+  phoneCountry {
+    ...country
+  } 
+  website
+  label
+  address {
+    ...address
+  }
+  registrationNumber
+  jurisdictionCode {
+    ...jurisdiction
+  }
+  kyb {
+    ...kyckyb
+  }
+  logo {
+    ...fileType
+  }
+  workspace {
+    id
+  }
+  proofOfIncorporation {
+    ...fileType
+  }
+  proofOfSigneesAuthority {
+    ...fileType
+  }
+}
+
+
+fragment workspaceInvite on WorkspaceInviteType {
+  id
+  status
+  user {
+    id
+  }
+  workspace {
+    ...workspaceList
+    user {
+      ...profileMain
+    }
+  }
+  dateCreated
+}
+
+
+fragment workspaceView on WorkspaceType {
+  id
+  role
+  isAdmin
+  isAuthorizedExecutive
+  position
+  user {
+    ...profileCard
+  }
+  company {
+    ...companyCard
+  }
+  individual {
+    ...individual
+  }
+}
+
+fragment workspaceNfts on WorkspaceType {
+  nfts {
+    ...nft
+  }
+}
+
+fragment workspacePage on WorkspaceType {
+  ...myWorkspace
+  user {
+    ...profileFull
+  }
+  company {
+    ...companyFull
+  }
+  individual {
+    id
+    ...individual
+    representatives {
+      ...workspaceMain
+      ...workspacePermissions
+    }
+  }
+  invites {
+    ...workspaceInvite
+  }
+  bankDetails {
+    ...bankDetails
+  }
+  ...workspacePermissions
+}
+
+fragment workspaceBank on WorkspaceType {
+  id
+  bankDetails {
+    ...bankDetails
+  }
+}
+
+fragment myWorkspace on WorkspaceType {
+  id
+  role
+  isAdmin
+  isAuthorizedExecutive
+  isCanCreateAd
+  dateCreated
+  position
+  proofOfAuthority {
+    ...fileType
+  }
+  user {
+    id
+  }
+}
+
+fragment workspaceVault on WorkspaceType {
+  ...myWorkspace
+  fireblocksAccount {
+    ...fireblocksProfile
+  }
+  fiatAccount {
+    id 
+    fiatAssets {
+      ...fiatAssetMain
+    }
+  }
+  fireblocksRequests {
+    ...fireblocksRequest
+  }
+}
+
+fragment companyMain on CompanyType {
+  id
+  name
+  label
+  logo {
+    ...fileType
+  }
+  workspace {
+    id
+  }
+}
+
+
+fragment companyCard on CompanyType {
+  ...companyMain
+  website
+  registrationNumber
+  email
+  taxIdNumber
+  phone
+}
+
+
+
+
+
+fragment companyFull on CompanyType {
+  ...company
+  representatives {
+    ...workspaceMain
+  }
+}
+
+
+fragment companyRepresentatives on CompanyType {
+  ...companyFull
+  representatives {
+    ...workspaceList
+    ...workspacePermissions
+  }
+}
+
+fragment companyKyc on CompanyType {
+  id 
+  kyb {
+    ...kyckyb
+  }
+}
+
+
+fragment permission on PermissionsType {
+  id
+  role
+  workspace {
+    id
+  }
+  ad {
+    id
+  }
+  dateCreated
+}
+
+fragment workspacePermissions on WorkspaceType {
+  id
+  permissions {
+    ...permission
+  }
+}
+
+fragment workspaceMain on WorkspaceType {
+  ...myWorkspace
+  user {
+    ...profileMain
+  }
+  company {
+    ...companyMain
+  }
+  individual {
+    ...individual
+  }
+  position
+  proofOfAuthority {
+    ...fileType
+  }
+}
+
+
+fragment workspaceShort on WorkspaceType {
+  ...myWorkspace
+  ...workspaceView
+  user {
+    id
+    username
+    firstName
+    lastName
+    avatar {
+    ...fileType
+    }
+    kycInfo {
+      ...kycMain
+    }
+  }
+  company {
+    id
+    kyb {
+      ...kyckybState
+    }
+    label
+    name
+    logo {
+    ...fileType
+    }
+  }
+  individual {
+    ...individual
+  }
+}
+
+
+
+fragment workspaceKyc on WorkspaceType {
+  id 
+  role
+  user {
+    ...profileKyc
+  }
+  company {
+    ...companyKyc
+  }
+  individual {
+    ...individual
+  }
+}
+
+
+fragment workspaceList on WorkspaceType {
+  ...myWorkspace
+  ...workspaceKyc
+  user {
+    ...profileCard
+  }
+  company {
+    ...companyFull
+  }
+  individual {
+    ...individual
+    representatives {
+      ...workspaceMain
+    }
+  }
+  ...workspaceBank
+}
+
+
+fragment workspaceDetailed on WorkspaceType {
+  ...workspaceList
+  company {
+    ...companyRepresentatives
+  }
+  individual {
+    ...individualRepresentatives
+  }
+  invites {
+    ...workspaceInvite
+  }
+  ...workspacePermissions
+}
+
+
+
+
+fragment workspaceProfile on WorkspaceType {
+  id
+  user {
+    ...profile
+  }
+}
+
+
+fragment workspacePartner on WorkspaceType {
+  ...myWorkspace
+  ...workspaceKyc
+  user {
+    ...profile
+  }
+  company {
+    ...company
+  }
+  individual {
+    id
+    ...individual
+    representatives {
+      ...workspaceList
+    }
+  }
+  ...workspaceBank
+}
+
+
+
+
+
+fragment workspace on WorkspaceType {
+  ...myWorkspace
+  user {
+    id
+    username
+  }
+  company {
+    ...companyMain
+  }
+  individual {
+    ...individual
+  }
+}
+
+
+fragment nftShort on NftType {
+  id
+  tokenId
+  txHash
+  tokenUrl
+  status
+}
+
+fragment nft on NftType {
+  id
+  operationId
+  ipfsCatalogId
+  tokenUrl
+  status
+  tokenId
+  txHash
+  createdAt
+  updatedAt
+}
+
+fragment nftFull on NftType {
+  ...nft
+  ad {
+    ...adFull
+  }
+}
+
+
+
+fragment profileFlags on ProfileType {
+  id
+  flags
+}
+
+fragment transactionMain on FireblocksTransactionType {
+  id
+  status
+  amount
+  createdAt
+}
+
+fragment fireblocksTransaction on FireblocksTransactionType {
+  ...transactionMain
+  sourceAsset {
+    id
+  }
+  destinationAsset {
+    id
+  }
+  transactionId
+  txHash
+  type
+  direction
+  fee
+  updatedAt
+}
+
+fragment fireblocksAsset on FireblocksAssetType {
+  id
+  address
+  legacyAddress
+  tag
+  eosAccountName
+  currency {
+    ...currency
+  }
+  total
+  available
+  pending
+  staked
+  frozen
+  locked
+  createdAt
+  updatedAt
+  fireblocksSourceTransactions {
+    ...fireblocksTransaction
+  }
+  fireblocksDestinationTransactions {
+    ...fireblocksTransaction
+  }
+}
+
+fragment fireblocksAssetAccount on FireblocksAssetType {
+  ...fireblocksAsset
+  fireblocksAccount {
+    id
+    name
+  }
+}
+
+fragment fireblocksAccountAssets on FireblocksAccountType {
+  fireblocksAssets {
+    ...fireblocksAsset
+  }
+}
+
+fragment fireblocksProfile on FireblocksAccountType {
+  id
+  deal {
+    id
+  }
+  name
+  customerRefId
+  createdAt
+  updatedAt
+  ...fireblocksAccountAssets
+}
+
+fragment fireblocksRequest on FireblocksRequestType {
+  id
+  request
+  response
+  createdAt
+  updatedAt
+}
+
+
+
+fragment profileCard on ProfileType {
+  id
+  email
+  avatar {
+    ...fileType
+  }
+  username
+  firstName
+  middleName
+  lastName
+  kycInfo {
+    firstName
+    lastName
+    middleName
+  }
+}
+
+
+fragment profileContext on ProfileType {
+  ...profileCard
+}
+
+
+fragment profileMain on ProfileType {
+  ...profileCard
+  email
+  isDemo
+  firstName
+  lastName
+  middleName
+  hideAvatar
+  hideFullName
+  ...profileFlags
+  workspaces {
+    ...workspaceShort
+  }
+  currentWorkspace {
+    ...workspaceShort
+  }
+  kycInfo {
+    ...kycMain
+  }
+  avatar {
+    ...fileType
+  }
+}
+
+
+
+
+fragment profileKyc on ProfileType {
+  id
+  kycInfo {
+    ...kyc
+  }
+}
+
+fragment profile on ProfileType {
+  ...profileMain
+  ...profileKyc
+  ...profileFlags
+  isConfirmedEmail
+}
+
+fragment profileFull on ProfileType {
+  ...profile
+  workspaces {
+    ...workspaceList
+  }
+  currentWorkspace {
+    ...workspaceList
+  }
+}
+
+fragment profileDetail on ProfileType {
+  ...profile
+  workspaces {
+    ...workspaceDetailed
+  }
+  currentWorkspace {
+    ...workspaceDetailed
+  }
+}
+
+fragment mainInformation on MainInformationType {
+  name
+  description
+  year
+  condition {
+    value
+    label
+  }
+  category {
+    value
+    label
+  }
+  manufacturer {
+    value
+    label
+    planeCategory {
+      value
+      label
+    }
+  }
+  model {
+    value
+    label
+    planeManufacturer {
+      value
+      label
+      planeCategory {
+        value
+        label
+      }
+    }
+  }
+  country {
+    ...country
+  }
+  images {
+    ...fileType
+  }
+  documents {
+    ...fileType
+  }
+}
+
+fragment aircraftSummary on AircraftSummaryType {
+  serialNumber
+  registrationNumber
+  flightRules {
+    label
+    value
+  }
+  flightDeck {
+    label
+    value
+  }
+  airframeTtsn
+  landings
+  configuration {
+    label
+    value
+  }
+  landingGear {
+    label
+    value
+  }
+  totalSeats
+  crewSeats
+  passengerSeats
+  totalTime
+}
+
+
+fragment airport on AirportType {
+  value
+  label
+  country
+  region
+  name
+  airportType
+  isoCountry
+  isoRegion
+  iataCode
+  municipality
+}
+
+fragment aircraftLocation on AircraftLocationType {
+  city {
+    value
+    label
+    country {
+      ...country
+    }
+  }
+  country {
+    ...country
+  }
+  airport {
+    ...airport
+  }
+}
+
+fragment inspectionConditions on InspectionConditionsType {
+  inspectionFacility
+  daysForInspection
+  inspectionLocation {
+    value
+    label
+  }
+  inspectionProgramLevel {
+    value
+    label
+  }
+  governingLaw {
+    value
+    label
+  }
+}
+
+fragment termsOfPayment on TermsOfPaymentType {
+  aircraftPrice
+  depositPercent
+  depositAmount
+  feeAmount
+  sideFeeAmount
+  currency {
+    ...currency
+  }
+  priceDescription {
+    value
+    label
+  }
+  vat
+  commission {
+    ...commission
+  }
+  commissionRule
+}
+
+
+fragment commission on CommissionType {
+  id
+  fee
+  minFeeAmount
+  minAircraftPrice
+  maxAircraftPrice
+  isNoLimit
+}
+
+
+fragment dealShort on DealType {
+  id
+  dateCreated
+  status
+  buyer {
+    id
+  }
+  seller {
+    id
+  }
+  ad {
+    id
+  }
+}
+
+fragment dealMain on DealType {
+  id
+  dateCreated
+  status
+  isPending
+  dateDeposit
+  dateTechnikalAcceptance
+  dateFullPayment
+  itemId
+  isItemWithdrawn
+  isMoneyWithdrawn
+  isOnTermsAndConditions
+  buyer {
+    ...workspaceMain
+  }
+  seller {
+    ...workspaceMain
+  }
+}
+
+
+
+fragment dealAd on DealType {
+  ...dealMain
+  ad {
+    ...ad
+  }
+}
+
+
+fragment ppiDetails on PrePurchaseDetailsType{
+  id
+  facilityAndLocation
+  startingDate
+  expectedCompletionDate
+  otherDetails
+  sellerComment
+  buyerComment
+  scope
+}
+
+
+fragment dealTerms on DealTermsType {
+  id
+  termsOfPayment {
+    ...termsOfPayment
+  }
+  deliveryConditions {
+    ...deliveryConditions
+  }
+  inspectionConditions {
+    ...inspectionConditions
+  }
+  inspectionDate
+  removalOfDiscrepanciesDate
+  comments
+  dateOfAgreement
+  isRejected
+  isConfirmed
+  aircraftPrice
+  commissionRule
+  deliveryLocation
+  inspectionProgramLevel
+  governingLaw
+  deliveryDate
+}
+
+fragment tnc on DealTermsAndConditionsType {
+  id
+  type
+  turn
+  buyerTerms {
+    ...dealTerms
+  }
+  sellerTerms {
+    ...dealTerms
+  }
+  isWithComments
+  isOnDocument
+  dateCreated
+  iterator
+  isContracted
+  lastUpdate
+
+}
+
+fragment dealFile on UploadedDealFileType {
+  id
+  filename
+  docType
+  docId
+  buyerSign
+  buyerInvite
+  sellerSign
+  sellerInvite
+  isOnSigning
+  inviteLink
+  ipfsHash
+  isTest
+  isOnSigning
+  dateCreated
+  lastUpdate
+  isPublic
+  bucket
+  key
+  keySigned
+}
+
+fragment dealAction on DealActionType {
+  id
+  days
+  initialAction {
+    id
+    name
+    action
+    order
+    sellerActionText
+    sellerInfoText
+    buyerActionText
+    buyerInfoText
+    isStable
+  }
+  initialDate
+  expectedDate
+  actualDate
+}
+
+fragment dealStep on DealStepType {
+  id
+  days
+  initialStep {
+    id
+    name
+    step
+  }
+  actions {
+    ...dealAction
+  }
+}
+
+fragment dealInspectionReport on InspectionReportType {
+  id
+  dateOfAgreement
+  file {
+    ...fileType
+  }
+}
+
+fragment dealPreClosing on PreClosingType {
+  id
+  role
+  confirmDelivery
+  confirmFullPayment
+  confirmWarrantiesAndRecipients
+  deRegistrationRequest {
+    ...fileType
+  }
+  certificateOfAirworthiness {
+    ...fileType
+  }
+}
+
+fragment dealPurchaseAgreement on AircraftPurchaseAgreementType {
+  id
+  dateOfAgreement
+}
+
+fragment dealDeRegistrationDocument on DeRegistrationDocumentType {
+  id
+  dateOfAgreement
+  file {
+    ...fileType
+  }
+}
+
+fragment dealDeliveryReceipt on DeliveryReceiptType {
+  id
+  dateOfAgreement  
+}
+
+fragment dealDiscrepanciesRemoval on DiscrepanciesRemovalDocumentType {
+  id
+  dateOfAgreement
+  inspectionComments
+  discrepanciesComments
+  files {
+    ...fileType
+  }
+}
+
+fragment dealRejectionDispute on RejectionDisputeType {
+  id
+  dateOfAgreement
+  sellerComment
+  buyerComment
+  lastAction
+}
+
+fragment dealWorkflow on DealType {
+  id
+  ppiDetails {
+    ...ppiDetails
+  }
+  purchaseAgreement {
+    ...dealPurchaseAgreement
+  }
+  deRegistrationDocument {
+    ...dealDeRegistrationDocument
+  }
+  deliveryReceipt {
+    ...dealDeliveryReceipt
+  }
+  discrepanciesRemoval {
+    ...dealDiscrepanciesRemoval
+  }
+  rejectionDispute {
+    ...dealRejectionDispute
+  }
+  inspectionReports {
+    ...dealInspectionReport
+  }
+  preClosing {
+    ...dealPreClosing
+  }
+  termsAndConditions {
+    ...tnc
+  }
+
+}
+
+
+
+fragment dealDocuments on DealType {
+  id
+  status
+  dateCreated
+  buyer {
+    id
+  }
+  seller {
+    id
+  }
+  documents {
+    ...dealFile
+  }
+  inspectionReports {
+    ...dealInspectionReport
+  }
+  preClosing {
+    ...dealPreClosing
+  }
+  deRegistrationDocument {
+    ...dealDeRegistrationDocument
+  }
+  discrepanciesRemoval {
+    ...dealDiscrepanciesRemoval
+  }
+}
+
+fragment dealSteps on DealType {
+  id
+  steps {
+    ...dealStep
+  }
+  currentStep {
+    ...dealStep
+  }
+  currentAction {
+    ...dealAction
+  }
+}
+
+
+fragment docSigns on UploadedDealFileType {
+  buyerSign
+  sellerSign
+  dateCreated
+}
+
+fragment dealStatus on DealType {
+  id
+  status
+  isPending
+  currentAction {
+    ...dealAction
+  }
+  isOnTermsAndConditions
+  documents {
+    ...docSigns
+  }
+  termsAndCond {
+    isOnDocument
+    turn
+  }
+
+}
+
+
+fragment dealHelper on DealType {
+  id
+  ...dealStatus
+  ...dealWorkflow
+  ...dealDocuments
+  ad {
+    termsOfPayment {
+      currency {
+        ...currency
+      }
+    }
+  }
+}
+
+fragment deal on DealType {
+
+  ...dealMain
+  ...dealDocuments
+  ...dealWorkflow
+  ...dealSteps
+  
+  
+  termsAndCond {
+    ...tnc
+  }
+  contractedTermsAndCond {
+    ...tnc
+  }
+  ad {
+  ...adMain
+  }
+  fiatAccount {
+    id 
+    fiatAssets {
+      ...fiatAssetMain
+    }
+  }
+  fireblocksAccount {
+    id
+    fireblocksAssets {
+      id 
+      currency {
+        ...currency
+      }
+      fireblocksDestinationTransactions {
+        ...transactionMain
+      }
+      fireblocksSourceTransactions {
+        ...transactionMain
+      }
+    }
+  }
+}
+
+fragment dealOverviewData on DealType {
+  ...deal
+  logDeals {
+    ...dealLog
+  }
+}
+
+fragment dealLog on LogDealType {
+  id
+  user {
+    ...profileCard
+  }
+  request
+  response
+  title
+  comment
+  isAdminView
+  isCustomerView
+  createdAt
+  updatedAt
+}
+
+fragment engine on AircraftEngineType {
+  id
+  engineMake {
+    label
+    value
+  }
+  engineModel
+  engineTbo
+  engineN1Ttsn
+  engineN1Tsox
+  engineN1ShsiTop
+  engineN1Ttox
+  engineN1Csn
+  engineN1Csoh
+  engineN2Ttsn
+  engineN2Tsox
+  engineN2ShsiTop
+  engineN2Ttox
+  engineN2Csn
+  engineN2Csoh
+  engineN3Ttsn
+  engineN3Tsox
+  engineN3ShsiTop
+  engineN3Ttox
+  engineN3Csn
+  engineN3Csoh
+  engineN4Ttsn
+  engineN4Tsox
+  engineN4ShsiTop
+  engineN4Ttox
+  engineN4Csn
+  engineN4Csoh
+  engineN1Sn
+  engineN2Sn
+  engineN3Sn
+  engineN4Sn
+  engineHpThrust
+}
+
+fragment exteriorCabin on AircraftExteriorCabinType {
+  id
+  exteriorColor {
+    label
+    value
+  }
+  exteriorDetail {
+    label
+    value
+  }
+  exteriorYear {
+    label
+    value
+  }
+  interiorColor {
+    label
+    value
+  }
+  interiorFinish {
+    label
+    value
+  }
+  interiorYear {
+    label
+    value
+  }
+  galleyLocation {
+    label
+    value
+  }
+  lavLocation {
+    label
+    value
+  }
+  lavDescription {
+    label
+    value
+  }
+  crewRest
+  jumpSeat
+  wifiConnectivity {
+    label
+    value
+  }
+}
+
+fragment propeller on AircraftPropellerType {
+  id
+  propMake {
+    label
+    value
+  }
+  propType {
+    label
+    value
+  }
+  propModel
+  propSize
+  propTboHrs
+  propTboYrs {
+    label
+    value
+  }
+  prop1Ttsn
+  prop1Tsoh
+  prop1Ttoh
+  prop1OhYr {
+    label
+    value
+  }
+  prop1OhDue {
+    label
+    value
+  }
+  prop1Sn
+  prop2Sn
+  prop2Ttsn
+  prop2Tsoh
+  prop2Ttoh
+  prop2OhYr {
+    label
+    value
+  }
+  prop2OhDue {
+    label
+    value
+  }
+}
+
+fragment avionics on AircraftAvionicsType {
+  id
+  fmsN {
+    label
+    value
+  }
+  fms {
+    label
+    value
+  }
+  engMonitor {
+    label
+    value
+  }
+  gpsN {
+    label
+    value
+  }
+  gpsModel1 {
+    label
+    value
+  }
+  gpsModel2 {
+    label
+    value
+  }
+  autopilot {
+    label
+    value
+  }
+  autopilotN {
+    label
+    value
+  }
+  wxRadar {
+    label
+    value
+  }
+  transponderN {
+    label
+    value
+  }
+  transponder1 {
+    label
+    value
+  }
+  transponder2 {
+    label
+    value
+  }
+  vhfComN {
+    label
+    value
+  }
+  vhfComModel1 {
+    label
+    value
+  }
+  vhfComModel2 {
+    label
+    value
+  }
+  vhfNavN {
+    label
+    value
+  }
+  vhfNavModel1 {
+    label
+    value
+  }
+  vhfNavModel2 {
+    label
+    value
+  }
+}
+
+fragment maintenance on AircraftMaintenanceType {
+  id
+  mtxTracking {
+    label
+    value
+  }
+  airframeProgram {
+    label
+    value
+  }
+  engineProgram {
+    label
+    value
+  }
+  apuProgram {
+    label
+    value
+  }
+  avionicsProgram {
+    label
+    value
+  }
+  mtxCondition {
+    label
+    value
+  }
+  annualDue {
+    label
+    value
+  }
+  cCheckDue {
+    label
+    value
+  }
+  lGearOhDue {
+    label
+    value
+  }
+  inspectionStatus {
+    label
+    value
+  }
+  lastPerformed
+  nextDue
+  warrantyAfYr {
+    label
+    value
+  }
+  warrantyAfHrs
+  warrantyEngYr {
+    label
+    value
+  }
+  warrantyEngHrs
+  warrantyAviYr {
+    label
+    value
+  }
+  warrantyApuYr {
+    label
+    value
+  }
+  warrantyPropYr {
+    label
+    value
+  }
+  warrantyPropHrs
+}
+
+fragment weightsOther on AircraftWeightsOtherType {
+  id
+  maxRamp
+  mtow
+  mlv
+  mzvf
+  bew
+  bow
+  fuelCapacity
+  payload
+  usefulLoad
+  floatModel {
+    label
+    value
+  }
+  bewFloats
+  usefulLoadFloats
+  oxygenTank
+  fuelCapacityGal
+}
+
+fragment apu on AircraftApuType {
+  id
+  apuMake {
+    label
+    value
+  }
+  apuModel
+  apuTbo
+  apuTtsn
+  apuTsoh
+  apuCsn
+  apuCsoh
+  apuSn
+}
+
+fragment deliveryConditions on DeliveryConditionsType {
+  standartCondition
+  additionalData
+  deliveryLocation {
+    value
+    label
+  }
+  daysForFinalDelivery
+}
+
+
+fragment bankDetails on BankDetailsType {
+  name
+  address
+  accountNumber
+  swiftCode
+  iban
+  sortCode
+}
+
+
+fragment currency on CurrencyType {
+  value
+  label
+  fullName
+  isCrypto
+  isFireblocks
+}
+
+
+fragment fiatAsset on FiatAssetType {
+  id
+  fiatAccount {
+    code
+  }
+  currency {
+    ...currency
+  }
+  total
+  available
+  locked
+  createdAt
+  updatedAt
+  fiatSourceTransactions {
+    ...fiatTransaction
+  }
+  fiatDestinationTransactions {
+    ...fiatTransaction
+  }
+}
+
+
+
+fragment fiatTransaction on FiatTransactionType {
+  id
+  sourceExternalAsset {
+    id
+  }
+  sourceAsset {
+    id
+  }
+  destinationAsset {
+    id
+  }
+  destinationExternalAsset {
+    id
+  }
+  transactionId
+  status
+  type
+  direction
+  amount
+  fee
+  createdAt
+  updatedAt
+}
+
+
+fragment fiatAssetMain on FiatAssetType {
+  id 
+  total
+  available
+  locked
+  currency {
+    ...currency
+  }
+  fiatSourceTransactions {
+    ...fiatTransaction
+  }
+  fiatDestinationTransactions {
+    ...fiatTransaction
+  }
+}
+
+
+
+fragment profileInvites on ProfileType {
+  id
+  invites {
+    ...workspaceInvite
+  }
+}
+

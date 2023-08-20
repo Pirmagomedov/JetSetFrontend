@@ -1,0 +1,9 @@
+mutation revokeToken {
+  revokeToken {
+    response
+    runtimeError {
+      exception
+      message
+    }
+  }
+}

@@ -1,0 +1,44 @@
+@import 'src/scss/variables.scss';
+
+.checkbox {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+
+    &__input {
+        display: none;
+
+        &:checked {
+            ~ .checkbox__box::before {
+                opacity: 1;
+            }
+        }
+    }
+
+    &__box {
+        position: relative;
+        flex-shrink: 0;
+        width: 26px;
+        height: 26px;
+        border: 1px solid $primary;
+        border-radius: 5px;
+        background-color: #ffffff;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 6px;
+            right: 6px;
+            bottom: 6px;
+            left: 6px;
+            border-radius: inherit;
+            background-color: $primary;
+            opacity: 0;
+            transition: opacity 300ms;
+        }
+    }
+
+    &__label {
+        margin-left: 21px;
+    }
+}

@@ -1,0 +1,54 @@
+@import 'src/scss/variables.scss';
+
+.kyc-flag {
+  background: #eee;
+  user-select: none;
+  height: 2em;
+  /*width: 5.5em;*/
+  padding: 0.25em 1em;
+  /*text-align: right;*/
+  border-radius: 1.5em;
+  position: relative;
+  font-weight: bold;
+  color: #fff;
+  display: flex;
+  align-items: center;
+
+  svg {
+    display: block;
+    //position: absolute;
+    width: 1em;
+    height: 1.5em;
+    margin-right: 0.4rem;
+    margin-bottom: 0.125rem;
+    //left: 1em;
+    //top: 50%;
+    //transform: translateY(-50%);
+    fill: #fff;
+  }
+
+  span {
+
+  }
+
+  &.kyc-failed {
+    background: $v2red;
+  }
+
+  &.kyc-success {
+    background: $v2green;
+  }
+
+  &.kyc-none {
+    background: $dark-gray;
+  }
+
+  &.kyc-pending, &.kyc-update_info {
+    background: #f39200;
+  }
+  &.active {
+    cursor: pointer;
+    border-radius: $v2borderRadius;
+    background: $v2btn;
+  }
+}

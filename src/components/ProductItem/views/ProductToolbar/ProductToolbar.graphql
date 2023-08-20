@@ -1,0 +1,64 @@
+mutation addComparison($adId: UUID) {
+  addComparison(adId: $adId) {
+    runtimeError {
+      exception
+      message
+    }
+    fieldErrors {
+      field
+      message
+    }
+    profile {
+      id
+    }
+  }
+}
+
+mutation addFavorite($adId: UUID) {
+  addFavorite(adId: $adId) {
+    runtimeError {
+      exception
+      message
+    }
+    fieldErrors {
+      field
+      message
+    }
+    profile {
+      id
+    }
+  }
+}
+
+
+mutation deleteFavorite($adId: UUID) {
+  deleteFavorite(adId: $adId) {
+    runtimeError {
+      exception
+      message
+    }
+    fieldErrors {
+      field
+      message
+    }
+    profile {
+      id
+    }
+  }
+}
+
+mutation deleteComparison($adId: UUID) {
+  deleteComparison(adId: $adId) {
+    runtimeError {
+      exception
+      message
+    }
+    fieldErrors {
+      field
+      message
+    }
+    profile {
+      id
+    }
+  }
+}

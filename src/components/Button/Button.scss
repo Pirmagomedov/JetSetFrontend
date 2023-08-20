@@ -1,0 +1,184 @@
+@import 'src/scss/variables.scss';
+
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: $v2borderRadius;
+    cursor: pointer;
+    border: none;
+    transition: 300ms;
+    height: $v2ctlHeight;
+    padding-left: $v2gap;
+    padding-right: $v2gap;
+    min-width: 9em;
+    box-sizing: border-box;
+    white-space: nowrap;
+
+    gap: $v2gap;
+
+    // Ripple на обсуждение
+    position: relative;
+    overflow: hidden;
+    transition: background 400ms;
+
+    &-small {
+        height: 2rem;
+    }
+
+    &-icon {
+        background: transparent;
+        padding: 0;
+        min-width: 2.5em;
+    }
+
+    &-verySmall {
+        height: 1.75rem;
+        width: auto;
+        padding: $v2gap;
+        min-width: 4em;
+    }
+
+    &-smallLarge {
+        height: auto;
+        min-width: auto;
+    }
+
+    &-link {
+        background: transparent;
+        color: $v2links;
+        text-decoration: underline;
+        padding: 0;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+
+    &-secondary {
+        background: $v2btnSecondary;
+        color: #fff;
+    }
+
+    &-blue {
+        background: $v2btn;
+        color: #fff;
+
+        &:hover {
+            background: $v2btnHover;
+        }
+    }
+
+    &-blue-outline {
+        background: none;
+        border: 1px solid $v2btn;
+        color: $blue;
+
+        &:hover {
+            background: $v2btn;
+            color: #fff;
+        }
+    }
+
+    &-red {
+        background: $red;
+        color: #fff;
+
+        &:hover {
+            background: $red-dark;
+        }
+    }
+
+    &-red-border {
+        border: 1px solid $red-dark;
+        color: $red;
+        background: white;
+
+        &:hover {
+            background: $red-dark;
+            color: white;
+        }
+    }
+
+
+
+
+
+    &-red-outline {
+        background: none;
+        border: 1px solid $red;
+        color: $red;
+
+        &:hover {
+            background: $red;
+            color: #fff;
+        }
+    }
+
+    &:disabled {
+        border-color: $v2disabled;
+        background-color: $v2disabled;
+        color: #fff;
+        cursor: not-allowed;
+
+        &:hover {
+            background-color: $v2disabled;
+            color: #fff;
+        }
+    }
+
+    &-transparent {
+        color: $v2black;
+        background: transparent;
+        border: 1px solid $grey;
+        transition: 0.5;
+        // height: 3em;
+        height: 2.5em;
+
+        @media only screen and (max-width: 600px) {
+            height: 2.5em;
+            padding-left: $v2halfGap;
+            padding-right: $v2halfGap;
+        }
+
+        @media only screen and (min-width: 1100px) and (max-width: 1366px) {
+            display: grid;
+            grid-template-columns: repeat(2, auto);
+            min-width: 9em;
+            column-gap: $v2halfGap;
+        }
+
+        &:hover {
+            border: 1px solid $v2btnHover;
+        }
+
+        &:disabled {
+            border-color: $v2disabled;
+            background-color: $v2disabled;
+            color: #fff;
+            cursor: not-allowed;
+
+            &:hover {
+                background-color: $v2disabled;
+                color: #fff;
+            }
+        }
+    }
+}
+
+span.ripple {
+    position: absolute;
+    /* The absolute position we mentioned earlier */
+    border-radius: $v2borderRound;
+    transform: scale(0);
+    animation: ripple 600ms linear;
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+@keyframes ripple {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}

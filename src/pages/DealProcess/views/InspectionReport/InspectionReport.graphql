@@ -1,0 +1,20 @@
+mutation addFile($dealId: UUID!, $inputFiles: [UUID], $isNonAirworty: Boolean, $isWithDiscrepancies: Boolean, $inspectionComments: String, $scope: [String]) {
+  addFile(
+    dealId: $dealId
+    inputFiles: $inputFiles
+    isNonAirworty: $isNonAirworty
+    isWithDiscrepancies: $isWithDiscrepancies
+    inspectionComments: $inspectionComments
+    scope: $scope
+  ) {
+    runtimeError {
+      exception
+      message
+    }
+    fieldErrors {
+      field
+      message
+    }
+    success
+  }
+}

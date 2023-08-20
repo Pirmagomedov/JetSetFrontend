@@ -1,0 +1,115 @@
+@import 'src/scss/variables.scss';
+
+img.ws__item {
+    height: 1.5rem;
+    margin-right: 0.5rem;
+}
+
+img.ws__item.ws-individual-image {
+    border-radius: $v2borderRound;
+}
+
+.ws {
+    display: table;
+    font-weight: bold;
+}
+
+.workspace-switcher {
+    cursor: pointer;
+    position: relative;
+    height: max-content;
+
+    padding: .75rem;
+    border: 1px solid $v2hline;
+    border-radius: 6px;
+
+    @media only screen and (min-width: $largeTablet) {
+        height: 1.5rem;
+        padding: initial;
+        border: initial;
+        border-radius: initial;
+    }
+
+    img {
+        width: 1.5rem;
+        height: 1.5rem;
+        min-width: 1.5rem;
+        object-fit: contain;
+    }
+
+    .loader-ring {
+        width: 1.5rem;
+        margin-right: 0.5rem;
+    }
+
+    &__list {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        top: calc(100% + 1rem);
+        background: #fff;
+        right: 0%;
+        padding: 0 1.5rem;
+        border-radius: $v2borderRadius;
+        background-color: #fff;
+        border: 1px solid #fafafa;
+        box-shadow: 0.1em 0.1em 1em rgba(0, 0, 0, 0.05);
+    }
+
+    .ws {
+        display: table;
+        white-space: nowrap;
+        margin: 0.75rem 0;
+
+        img {
+            display: table-cell;
+            margin-right: 0.5rem;
+        }
+
+        &__item {
+            line-height: 1.2;
+            display: table-cell;
+            vertical-align: middle;
+
+            &--text {
+                line-height: 1;
+            }
+
+            &--role {
+                font-size: 12px;
+                color: #999;
+                font-weight: 400;
+                line-height: 1.2;
+            }
+
+            &--image {
+                width: 2rem;
+                display: table-cell;
+            }
+        }
+
+        span {
+            text-overflow: ellipsis;
+            overflow: hidden;
+            display: block;
+            max-width: 15rem;
+        }
+    }
+
+    &__current {
+        display: flex;
+
+        .ws {
+            margin: 0;
+        }
+
+        .loader-ring {
+            margin-left: 0.5rem;
+            margin-top: 0.125rem;
+        }
+
+        .avatar {
+            padding: 0;
+        }
+    }
+}

@@ -1,0 +1,23 @@
+mutation preClosing($dealId: UUID!, $preClosing: PreClosingInput!) {
+    preClosing(dealId: $dealId, preClosing: $preClosing) {
+      runtimeError {
+        exception
+        message
+      }
+      fieldErrors {
+        field
+        message
+      }
+      success
+      deal {
+        id
+        status
+        documents {
+          ...dealFile
+        }
+        preClosing {
+          ...dealPreClosing
+        }
+      }
+    }
+  }

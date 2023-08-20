@@ -1,0 +1,25 @@
+@import 'src/scss/variables.scss';
+
+.deal {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    height: calc(100vh - 4.5em);
+}
+
+.wrapper {
+    min-height: calc(100dvh - 4.5em);
+}
+
+.wrapper .deal__header {
+    position: sticky;
+    top: 0px;
+}
+
+.wrapper .deal__content {
+    overflow: scroll;
+    scrollbar-width: none;
+}
+
+.wrapper .deal__footer {
+    margin-top: $v2halfGap;
+}

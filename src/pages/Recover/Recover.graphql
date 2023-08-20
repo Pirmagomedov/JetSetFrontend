@@ -1,0 +1,23 @@
+mutation getResetPasswordToken($email: String!, $code: Int!) {
+  getResetPasswordToken(email: $email, code: $code) {
+    runtimeError {
+      exception
+      message
+    }
+    fieldErrors {
+      field
+      message
+    }
+    token
+  }
+}
+
+mutation resendEmail($email: String!) {
+  resendEmail(email: $email) {
+    runtimeError {
+      exception
+      message
+    }
+    response
+  }
+}

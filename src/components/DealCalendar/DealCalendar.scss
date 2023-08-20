@@ -1,0 +1,77 @@
+@import 'src/scss/variables.scss';
+
+.deal-calendar {
+    width: 100%;
+    border: 1px solid $v2ctlBorder;
+    border-radius: 3px;
+
+    th {
+        background: $bluish;
+        padding: 0.25em 0.5em;
+    }
+
+    td {
+        border-top: 1px solid #e9e9e9;
+        padding: 0.25em 0.5em;
+    }
+
+    &__step.first td {
+        border-top: 1px solid $v2ctlBorder;
+        padding-top: $v2halfGap;
+    }
+
+    &__step.last td {
+        padding-bottom: $v2halfGap;
+    }
+
+    &__title {
+        padding-right: 0.75em;
+    }
+
+    .step-hidden {
+        color: #ccc;
+    }
+}
+
+.calendar-action {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    border-bottom: 1px dotted #aaa;
+    justify-content: space-between;
+
+    &:last-child {
+        border: none;
+    }
+
+    &__date,
+    &__expected {
+        white-space: nowrap;
+        padding-left: 0.75em;
+        min-width: 5em;
+        text-align: right;
+    }
+
+    &__title {
+        flex-grow: 1;
+    }
+
+    &__length {
+        width: 2em;
+        text-align: right;
+    }
+
+    &__date {
+        &--date {
+            display: inline-block;
+            min-width: 5.5em;
+        }
+
+        svg {
+            line-height: 1rem;
+            margin-right: 0.25em;
+            width: 0.75em;
+            height: 0.75em;
+        }
+    }
+}

@@ -1,0 +1,166 @@
+@import 'src/scss/variables.scss';
+
+.search {
+  margin-bottom: 93px;
+
+  @media only screen and (max-width: 1500px) {
+    margin-bottom: 86px;
+  }
+  @media only screen and (max-width: 1300px) {
+    margin-bottom: 75px;
+  }
+
+  &__inner {
+    display: flex;
+  }
+
+  &__sidebar {
+    width: 333px;
+    flex-shrink: 0;
+    margin-right: 30px;
+
+    @media only screen and (max-width: 1500px) {
+      width: 263px;
+    }
+    @media only screen and (max-width: 1300px) {
+      width: 292px;
+      margin-right: 32px;
+    }
+    @media only screen and (max-width: 991px) {
+      display: none;
+    }
+
+    &-title {
+      margin-bottom: 34px;
+
+      @media only screen and (max-width: 1500px) {
+        margin-bottom: 26px;
+      }
+    }
+  }
+
+  &__content {
+    flex-grow: 10;
+    padding-top: 4px;
+
+    @media only screen and (max-width: 1300px) {
+      padding-top: 8px;
+    }
+    @media only screen and (max-width: 767px) {
+      padding-top: 0;
+    }
+  }
+
+  &__sort {
+    display: flex;
+
+    .select-wrapper {
+      margin-right: 35px;
+
+      @media only screen and (max-width: 767px) {
+        margin-right: 15px;
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  &__filters {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 31px;
+
+    @media only screen and (max-width: 1500px) {
+      margin-bottom: 23px;
+    }
+    @media only screen and (max-width: 1300px) {
+      margin-bottom: 18px;
+    }
+    @media only screen and (max-width: 767px) {
+      margin-bottom: 26px;
+    }
+  }
+
+  &__grid {
+    display: flex;
+    transform: translateY(6px);
+
+    @media only screen and (max-width: 1300px) {
+      transform: translateY(0);
+    }
+    @media only screen and (max-width: 991px) {
+      display: none;
+    }
+
+    > div {
+      cursor: pointer;
+      margin-right: 15px;
+
+      &.active {
+        path {
+          fill: $blue;
+        }
+      }
+
+      path {
+        fill: $grey;
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  &__products {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 30px;
+    margin-bottom: 62px;
+
+    @media only screen and (max-width: 1500px) {
+      grid-gap: 23px;
+      margin-bottom: 40px;
+    }
+    @media only screen and (max-width: 1300px) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 30px 25px;
+    }
+
+    @media only screen and (max-width: 767px) {
+      grid-gap: 16px;
+    }
+
+    &.list {
+      grid-template-columns: 1fr;
+      grid-template-rows: minmax(217px, auto);
+      grid-auto-rows: minmax(217px, auto);
+      grid-gap: 20px;
+
+      @media only screen and (max-width: 1300px) {
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 20px 25px;
+      }
+    }
+  }
+
+  &__more {
+    display: flex;
+    justify-content: center;
+    height: 45px;
+    fill: $blue;
+    cursor: pointer;
+    transition: fill 300ms;
+
+    &:hover {
+      fill: $blue-dark;
+    }
+
+    .btn {
+      width: 161px;
+    }
+  }
+}

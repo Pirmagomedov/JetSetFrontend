@@ -1,0 +1,95 @@
+@use 'sass:math';
+
+$g: 'Grafier';
+$primary: #001253;
+$primary-faded: #6d79a3;
+$blue: #3355ff;
+$grey: #c4c8d7;
+$grey-hover: #959fd6;
+$dark-gray: #3b3b3b;
+
+$blue-light: #7ca1ff;
+$blue-faded: #3455cb;
+$blue-dark: #30489b;
+$red: #f8364e;
+$red-dark: #be0026;
+$silver: #d2d2d2;
+$bluish: #b9bfdd;//#f3f5ff;
+$v2blueBg: #daf4ff;
+$notSowhite: #fafafa;
+$blue2: #f3f7ff;
+$ddd: #ddd;
+
+$v2links: #30489b; //$blue-dark;
+$v2linksHover: $blue-faded;
+$v2red: #b42b2b;
+$v2green: #018100;
+$v2btn: #313e8b;
+$v2btnSecondary: #949bbe;
+$v2btnHover: #4051b6;
+
+$v2ctlHeight: 2.5em;
+$v2ctlBorder: $grey;
+$v2ctlDisabledBorder: #aaa;
+$v2ctlDisabledBg: #eee;
+$v2ctlDisabledText: #aaa;
+$v2ctlBg: #c0c4d3;
+$v2price: #182057;
+$v2priceSize: 1.5em;
+$v2placeholder: $grey;
+$v2disabled: $bluish;
+$v2moreArrow: #c4c4c4;
+$v2header: #212121;
+$v2black: #212121;
+$v2hline: #dfdfdf;
+$v2area: $notSowhite;
+$v2actionIcon: $silver;
+$v2navActive: $primary;
+$v2inactive: $grey;
+$v2inactiveHover: $grey-hover;
+$v2activeBlock: #313e83;
+$v2tableHead: $bluish;
+$v2NFT: #949bbe;
+$v2modalGap: 3em;
+$v2dealSideColor: #eaeaea;
+
+$v2sidebar: $v2btn; //#2f3e7f;
+
+$v2lineHeight: 1.5rem;
+$v2halfLineHeight: math.div($v2lineHeight, 2);
+$v2InputPadding: 0.75em;
+
+$v2fontSmall: 0.875rem;
+$v2fontBig: 1.125rem;
+$v2gap: 1.5rem;
+$v2halfGap: math.div($v2gap, 2);
+
+$v2mobileBorder: #e0e2f7;
+
+$v2landingHeadingSmall: 2rem;
+$v2landingText: 1.75rem;
+$v2landingText: 1.25rem;
+$v2landingBtnFontSize: 1.5rem;
+$v2landingMenuItemFontSize: 1.25rem;
+$v2landingMenuItemColor: #979797;
+
+// FONT-SIZE
+
+// BORDER RADIUS
+// Может использовать rem?
+$v2borderRadius: 0.5rem;
+$v2borderRound: 50%;
+
+
+// COLORS
+
+// GAP
+
+// MARGIN
+
+// BREAKPOINTS
+
+$mobile: 320px;
+$smallTablet: 768px;
+$largeTablet: 992px;
+$desktop: 1280px;

@@ -1,0 +1,13 @@
+@import 'src/scss/variables.scss';
+
+.ad-label {
+    min-height: 2em;
+    display: grid;
+    align-self: flex-end;
+    justify-content: flex-start;
+    grid-area: adlabel;
+
+    @media only screen and (max-width: 1199px) {
+        justify-self: flex-end;
+    }
+}

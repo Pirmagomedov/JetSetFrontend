@@ -1,0 +1,223 @@
+@import 'src/scss/variables.scss';
+
+.chats {
+    width: 25rem;
+    border: 1px solid $v2ctlBorder;
+    border-radius: $v2borderRadius;
+    max-height: 50vh;
+    max-width: 25vw;
+    position: relative;
+    min-height: 25rem;
+    overflow: hidden;
+    background: #fff;
+
+    &.closed {
+        display: none;
+    }
+
+    &__chatroom {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 100%;
+        transition: left 0.15s ease-in-out 0s;
+        z-index: 100;
+        display: flex;
+        flex-direction: column;
+        background: #fff;
+    }
+
+    &__chat {
+        display: flex;
+        align-items: center;
+        font-size: 1rem;
+        //padding: $v2halfGap;
+        padding-bottom: $v2halfGap;
+        border-radius: $v2borderRadius;
+        //border: 1px solid $v2ctlBorder;
+        cursor: pointer;
+
+        &:hover {
+            .chat__image {
+                outline: 2px solid #aaa;
+            }
+            //background: $bluish;
+        }
+    }
+
+    &__chatroom {
+        .messages {
+            overflow-y: scroll;
+            flex-grow: 2;
+        }
+        .partyanka {
+            padding: 0 $v2halfGap;
+        }
+    }
+
+    &__list {
+        //height: 100%;
+        //width: 100%;
+        //background: #efe;
+        //position: absolute;
+        //left: 0;
+        //top: 0;
+        &--header {
+            display: flex;
+            padding: $v2halfGap;
+            align-items: center;
+
+            .chats__title {
+                flex-grow: 2;
+                font-size: 1.15rem;
+                font-weight: 600;
+            }
+
+            .icon-i-close {
+                cursor: pointer;
+            }
+        }
+        &--list {
+            padding-left: $v2halfGap;
+            padding-right: $v2halfGap;
+        }
+    }
+
+    &.active .chats__chatroom {
+        left: 0;
+    }
+
+    &.aside {
+        position: fixed;
+        right: 0.5rem;
+        bottom: 0;
+        z-index: 100;
+        box-shadow: 0 0 1.5rem rgba(0, 0, 0, 0.2);
+    }
+    /*
+  &.chats.expanded {
+    position: absolute;
+    left: 0;
+    height: 100vh;
+    max-height: 100vh;
+  }
+  */
+}
+
+.chat {
+    &__image {
+        display: block;
+        width: 3em;
+        height: 3em;
+        background: #eee;
+        margin-right: $v2gap;
+        border-radius: 3em;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+}
+
+.chatroom {
+    &__header {
+        display: flex;
+        align-items: center;
+        padding: $v2halfGap;
+        border-radius: $v2ctlBorder $v2ctlBorder 0 0;
+        background: $bluish;
+
+        &--title {
+            flex-grow: 2;
+            padding-right: $v2halfGap;
+            font-weight: 600;
+        }
+
+        &--close svg {
+            display: block;
+            width: 1.5em;
+            height: 1.5em;
+            margin-right: $v2halfGap;
+            cursor: pointer;
+        }
+    }
+
+    &__form {
+        display: flex;
+        padding: $v2halfGap;
+
+        &--wrapper {
+            border: 1px solid $v2ctlBorder;
+            padding: 0.25em;
+            border-radius: 5rem;
+            display: flex;
+            flex-grow: 2;
+        }
+
+        &--attach {
+        }
+
+        // &--box {
+        //   padding-left: .5rem;
+        // }
+
+        &--box-wrapper {
+            flex-grow: 2;
+            padding: 0 0.25rem;
+        }
+
+        &--submit {
+            cursor: pointer;
+        }
+
+        svg {
+            fill: $primary;
+            height: 100%;
+            width: 1.2rem;
+        }
+    }
+}
+
+.m {
+    display: flex;
+    position: relative;
+    margin-top: 1.5rem;
+    user-select: none;
+
+    &.mf {
+        .t {
+            background: #2a4494;
+            color: #fff;
+            z-index: -1;
+        }
+
+        .i {
+            text-align: right;
+        }
+    }
+
+    &.mt {
+        flex-direction: row-reverse;
+    }
+
+    .t {
+        width: 80%;
+        background: #f4f4f4;
+        color: #666;
+        padding: 0.75rem;
+        border-radius: 0.75rem;
+    }
+
+    .i {
+        font-size: 12px;
+        color: #999;
+        bottom: 0;
+        align-self: flex-end;
+        flex-grow: 2;
+        padding: 0 0.5em;
+    }
+}

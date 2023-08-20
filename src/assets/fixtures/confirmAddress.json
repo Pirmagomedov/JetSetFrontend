@@ -1,0 +1,17 @@
+[
+  {
+    "country": "0",
+    "region": "0",
+    "city": "0",
+    "street": "Street",
+    "postcode": "12345",
+    "house": "11",
+    "apartmentNumber": "11",
+    "document": "0",
+    "documentPhoto": { "file": "", "filename": "" },
+    "twitter": "@nickname",
+    "facebook": "https/",
+    "linkedin": "https/",
+    "instagram": "@nickname"
+  }
+]

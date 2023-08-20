@@ -1,0 +1,14 @@
+@import 'src/scss/variables.scss';
+
+.chats-button {
+    display: flex;
+    justify-content: center;
+    // margin-right: $v2gap;
+    cursor: pointer;
+    
+    // svg {
+    //     width: 1.5rem;
+    //     height: 1.5rem;
+    //     display: block;
+    // }
+}
